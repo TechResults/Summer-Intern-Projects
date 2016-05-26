@@ -151,6 +151,8 @@ namespace DatabaseModifier
                 string addString = "INSERT INTO WebMethodLog (WebMethodID, [UserID], TimeAcessed, EndTime, Sucess) VALUES ('" + MethodID.ToString() + "', '" + UserID.ToString() + "', '" + startTString + "', '" + endTString + "', '" + isSuccessc + "')";
                 SqlCommand addCmd = new SqlCommand(addString, myConnection);
 
+                int temp = addCmd.ExecuteNonQuery();
+
                 myConnection.Close();
             }
         }        
@@ -173,7 +175,7 @@ namespace DatabaseModifier
             bool isSuccessful = false;
             
             //Get Hash
-            string hash = GetHash(Constants.EllisID, ref UserID, ref isSuccessful);
+            string hash = GetHash(Constants.OwenID, ref UserID, ref isSuccessful);
             LogWM(Constants.GetHash, UserID, isSuccessful, timeOfStart);
             return hash;
         }
