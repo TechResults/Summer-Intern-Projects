@@ -17,9 +17,25 @@ namespace DatabaseModifier
 
     static class Constants
     {
-        public const int GetHash = 1;
-        public const string EllisID = "702-496-9401";
-        public const string OwenID = "702-499-3967";
+        public const int GetHashID = 1;
+        public const int RegisterID = 2;
+        public const int GetBalanceID = 3;
+        
+        //ELLIS TEST CONSTANTS
+        public const long EllisID = 2;
+        public const string EllisFN = "Ellis";
+        public const string EllisLN = "Johnson";
+        public const Int64 EllisSSN = 477353564;
+        public const long EllisNumber = 7024969401;
+        public const int EllisPIN = 6464;
+
+        //OWEN TEST CONSTANTS:
+        public const string OwenFN = "Owen";
+        public const string OwenLN = "Johnson";
+        public const Int64 OwenSSN = 578563191;
+        public const Int64 OwenNumber = 7024993967;
+        public const long OwenID = 1;
+        public const int OwenPIN = 7352;
 
     }
     /// <summary>
@@ -45,7 +61,7 @@ namespace DatabaseModifier
         /// <param name="complete">Boolean value to determine whether function operated correctly</param>
         /// <returns>string - return string of usertoken.</returns>
 
-        public static string GetHash(string searchNum, ref int UserID, ref bool complete)
+        public static string GetHash(string searchNum, ref long UserID, ref bool complete)
         {
             string matchingNum = "-1";
             string tempStringUserID = "-1";
@@ -94,9 +110,9 @@ namespace DatabaseModifier
                     }
                 }
 
-                UserID = Convert.ToInt32(tempStringUserID);
+                UserID = Convert.ToInt64(tempStringUserID);
 
-                    //Add Expiration Time
+                //Add Expiration Time
                 int numberAdditions = addCmd.ExecuteNonQuery();
 
                 if(numberAdditions == 1 && UserID != -1)
@@ -114,6 +130,35 @@ namespace DatabaseModifier
         }
         #endregion
 
+        #region GenerateGUID
+        /// <summary>
+        ///     Generates a GUID based on current time
+        /// </summary>
+        /// <param name="expStr">A string variable of when the generated userToken will expire</param>
+        /// <returns></returns>
+        public string GenerateGUID(ref string expStr)
+        {
+
+            //Declare Current and Expiration Time of generated Hash (Expire is 1000 seconds after generation)
+            var currentTime = new DateTime();
+            var expireTime = new DateTime();
+
+            //Get expire time:
+            currentTime = DateTime.Now;
+            expireTime = currentTime.AddSeconds(1000);
+
+            //Save expire time as a string
+            expStr = expireTime.ToString();
+
+            //Generate GUID from seedString
+            Guid userToken = Guid.NewGuid();
+
+            
+            return userToken.ToString();
+
+        }
+        #endregion
+
         #region LogWebMethods
         /// <summary>
         ///		Log Web Methods, users, time taken, and success
@@ -126,7 +171,7 @@ namespace DatabaseModifier
         /// <returns>Void - Return Nothing.</returns>
         /// 
 
-        public static void LogWM(int MethodID, int UserID, bool sucess, DateTime startTime)
+        public static void LogWM(int MethodID, long UserID, bool sucess, DateTime startTime)
         {
             //Get Connection String for Database
             var con = ConfigurationManager.ConnectionStrings["EllisTR"].ToString();
@@ -155,12 +200,179 @@ namespace DatabaseModifier
 
                 myConnection.Close();
             }
-        }        
+        }
+        #endregion
 
+        #region RegisterUser
+        /// <summary>
+        ///		Attempt to register new user, or return that user is already registered
+        ///		<para>
+        ///			BLAH BLAH
+        ///		</para>
+        /// </summary>
+        /// <param name="methodID">Integer representing a web method.</param>
+        /// <param name="sucess">Boolean of whether the operation returned sucessfully</param>
+        /// <returns>Void - Return Nothing.</returns>
+        /// 
+        public long RegisterUser(string firstName, string lastName, long socialSecurityNum, long mobileNumber, ref bool wasCreated, ref bool isSucessful, int PIN, ref long userID)
+        {
+            long registrationID = 0;
+            string stringRegID = "NULL";
+            string tempStringUserID = " ";
 
+            //Set booleans to false. If operations are sucessful they will be updated.
+            wasCreated = false;
+            isSucessful = false;
+
+            var con = ConfigurationManager.ConnectionStrings["EllisTR"].ToString();
+            using (SqlConnection myConnection = new SqlConnection(con))
+            {
+                //Open Connection to SQL Server
+                myConnection.Open();
+
+                //Command to get RegistrationID for already present user or get ' ' for new user
+                string checkReg = "SELECT RegID from Registration WHERE MobileNumber LIKE '" + mobileNumber + "'";
+                SqlCommand checkRegCMD = new SqlCommand(checkReg, myConnection);
+
+                
+                using (SqlDataReader regReader = checkRegCMD.ExecuteReader())
+                {
+                    while(regReader.Read())
+                    {
+                        stringRegID = regReader["RegID"].ToString();
+                    }
+                }
+
+                //If the user is not registered
+                if (stringRegID == "NULL")
+                {
+                    wasCreated = true;
+
+                    //Generate a new userToken for new user along with expiration time
+                    string tokenExpireTime = " ";
+                    string generatedToken = GenerateGUID(ref tokenExpireTime);
+
+                    //Add user and generated values to the registration and user tables in the SQL database
+                    string addString = "INSERT INTO Registration (FirstName, LastName, SSNum, MobileNumber) VALUES ('" + firstName.ToString() + "', '" + lastName.ToString() + "', '" + socialSecurityNum.ToString() + "', '" + mobileNumber.ToString() + "')";
+                    string addToUser = "INSERT INTO [User] (MobileNumber, PIN, [UserToken], TimeCheck) VALUES ('" + mobileNumber.ToString() + "', '" + PIN.ToString() + "', '" + generatedToken + "', '" + tokenExpireTime.ToString() + "')";
+
+                    SqlCommand addCmd = new SqlCommand(addString, myConnection);
+                    SqlCommand addUserCmd = new SqlCommand(addToUser, myConnection);
+
+                    //Execute both SQL commands
+                    int registrationImpact = addCmd.ExecuteNonQuery();
+                    int userImpact = addUserCmd.ExecuteNonQuery();
+
+                    //If both commands add 1 row, operation is sucessful
+                    if (registrationImpact == 1 && userImpact == 1)
+                    {
+                        isSucessful = true;
+                    }
+
+                    using (SqlDataReader regReader = checkRegCMD.ExecuteReader())
+                    {
+                        while (regReader.Read())
+                        {
+                            stringRegID = regReader["RegID"].ToString();
+                        }
+                    }
+                }
+
+                else
+                {
+                    wasCreated = false;
+                }
+
+                //GET USERID
+                string oUserID = "Select [UserID] from [User] where MobileNumber like '" + mobileNumber + "'";
+                SqlCommand oUserCmd = new SqlCommand(oUserID, myConnection);
+
+                using (SqlDataReader userReader = oUserCmd.ExecuteReader())
+                {
+                    while (userReader.Read())
+                    {
+                        tempStringUserID = userReader["UserID"].ToString();
+                    }
+                }
+
+                userID = Convert.ToInt64(tempStringUserID);
+
+                //Close Connection to SQL Server
+                myConnection.Close();
+                registrationID = Convert.ToInt64(stringRegID);
+            }
+            return registrationID;
+        }
 
         #endregion
 
+        #region IncrementLoyalty
+        /// <summary>
+        /// Increments a simple counter based on the number of times the user acesses the application
+        /// </summary>
+        /// <param name="userID">long - Passes userID to find matching database loyalty value</param>
+        /// <returns>VOID: Function increments loyalty value in the database</returns>
+        public void IncrementLoyalty(long userID)
+        {
+            //Get Connection String for Database
+            var con = ConfigurationManager.ConnectionStrings["EllisTR"].ToString();
+            using (SqlConnection myConnection = new SqlConnection(con))
+            {
+                //Open Connection to SQL Server
+                myConnection.Open();
+                string addValue = "UPDATE [User] SET AcessedNum = AcessedNum + 1 WHERE [UserID] LIKE '" + userID + "'";
+                SqlCommand addCmd = new SqlCommand(addValue, myConnection);
+
+                int temp = addCmd.ExecuteNonQuery();
+
+                myConnection.Close();
+            }
+
+        }
+
+        #endregion
+
+        #region GetLoyaltyBalance
+        /// <summary>
+        /// Gets the clients loyalty balance
+        /// </summary>
+        /// <param name="userID">long - Passes userID to find matching database loyalty value</param>
+        /// <returns>Long: Function returns loyalty value</returns>
+        public long GetLoyaltyBalance(long userID, ref bool isSuccesful)
+        {
+            long loyaltyBalance = -1;
+            string tempBalString = " ";
+            //Get Connection String for Database
+            var con = ConfigurationManager.ConnectionStrings["EllisTR"].ToString();
+            using (SqlConnection myConnection = new SqlConnection(con))
+            {
+                //Open Connection to SQL Server
+                myConnection.Open();
+                string getBal = "SELECT AcessedNum FROM [User] WHERE [UserID] LIKE '" + userID + "'";
+                SqlCommand getBalCmd = new SqlCommand(getBal, myConnection);
+
+                using (SqlDataReader balReader = getBalCmd.ExecuteReader())
+                {
+                    while (balReader.Read())
+                    {
+                        tempBalString = balReader["AcessedNum"].ToString();
+                    }
+                }
+                myConnection.Close();
+            }
+            loyaltyBalance = Convert.ToInt64(tempBalString);
+            if (loyaltyBalance >= 0)
+                isSuccesful = true;
+            return loyaltyBalance;
+        }
+        #endregion
+
+        public DateTime getCurrentTime()
+        {
+            var currentTime = new DateTime();
+            currentTime = DateTime.Now;
+            return currentTime;
+        }
         //Generate A Hash Code 
         [WebMethod]
         public string GenerateHash()
@@ -171,14 +383,60 @@ namespace DatabaseModifier
             timeOfStart = DateTime.Now;
 
             //Initialize Local Variables
-            int UserID = -1;
+            long UserID = -1;
             bool isSuccessful = false;
             
             //Get Hash
-            string hash = GetHash(Constants.OwenID, ref UserID, ref isSuccessful);
-            LogWM(Constants.GetHash, UserID, isSuccessful, timeOfStart);
+            string hash = GetHash(Constants.OwenNumber.ToString(), ref UserID, ref isSuccessful);
+            LogWM(Constants.GetHashID, UserID, isSuccessful, timeOfStart);
             return hash;
+        }
+
+        //Register A User
+        [WebMethod]
+        public long RegisterUser()
+        {
+            
+            //GET START TIME OF FUNCTION:
+            var timeOfStart = new DateTime();
+            timeOfStart = DateTime.Now;
+
+            //Initialize Local Variables
+            long regID = -1;
+            long userID = -1;
+            bool isSuccessful = false;
+
+            //Variables to get from user (FOR NOW THESE ARE JUST CONSTANTS)
+            string firstName = Constants.OwenFN;
+            string lastName = Constants.OwenLN;
+            long socialSecurityNum = Constants.OwenSSN;
+            long mobileNumber = Constants.OwenNumber;
+            int testPIN = Constants.OwenPIN;
+
+            //Variable to check if a new user was added or if it is an existing user
+            bool wasCreated = false;
+            //Register User:
+            regID = RegisterUser(firstName, lastName, socialSecurityNum, mobileNumber, ref wasCreated, ref isSuccessful, testPIN, ref userID);
+            LogWM(Constants.RegisterID, userID, isSuccessful, timeOfStart);
+            return regID;
+        }
+
+        [WebMethod]
+        public void updateLoyalty()
+        {
+            IncrementLoyalty(Constants.OwenID);
+        }
+
+        [WebMethod]
+        public long getBalance()
+        {
+            long userID = Constants.OwenID;
+            bool sucessful = false;
+            long balance = GetLoyaltyBalance(userID, ref sucessful);
+            
+            LogWM(Constants.GetBalanceID, userID, sucessful, getCurrentTime());
+
+            return balance;
         }
     }
 }
-

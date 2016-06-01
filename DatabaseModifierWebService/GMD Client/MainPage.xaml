@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="GMD_Client.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GMD_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="registration" Content="Register" HorizontalAlignment="Left" Margin="10,482,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="registration_Click" ToolTipService.ToolTip="Register a user in the GMD system"/>
+        <Button x:Name="GetHash" Content="Get User Token" HorizontalAlignment="Left" Margin="89,482,0,0" VerticalAlignment="Top" ToolTipService.ToolTip="Get the user token for a registered user" Click="GetHash_Click"/>
+        <Button x:Name="update_loyalty" Content="Update Loyalty Value" HorizontalAlignment="Left" Margin="216,482,0,0" VerticalAlignment="Top" Click="update_loyalty_Click"/>
+        <Button x:Name="Get_Loyalty_Value" Content="Get Loyalty Value" HorizontalAlignment="Left" Margin="382,482,0,0" VerticalAlignment="Top" Click="Get_Loyalty_Value_Click"/>
+        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="36,34,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" InputScope="Default"/>
+        <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="133,34,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
