@@ -5,15 +5,21 @@
     xmlns:local="using:GMD_Client"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Width="993.6">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="registration" Content="Register" HorizontalAlignment="Left" Margin="10,482,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="registration_Click" ToolTipService.ToolTip="Register a user in the GMD system"/>
-        <Button x:Name="GetHash" Content="Get User Token" HorizontalAlignment="Left" Margin="89,482,0,0" VerticalAlignment="Top" ToolTipService.ToolTip="Get the user token for a registered user" Click="GetHash_Click"/>
-        <Button x:Name="update_loyalty" Content="Update Loyalty Value" HorizontalAlignment="Left" Margin="216,482,0,0" VerticalAlignment="Top" Click="update_loyalty_Click"/>
-        <Button x:Name="Get_Loyalty_Value" Content="Get Loyalty Value" HorizontalAlignment="Left" Margin="382,482,0,0" VerticalAlignment="Top" Click="Get_Loyalty_Value_Click"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-0.4,0" HorizontalAlignment="Left" Width="994">
+        <Button x:Name="registration" Content="Register" HorizontalAlignment="Left" Margin="171,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="registration_Click" ToolTipService.ToolTip="Register a user in the GMD system"/>
+        <Button x:Name="GetHash" Content="Get User Token" HorizontalAlignment="Left" Margin="123,299,0,0" VerticalAlignment="Top" ToolTipService.ToolTip="Get the user token for a registered user" Click="GetHash_Click"/>
+        <Button x:Name="update_loyalty" Content="Update Loyalty Value" HorizontalAlignment="Left" Margin="36,377,0,0" VerticalAlignment="Top" Click="update_loyalty_Click" Width="209"/>
+        <Button x:Name="Get_Loyalty_Value" Content="Get Loyalty Value" HorizontalAlignment="Left" Margin="36,410,0,0" VerticalAlignment="Top" Click="Get_Loyalty_Value_Click" Width="209"/>
         <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="36,34,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" InputScope="Default"/>
-        <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="133,34,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top"/>
+        <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="133,34,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="112"/>
+        <TextBox x:Name="SocialSecurityNumber" HorizontalAlignment="Left" Margin="36,71,0,0" TextWrapping="Wrap" Text="Social Security Number" VerticalAlignment="Top" Width="209"/>
+        <TextBox x:Name="PhoneNumber" HorizontalAlignment="Left" Margin="36,108,0,0" TextWrapping="Wrap" Text="Mobile #" VerticalAlignment="Top" InputScope="Default" ToolTipService.ToolTip="Just enter the digits, no spaces, dashes, or commas" Width="140"/>
+        <TextBox x:Name="PIN" HorizontalAlignment="Left" Margin="181,108,0,0" TextWrapping="Wrap" Text="PIN" VerticalAlignment="Top" InputScope="NumericPin"/>
+        <TextBox x:Name="PhoneNumber_Copy" HorizontalAlignment="Left" Margin="36,225,0,0" TextWrapping="Wrap" Text="Mobile #" VerticalAlignment="Top" InputScope="Default" ToolTipService.ToolTip="Just enter the digits, no spaces, dashes, or commas" Width="209"/>
+        <TextBox x:Name="UserID" HorizontalAlignment="Left" Margin="36,262,0,0" TextWrapping="Wrap" Text="Enter your generated UserID" VerticalAlignment="Top" Width="209"/>
+        <TextBlock x:Name="textBlock" Margin="323,34,44,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="409"/>
 
     </Grid>
 </Page>
