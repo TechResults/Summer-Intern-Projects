@@ -41,7 +41,7 @@ namespace DatabaseModifier
     /// <summary>
     /// Summary description for WebService1
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "http://www.ellistrtest.com/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -150,7 +150,7 @@ namespace DatabaseModifier
             //Save expire time as a string
             expStr = expireTime.ToString();
 
-            //Generate GUID from seedString
+            //Generate GUID
             Guid userToken = Guid.NewGuid();
 
             
@@ -394,7 +394,7 @@ namespace DatabaseModifier
 
         //Register A User
         [WebMethod]
-        public long RegisterUser()
+        public long RegisterUser(string firstName, string lastName, long socialSecurityNumber, long mobileNumber, int PIN, ref long userID)
         {
             
             //GET START TIME OF FUNCTION:
@@ -403,20 +403,15 @@ namespace DatabaseModifier
 
             //Initialize Local Variables
             long regID = -1;
-            long userID = -1;
-            bool isSuccessful = false;
+            userID = -1;
 
-            //Variables to get from user (FOR NOW THESE ARE JUST CONSTANTS)
-            string firstName = Constants.OwenFN;
-            string lastName = Constants.OwenLN;
-            long socialSecurityNum = Constants.OwenSSN;
-            long mobileNumber = Constants.OwenNumber;
-            int testPIN = Constants.OwenPIN;
+            bool isSuccessful = false;
 
             //Variable to check if a new user was added or if it is an existing user
             bool wasCreated = false;
+
             //Register User:
-            regID = RegisterUser(firstName, lastName, socialSecurityNum, mobileNumber, ref wasCreated, ref isSuccessful, testPIN, ref userID);
+            regID = RegisterUser(firstName, lastName, socialSecurityNumber, mobileNumber, ref wasCreated, ref isSuccessful, PIN, ref userID);
             LogWM(Constants.RegisterID, userID, isSuccessful, timeOfStart);
             return regID;
         }

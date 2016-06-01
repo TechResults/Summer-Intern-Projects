@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseModifier", "DatabaseModifier\DatabaseModifier.csproj", "{ECB3D1BB-6080-4B46-BA15-DA9CB3D949A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMD Form", "GMD Form\GMD Form.csproj", "{5129F5C8-245D-4E50-9D6D-2EEB25BDC7CF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ECB3D1BB-6080-4B46-BA15-DA9CB3D949A9} = {ECB3D1BB-6080-4B46-BA15-DA9CB3D949A9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

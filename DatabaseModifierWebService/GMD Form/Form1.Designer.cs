@@ -28,33 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.firstName = new System.Windows.Forms.TextBox();
-            this.lastName = new System.Windows.Forms.TextBox();
+            this.registerFirstName = new System.Windows.Forms.TextBox();
+            this.registerLastName = new System.Windows.Forms.TextBox();
+            this.register = new System.Windows.Forms.Button();
+            this.registerSocialSecurityNumber = new System.Windows.Forms.TextBox();
+            this.registerMobileNum = new System.Windows.Forms.TextBox();
+            this.registerPIN = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // firstName
+            // registerFirstName
             // 
-            this.firstName.Location = new System.Drawing.Point(13, 13);
-            this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(81, 22);
-            this.firstName.TabIndex = 0;
-            this.firstName.Text = "First Name";
+            this.registerFirstName.Location = new System.Drawing.Point(13, 13);
+            this.registerFirstName.Name = "registerFirstName";
+            this.registerFirstName.Size = new System.Drawing.Size(81, 22);
+            this.registerFirstName.TabIndex = 0;
+            this.registerFirstName.Text = "First Name";
             // 
-            // lastName
+            // registerLastName
             // 
-            this.lastName.Location = new System.Drawing.Point(101, 12);
-            this.lastName.Name = "lastName";
-            this.lastName.Size = new System.Drawing.Size(100, 22);
-            this.lastName.TabIndex = 1;
-            this.lastName.TextChanged += new System.EventHandler(this.lastName_TextChanged);
+            this.registerLastName.Location = new System.Drawing.Point(101, 12);
+            this.registerLastName.Name = "registerLastName";
+            this.registerLastName.Size = new System.Drawing.Size(100, 22);
+            this.registerLastName.TabIndex = 1;
+            this.registerLastName.Text = "Last Name";
+            // 
+            // register
+            // 
+            this.register.Location = new System.Drawing.Point(126, 97);
+            this.register.Name = "register";
+            this.register.Size = new System.Drawing.Size(75, 32);
+            this.register.TabIndex = 2;
+            this.register.Text = "Register";
+            this.register.UseVisualStyleBackColor = true;
+            this.register.Click += new System.EventHandler(this.register_Click);
+            // 
+            // registerSocialSecurityNumber
+            // 
+            this.registerSocialSecurityNumber.Location = new System.Drawing.Point(13, 70);
+            this.registerSocialSecurityNumber.Name = "registerSocialSecurityNumber";
+            this.registerSocialSecurityNumber.Size = new System.Drawing.Size(114, 22);
+            this.registerSocialSecurityNumber.TabIndex = 3;
+            this.registerSocialSecurityNumber.Text = "Social Security #";
+            // 
+            // registerMobileNum
+            // 
+            this.registerMobileNum.Location = new System.Drawing.Point(13, 42);
+            this.registerMobileNum.Name = "registerMobileNum";
+            this.registerMobileNum.Size = new System.Drawing.Size(188, 22);
+            this.registerMobileNum.TabIndex = 4;
+            this.registerMobileNum.Text = "Mobile Number";
+            // 
+            // registerPIN
+            // 
+            this.registerPIN.Location = new System.Drawing.Point(134, 69);
+            this.registerPIN.MaxLength = 4;
+            this.registerPIN.Name = "registerPIN";
+            this.registerPIN.Size = new System.Drawing.Size(67, 22);
+            this.registerPIN.TabIndex = 5;
+            this.registerPIN.Text = "PIN";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 469);
-            this.Controls.Add(this.lastName);
-            this.Controls.Add(this.firstName);
+            this.Controls.Add(this.registerPIN);
+            this.Controls.Add(this.registerMobileNum);
+            this.Controls.Add(this.registerSocialSecurityNumber);
+            this.Controls.Add(this.register);
+            this.Controls.Add(this.registerLastName);
+            this.Controls.Add(this.registerFirstName);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -64,8 +107,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox firstName;
-        private System.Windows.Forms.TextBox lastName;
+        private System.Windows.Forms.TextBox registerFirstName;
+        private System.Windows.Forms.TextBox registerLastName;
+        private System.Windows.Forms.Button register;
+        private System.Windows.Forms.TextBox registerSocialSecurityNumber;
+        private System.Windows.Forms.TextBox registerMobileNum;
+        private System.Windows.Forms.TextBox registerPIN;
     }
 }
 
