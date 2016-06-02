@@ -20,22 +20,13 @@ namespace DatabaseModifier
         public const int GetHashID = 1;
         public const int RegisterID = 2;
         public const int GetBalanceID = 3;
-        
-        //ELLIS TEST CONSTANTS
-        public const long EllisID = 2;
-        public const string EllisFN = "Ellis";
-        public const string EllisLN = "Johnson";
-        public const Int64 EllisSSN = 477353564;
-        public const long EllisNumber = 7024969401;
-        public const int EllisPIN = 6464;
 
-        //OWEN TEST CONSTANTS:
-        public const string OwenFN = "Owen";
-        public const string OwenLN = "Johnson";
-        public const Int64 OwenSSN = 578563191;
-        public const Int64 OwenNumber = 7024993967;
-        public const long OwenID = 1;
-        public const int OwenPIN = 7352;
+        //Stored Procedure Names:
+        public const string checkRegistration = "dbo.uspCheckRegistration";
+        public const string addRegistration = "dbo.uspAddRegistration";
+        public const string getUserID = "dbo.uspGetUserID";
+        public const string logWM = "dbo.uspLogWebMethod";
+
 
     }
     /// <summary>
@@ -61,7 +52,7 @@ namespace DatabaseModifier
         /// <param name="complete">Boolean value to determine whether function operated correctly</param>
         /// <returns>string - return string of usertoken.</returns>
 
-        public static string GetHash(string searchNum, ref long UserID, ref bool complete)
+        public static bool GetHash(User toHash, ref string hash)
         {
             string matchingNum = "-1";
             string tempStringUserID = "-1";
@@ -88,7 +79,7 @@ namespace DatabaseModifier
                 //Command to add expiration time value into DB
                 string addString = "UPDATE [User] SET TimeCheck = '" + expStr + "' WHERE MobileNumber like '" + searchNum + "'";
                 SqlCommand addCmd = new SqlCommand(addString, myConnection);
-                
+
                 //Get User Token From DB
                 //In a real setting the server should generate a new hash at each new request.
                 using (SqlDataReader oReader = oCmd.ExecuteReader())
@@ -101,10 +92,10 @@ namespace DatabaseModifier
                 }
 
                 //Get UserID From DB
-                
+
                 using (SqlDataReader userReader = oUserCmd.ExecuteReader())
                 {
-                    while(userReader.Read())
+                    while (userReader.Read())
                     {
                         tempStringUserID = userReader["UserID"].ToString();
                     }
@@ -115,7 +106,7 @@ namespace DatabaseModifier
                 //Add Expiration Time
                 int numberAdditions = addCmd.ExecuteNonQuery();
 
-                if(numberAdditions == 1 && UserID != -1)
+                if (numberAdditions == 1 && UserID != -1)
                 {
                     complete = true;
                 }
@@ -123,7 +114,7 @@ namespace DatabaseModifier
                 {
                     complete = false;
                 }
-                
+
                 myConnection.Close();
             }
             return matchingNum;
@@ -153,7 +144,7 @@ namespace DatabaseModifier
             //Generate GUID
             Guid userToken = Guid.NewGuid();
 
-            
+
             return userToken.ToString();
 
         }
@@ -187,7 +178,7 @@ namespace DatabaseModifier
                 //Get Current Time
                 var endTime = new DateTime();
                 endTime = DateTime.Now;
-                
+
                 //Convert CurrentTime to a string
                 string endTString = endTime.ToString();
                 string startTString = startTime.ToString();
@@ -202,7 +193,7 @@ namespace DatabaseModifier
             }
         }
         #endregion
-
+        /*
         #region RegisterUser
         /// <summary>
         ///		Attempt to register new user, or return that user is already registered
@@ -238,6 +229,149 @@ namespace DatabaseModifier
                 using (SqlDataReader regReader = checkRegCMD.ExecuteReader())
                 {
                     while(regReader.Read())
+                    {
+                        stringRegID = regReader["RegID"].ToString();
+                    }
+                }
+
+                //If the user is not registered
+                if (stringRegID == "NULL")
+                {
+                    wasCreated = true;
+
+                    //Generate a new userToken for new user along with expiration time
+                    string tokenExpireTime = " ";
+                    string generatedToken = GenerateGUID(ref tokenExpireTime);
+
+                    //Add user and generated values to the registration and user tables in the SQL database
+                    string addString = "INSERT INTO Registration (FirstName, LastName, SSNum, MobileNumber) VALUES ('" + firstName.ToString() + "', '" + lastName.ToString() + "', '" + socialSecurityNum.ToString() + "', '" + mobileNumber.ToString() + "')";
+                    string addToUser = "INSERT INTO [User] (MobileNumber, PIN, [UserToken], TimeCheck) VALUES ('" + mobileNumber.ToString() + "', '" + PIN.ToString() + "', '" + generatedToken + "', '" + tokenExpireTime.ToString() + "')";
+
+                    SqlCommand addCmd = new SqlCommand(addString, myConnection);
+                    SqlCommand addUserCmd = new SqlCommand(addToUser, myConnection);
+
+                    //Execute both SQL commands
+                    int registrationImpact = addCmd.ExecuteNonQuery();
+                    int userImpact = addUserCmd.ExecuteNonQuery();
+
+                    //If both commands add 1 row, operation is sucessful
+                    if (registrationImpact == 1 && userImpact == 1)
+                    {
+                        isSucessful = true;
+                    }
+
+                    using (SqlDataReader regReader = checkRegCMD.ExecuteReader())
+                    {
+                        while (regReader.Read())
+                        {
+                            stringRegID = regReader["RegID"].ToString();
+                        }
+                    }
+                }
+
+                else
+                {
+                    wasCreated = false;
+                }
+
+                //GET USERID
+                string oUserID = "Select [UserID] from [User] where MobileNumber like '" + mobileNumber + "'";
+                SqlCommand oUserCmd = new SqlCommand(oUserID, myConnection);
+
+                using (SqlDataReader userReader = oUserCmd.ExecuteReader())
+                {
+                    while (userReader.Read())
+                    {
+                        tempStringUserID = userReader["UserID"].ToString();
+                    }
+                }
+
+                userID = Convert.ToInt64(tempStringUserID);
+
+                //Close Connection to SQL Server
+                myConnection.Close();
+                registrationID = Convert.ToInt64(stringRegID);
+            }
+            return registrationID;
+        }
+
+        #endregion
+    */
+
+        #region RegisterUser
+        /// <summary>
+        ///		Attempt to register new user, or return that user is already registered
+        ///		<para>
+        ///			BLAH BLAH
+        ///		</para>
+        /// </summary>
+        /// <param name="methodID">Integer representing a web method.</param>
+        /// <param name="sucess">Boolean of whether the operation returned sucessfully</param>
+        /// <returns>Void - Return Nothing.</returns>
+        /// 
+        public long RegisterUser(User toRegister, ref bool wasCreated, ref bool isSucessful)
+        {
+            long registrationID = 0;
+            string stringRegID = "NULL";
+            string tempStringUserID = " ";
+
+            //Set booleans to false. If operations are sucessful they will be updated.
+            wasCreated = false;
+            isSucessful = false;
+
+            try
+            {
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@MobileNum", toRegister.mobileNumber));
+                result = DataAcess.ExecuteQuerySP(Constants.checkRegistration, spParams);
+
+
+                if(result.Tables.Count > 0)
+                {
+                    toRegister.regID = long.Parse(result.Tables[0].Rows[0]["RegID"].ToString());
+                    isSucessful = true;
+                }
+
+                else
+                {
+                    wasCreated = true;
+                    //Generate a hash for user TODO
+                    //toRegister.userToken = GenerateHash();
+                    DataSet back = new DataSet();
+                    List<SqlParameter> adParams = new List<SqlParameter>();
+                    adParams.Add(new SqlParameter("@FN", toRegister.firstName));
+                    adParams.Add(new SqlParameter("@LN", toRegister.lastName));
+                    adParams.Add(new SqlParameter("@SSN", toRegister.SSN));
+                    adParams.Add(new SqlParameter("@MobileNum", toRegister.mobileNumber));
+                    adParams.Add(new SqlParameter("@NewPIN", toRegister.PIN));
+                    adParams.Add(new SqlParameter("NewGUID", toRegister.userToken.ToString()));
+
+
+
+                }
+
+
+
+                 
+            }
+
+            catch { }
+
+            var con = ConfigurationManager.ConnectionStrings["EllisTR"].ToString();
+            using (SqlConnection myConnection = new SqlConnection(con))
+            {
+                //Open Connection to SQL Server
+                myConnection.Open();
+
+                //Command to get RegistrationID for already present user or get ' ' for new user
+                string checkReg = "SELECT RegID from Registration WHERE MobileNumber LIKE '" + mobileNumber + "'";
+                SqlCommand checkRegCMD = new SqlCommand(checkReg, myConnection);
+
+
+                using (SqlDataReader regReader = checkRegCMD.ExecuteReader())
+                {
+                    while (regReader.Read())
                     {
                         stringRegID = regReader["RegID"].ToString();
                     }
@@ -394,7 +528,7 @@ namespace DatabaseModifier
 
         //Register A User
         [WebMethod]
-        public long RegisterUser(string firstName, string lastName, long socialSecurityNumber, long mobileNumber, int PIN, ref long userID)
+        public long RegisterUser(string firstName, string lastName, long socialSecurityNumber, string mobileNumber, int PIN, ref long userID)
         {
             
             //GET START TIME OF FUNCTION:
