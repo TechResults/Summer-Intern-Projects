@@ -34,6 +34,8 @@
             this.registerSocialSecurityNumber = new System.Windows.Forms.TextBox();
             this.registerMobileNum = new System.Windows.Forms.TextBox();
             this.registerPIN = new System.Windows.Forms.TextBox();
+            this.loyaltyUpdate = new System.Windows.Forms.Button();
+            this.checkLoyaltyValue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // registerFirstName
@@ -46,7 +48,7 @@
             // 
             // registerLastName
             // 
-            this.registerLastName.Location = new System.Drawing.Point(101, 12);
+            this.registerLastName.Location = new System.Drawing.Point(100, 14);
             this.registerLastName.Name = "registerLastName";
             this.registerLastName.Size = new System.Drawing.Size(100, 22);
             this.registerLastName.TabIndex = 1;
@@ -57,7 +59,7 @@
             this.register.Location = new System.Drawing.Point(126, 97);
             this.register.Name = "register";
             this.register.Size = new System.Drawing.Size(75, 32);
-            this.register.TabIndex = 2;
+            this.register.TabIndex = 5;
             this.register.Text = "Register";
             this.register.UseVisualStyleBackColor = true;
             this.register.Click += new System.EventHandler(this.register_Click);
@@ -75,7 +77,7 @@
             this.registerMobileNum.Location = new System.Drawing.Point(13, 42);
             this.registerMobileNum.Name = "registerMobileNum";
             this.registerMobileNum.Size = new System.Drawing.Size(188, 22);
-            this.registerMobileNum.TabIndex = 4;
+            this.registerMobileNum.TabIndex = 2;
             this.registerMobileNum.Text = "Mobile Number";
             // 
             // registerPIN
@@ -84,14 +86,36 @@
             this.registerPIN.MaxLength = 4;
             this.registerPIN.Name = "registerPIN";
             this.registerPIN.Size = new System.Drawing.Size(67, 22);
-            this.registerPIN.TabIndex = 5;
+            this.registerPIN.TabIndex = 4;
             this.registerPIN.Text = "PIN";
+            // 
+            // loyaltyUpdate
+            // 
+            this.loyaltyUpdate.Location = new System.Drawing.Point(13, 166);
+            this.loyaltyUpdate.Name = "loyaltyUpdate";
+            this.loyaltyUpdate.Size = new System.Drawing.Size(187, 74);
+            this.loyaltyUpdate.TabIndex = 6;
+            this.loyaltyUpdate.Text = "Add Loyalty Points";
+            this.loyaltyUpdate.UseVisualStyleBackColor = true;
+            this.loyaltyUpdate.Click += new System.EventHandler(this.loyaltyUpdate_Click);
+            // 
+            // checkLoyaltyValue
+            // 
+            this.checkLoyaltyValue.Location = new System.Drawing.Point(13, 247);
+            this.checkLoyaltyValue.Name = "checkLoyaltyValue";
+            this.checkLoyaltyValue.Size = new System.Drawing.Size(187, 72);
+            this.checkLoyaltyValue.TabIndex = 7;
+            this.checkLoyaltyValue.Text = "Check Loyalty Points";
+            this.checkLoyaltyValue.UseVisualStyleBackColor = true;
+            this.checkLoyaltyValue.Click += new System.EventHandler(this.checkLoyaltyValue_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 469);
+            this.ClientSize = new System.Drawing.Size(219, 469);
+            this.Controls.Add(this.checkLoyaltyValue);
+            this.Controls.Add(this.loyaltyUpdate);
             this.Controls.Add(this.registerPIN);
             this.Controls.Add(this.registerMobileNum);
             this.Controls.Add(this.registerSocialSecurityNumber);
@@ -113,6 +137,8 @@
         private System.Windows.Forms.TextBox registerSocialSecurityNumber;
         private System.Windows.Forms.TextBox registerMobileNum;
         private System.Windows.Forms.TextBox registerPIN;
+        private System.Windows.Forms.Button loyaltyUpdate;
+        private System.Windows.Forms.Button checkLoyaltyValue;
     }
 }
 

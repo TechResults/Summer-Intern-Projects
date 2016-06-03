@@ -23,13 +23,12 @@ namespace DatabaseModifier
         Guid _UserToken;
         int _acessedNum;
         long _ID;
-        long _regID;
+        
         
         //Constructor
         public User()
         {
             _acessedNum = 0;
-            _regID = -1;
         }
 
         public string firstName
@@ -68,7 +67,7 @@ namespace DatabaseModifier
             set { _UserToken = value; }
         }
         
-        public int accessedNum
+        public int loyaltyVal
         {
             get { return _acessedNum; }
             set { _acessedNum = value; }
@@ -78,12 +77,6 @@ namespace DatabaseModifier
         {
             get { return _ID; }
             set { _ID = value; }
-        }
-
-        public long regID
-        {
-            get { return _regID;  }
-            set { _regID = value; }
         }
     }
 }

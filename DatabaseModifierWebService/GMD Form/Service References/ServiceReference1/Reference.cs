@@ -9,18 +9,165 @@
 //------------------------------------------------------------------------------
 
 namespace GMD_Form.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://www.ellistrtest.com/")]
+    [System.SerializableAttribute()]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string firstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string mobileNumberField;
+        
+        private int PINField;
+        
+        private long SSNField;
+        
+        private System.Guid userTokenField;
+        
+        private int loyaltyValField;
+        
+        private long IDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string firstName {
+            get {
+                return this.firstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.firstNameField, value) != true)) {
+                    this.firstNameField = value;
+                    this.RaisePropertyChanged("firstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string lastName {
+            get {
+                return this.lastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lastNameField, value) != true)) {
+                    this.lastNameField = value;
+                    this.RaisePropertyChanged("lastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string mobileNumber {
+            get {
+                return this.mobileNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.mobileNumberField, value) != true)) {
+                    this.mobileNumberField = value;
+                    this.RaisePropertyChanged("mobileNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public int PIN {
+            get {
+                return this.PINField;
+            }
+            set {
+                if ((this.PINField.Equals(value) != true)) {
+                    this.PINField = value;
+                    this.RaisePropertyChanged("PIN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public long SSN {
+            get {
+                return this.SSNField;
+            }
+            set {
+                if ((this.SSNField.Equals(value) != true)) {
+                    this.SSNField = value;
+                    this.RaisePropertyChanged("SSN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public System.Guid userToken {
+            get {
+                return this.userTokenField;
+            }
+            set {
+                if ((this.userTokenField.Equals(value) != true)) {
+                    this.userTokenField = value;
+                    this.RaisePropertyChanged("userToken");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public int loyaltyVal {
+            get {
+                return this.loyaltyValField;
+            }
+            set {
+                if ((this.loyaltyValField.Equals(value) != true)) {
+                    this.loyaltyValField = value;
+                    this.RaisePropertyChanged("loyaltyVal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public long ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.ellistrtest.com/", ConfigurationName="ServiceReference1.WebService1Soap")]
     public interface WebService1Soap {
-        
-        // CODEGEN: Generating message contract since element name GenerateHashResult from namespace http://www.ellistrtest.com/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/GenerateHash", ReplyAction="*")]
-        GMD_Form.ServiceReference1.GenerateHashResponse GenerateHash(GMD_Form.ServiceReference1.GenerateHashRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/GenerateHash", ReplyAction="*")]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.GenerateHashResponse> GenerateHashAsync(GMD_Form.ServiceReference1.GenerateHashRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/RegisterUser", ReplyAction="*")]
         GMD_Form.ServiceReference1.RegisterUserResponse RegisterUser(GMD_Form.ServiceReference1.RegisterUserRequest request);
@@ -28,78 +175,17 @@ namespace GMD_Form.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/RegisterUser", ReplyAction="*")]
         System.Threading.Tasks.Task<GMD_Form.ServiceReference1.RegisterUserResponse> RegisterUserAsync(GMD_Form.ServiceReference1.RegisterUserRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/updateLoyalty", ReplyAction="*")]
-        void updateLoyalty();
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/addLoyalty", ReplyAction="*")]
+        GMD_Form.ServiceReference1.addLoyaltyResponse addLoyalty(GMD_Form.ServiceReference1.addLoyaltyRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/updateLoyalty", ReplyAction="*")]
-        System.Threading.Tasks.Task updateLoyaltyAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/addLoyalty", ReplyAction="*")]
+        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.addLoyaltyResponse> addLoyaltyAsync(GMD_Form.ServiceReference1.addLoyaltyRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/getBalance", ReplyAction="*")]
-        long getBalance();
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/getLoyaltyBalance", ReplyAction="*")]
+        GMD_Form.ServiceReference1.getLoyaltyBalanceResponse getLoyaltyBalance(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/getBalance", ReplyAction="*")]
-        System.Threading.Tasks.Task<long> getBalanceAsync();
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GenerateHashRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GenerateHash", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.GenerateHashRequestBody Body;
-        
-        public GenerateHashRequest() {
-        }
-        
-        public GenerateHashRequest(GMD_Form.ServiceReference1.GenerateHashRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GenerateHashRequestBody {
-        
-        public GenerateHashRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GenerateHashResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GenerateHashResponse", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.GenerateHashResponseBody Body;
-        
-        public GenerateHashResponse() {
-        }
-        
-        public GenerateHashResponse(GMD_Form.ServiceReference1.GenerateHashResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
-    public partial class GenerateHashResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string GenerateHashResult;
-        
-        public GenerateHashResponseBody() {
-        }
-        
-        public GenerateHashResponseBody(string GenerateHashResult) {
-            this.GenerateHashResult = GenerateHashResult;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/getLoyaltyBalance", ReplyAction="*")]
+        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.getLoyaltyBalanceResponse> getLoyaltyBalanceAsync(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -124,33 +210,13 @@ namespace GMD_Form.ServiceReference1 {
     public partial class RegisterUserRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string firstName;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string lastName;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public long socialSecurityNumber;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public long mobileNumber;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public int PIN;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public long userID;
+        public GMD_Form.ServiceReference1.User newUser;
         
         public RegisterUserRequestBody() {
         }
         
-        public RegisterUserRequestBody(string firstName, string lastName, long socialSecurityNumber, long mobileNumber, int PIN, long userID) {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.socialSecurityNumber = socialSecurityNumber;
-            this.mobileNumber = mobileNumber;
-            this.PIN = PIN;
-            this.userID = userID;
+        public RegisterUserRequestBody(GMD_Form.ServiceReference1.User newUser) {
+            this.newUser = newUser;
         }
     }
     
@@ -175,18 +241,146 @@ namespace GMD_Form.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
     public partial class RegisterUserResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public long RegisterUserResult;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public long userID;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public GMD_Form.ServiceReference1.User newUser;
         
         public RegisterUserResponseBody() {
         }
         
-        public RegisterUserResponseBody(long RegisterUserResult, long userID) {
-            this.RegisterUserResult = RegisterUserResult;
-            this.userID = userID;
+        public RegisterUserResponseBody(GMD_Form.ServiceReference1.User newUser) {
+            this.newUser = newUser;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addLoyaltyRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addLoyalty", Namespace="http://www.ellistrtest.com/", Order=0)]
+        public GMD_Form.ServiceReference1.addLoyaltyRequestBody Body;
+        
+        public addLoyaltyRequest() {
+        }
+        
+        public addLoyaltyRequest(GMD_Form.ServiceReference1.addLoyaltyRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
+    public partial class addLoyaltyRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public GMD_Form.ServiceReference1.User currentUser;
+        
+        public addLoyaltyRequestBody() {
+        }
+        
+        public addLoyaltyRequestBody(GMD_Form.ServiceReference1.User currentUser) {
+            this.currentUser = currentUser;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addLoyaltyResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addLoyaltyResponse", Namespace="http://www.ellistrtest.com/", Order=0)]
+        public GMD_Form.ServiceReference1.addLoyaltyResponseBody Body;
+        
+        public addLoyaltyResponse() {
+        }
+        
+        public addLoyaltyResponse(GMD_Form.ServiceReference1.addLoyaltyResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
+    public partial class addLoyaltyResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public GMD_Form.ServiceReference1.User currentUser;
+        
+        public addLoyaltyResponseBody() {
+        }
+        
+        public addLoyaltyResponseBody(GMD_Form.ServiceReference1.User currentUser) {
+            this.currentUser = currentUser;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getLoyaltyBalanceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getLoyaltyBalance", Namespace="http://www.ellistrtest.com/", Order=0)]
+        public GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody Body;
+        
+        public getLoyaltyBalanceRequest() {
+        }
+        
+        public getLoyaltyBalanceRequest(GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
+    public partial class getLoyaltyBalanceRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public GMD_Form.ServiceReference1.User currentUser;
+        
+        public getLoyaltyBalanceRequestBody() {
+        }
+        
+        public getLoyaltyBalanceRequestBody(GMD_Form.ServiceReference1.User currentUser) {
+            this.currentUser = currentUser;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getLoyaltyBalanceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getLoyaltyBalanceResponse", Namespace="http://www.ellistrtest.com/", Order=0)]
+        public GMD_Form.ServiceReference1.getLoyaltyBalanceResponseBody Body;
+        
+        public getLoyaltyBalanceResponse() {
+        }
+        
+        public getLoyaltyBalanceResponse(GMD_Form.ServiceReference1.getLoyaltyBalanceResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
+    public partial class getLoyaltyBalanceResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public long getLoyaltyBalanceResult;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public GMD_Form.ServiceReference1.User currentUser;
+        
+        public getLoyaltyBalanceResponseBody() {
+        }
+        
+        public getLoyaltyBalanceResponseBody(long getLoyaltyBalanceResult, GMD_Form.ServiceReference1.User currentUser) {
+            this.getLoyaltyBalanceResult = getLoyaltyBalanceResult;
+            this.currentUser = currentUser;
         }
     }
     
@@ -218,45 +412,16 @@ namespace GMD_Form.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GMD_Form.ServiceReference1.GenerateHashResponse GMD_Form.ServiceReference1.WebService1Soap.GenerateHash(GMD_Form.ServiceReference1.GenerateHashRequest request) {
-            return base.Channel.GenerateHash(request);
-        }
-        
-        public string GenerateHash() {
-            GMD_Form.ServiceReference1.GenerateHashRequest inValue = new GMD_Form.ServiceReference1.GenerateHashRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.GenerateHashRequestBody();
-            GMD_Form.ServiceReference1.GenerateHashResponse retVal = ((GMD_Form.ServiceReference1.WebService1Soap)(this)).GenerateHash(inValue);
-            return retVal.Body.GenerateHashResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.GenerateHashResponse> GMD_Form.ServiceReference1.WebService1Soap.GenerateHashAsync(GMD_Form.ServiceReference1.GenerateHashRequest request) {
-            return base.Channel.GenerateHashAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.GenerateHashResponse> GenerateHashAsync() {
-            GMD_Form.ServiceReference1.GenerateHashRequest inValue = new GMD_Form.ServiceReference1.GenerateHashRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.GenerateHashRequestBody();
-            return ((GMD_Form.ServiceReference1.WebService1Soap)(this)).GenerateHashAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         GMD_Form.ServiceReference1.RegisterUserResponse GMD_Form.ServiceReference1.WebService1Soap.RegisterUser(GMD_Form.ServiceReference1.RegisterUserRequest request) {
             return base.Channel.RegisterUser(request);
         }
         
-        public long RegisterUser(string firstName, string lastName, long socialSecurityNumber, long mobileNumber, int PIN, ref long userID) {
+        public void RegisterUser(ref GMD_Form.ServiceReference1.User newUser) {
             GMD_Form.ServiceReference1.RegisterUserRequest inValue = new GMD_Form.ServiceReference1.RegisterUserRequest();
             inValue.Body = new GMD_Form.ServiceReference1.RegisterUserRequestBody();
-            inValue.Body.firstName = firstName;
-            inValue.Body.lastName = lastName;
-            inValue.Body.socialSecurityNumber = socialSecurityNumber;
-            inValue.Body.mobileNumber = mobileNumber;
-            inValue.Body.PIN = PIN;
-            inValue.Body.userID = userID;
+            inValue.Body.newUser = newUser;
             GMD_Form.ServiceReference1.RegisterUserResponse retVal = ((GMD_Form.ServiceReference1.WebService1Soap)(this)).RegisterUser(inValue);
-            userID = retVal.Body.userID;
-            return retVal.Body.RegisterUserResult;
+            newUser = retVal.Body.newUser;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -264,32 +429,62 @@ namespace GMD_Form.ServiceReference1 {
             return base.Channel.RegisterUserAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.RegisterUserResponse> RegisterUserAsync(string firstName, string lastName, long socialSecurityNumber, long mobileNumber, int PIN, long userID) {
+        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.RegisterUserResponse> RegisterUserAsync(GMD_Form.ServiceReference1.User newUser) {
             GMD_Form.ServiceReference1.RegisterUserRequest inValue = new GMD_Form.ServiceReference1.RegisterUserRequest();
             inValue.Body = new GMD_Form.ServiceReference1.RegisterUserRequestBody();
-            inValue.Body.firstName = firstName;
-            inValue.Body.lastName = lastName;
-            inValue.Body.socialSecurityNumber = socialSecurityNumber;
-            inValue.Body.mobileNumber = mobileNumber;
-            inValue.Body.PIN = PIN;
-            inValue.Body.userID = userID;
+            inValue.Body.newUser = newUser;
             return ((GMD_Form.ServiceReference1.WebService1Soap)(this)).RegisterUserAsync(inValue);
         }
         
-        public void updateLoyalty() {
-            base.Channel.updateLoyalty();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        GMD_Form.ServiceReference1.addLoyaltyResponse GMD_Form.ServiceReference1.WebService1Soap.addLoyalty(GMD_Form.ServiceReference1.addLoyaltyRequest request) {
+            return base.Channel.addLoyalty(request);
         }
         
-        public System.Threading.Tasks.Task updateLoyaltyAsync() {
-            return base.Channel.updateLoyaltyAsync();
+        public void addLoyalty(ref GMD_Form.ServiceReference1.User currentUser) {
+            GMD_Form.ServiceReference1.addLoyaltyRequest inValue = new GMD_Form.ServiceReference1.addLoyaltyRequest();
+            inValue.Body = new GMD_Form.ServiceReference1.addLoyaltyRequestBody();
+            inValue.Body.currentUser = currentUser;
+            GMD_Form.ServiceReference1.addLoyaltyResponse retVal = ((GMD_Form.ServiceReference1.WebService1Soap)(this)).addLoyalty(inValue);
+            currentUser = retVal.Body.currentUser;
         }
         
-        public long getBalance() {
-            return base.Channel.getBalance();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.addLoyaltyResponse> GMD_Form.ServiceReference1.WebService1Soap.addLoyaltyAsync(GMD_Form.ServiceReference1.addLoyaltyRequest request) {
+            return base.Channel.addLoyaltyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<long> getBalanceAsync() {
-            return base.Channel.getBalanceAsync();
+        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.addLoyaltyResponse> addLoyaltyAsync(GMD_Form.ServiceReference1.User currentUser) {
+            GMD_Form.ServiceReference1.addLoyaltyRequest inValue = new GMD_Form.ServiceReference1.addLoyaltyRequest();
+            inValue.Body = new GMD_Form.ServiceReference1.addLoyaltyRequestBody();
+            inValue.Body.currentUser = currentUser;
+            return ((GMD_Form.ServiceReference1.WebService1Soap)(this)).addLoyaltyAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        GMD_Form.ServiceReference1.getLoyaltyBalanceResponse GMD_Form.ServiceReference1.WebService1Soap.getLoyaltyBalance(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request) {
+            return base.Channel.getLoyaltyBalance(request);
+        }
+        
+        public long getLoyaltyBalance(ref GMD_Form.ServiceReference1.User currentUser) {
+            GMD_Form.ServiceReference1.getLoyaltyBalanceRequest inValue = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequest();
+            inValue.Body = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody();
+            inValue.Body.currentUser = currentUser;
+            GMD_Form.ServiceReference1.getLoyaltyBalanceResponse retVal = ((GMD_Form.ServiceReference1.WebService1Soap)(this)).getLoyaltyBalance(inValue);
+            currentUser = retVal.Body.currentUser;
+            return retVal.Body.getLoyaltyBalanceResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.getLoyaltyBalanceResponse> GMD_Form.ServiceReference1.WebService1Soap.getLoyaltyBalanceAsync(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request) {
+            return base.Channel.getLoyaltyBalanceAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.getLoyaltyBalanceResponse> getLoyaltyBalanceAsync(GMD_Form.ServiceReference1.User currentUser) {
+            GMD_Form.ServiceReference1.getLoyaltyBalanceRequest inValue = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequest();
+            inValue.Body = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody();
+            inValue.Body.currentUser = currentUser;
+            return ((GMD_Form.ServiceReference1.WebService1Soap)(this)).getLoyaltyBalanceAsync(inValue);
         }
     }
 }

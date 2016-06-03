@@ -1,9 +1,4 @@
-C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\bin\Debug\GMD Form.exe.config
-C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\bin\Debug\GMD Form.exe
-C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\bin\Debug\GMD Form.pdb
 C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\obj\Debug\GMD Form.csprojResolveAssemblyReference.cache
 C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\obj\Debug\GMD_Form.Form1.resources
 C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\obj\Debug\GMD_Form.Properties.Resources.resources
 C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\obj\Debug\GMD Form.csproj.GenerateResource.Cache
-C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\obj\Debug\GMD Form.exe
-C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DatabaseModifierWebService\GMD Form\obj\Debug\GMD Form.pdb
