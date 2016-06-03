@@ -15,8 +15,8 @@ namespace GMD_Form
 {
     public partial class Form1 : Form
     {
-        GMD_Form.ServiceReference1.WebService1SoapClient service;
-        DatabaseModifier.User currentUser = new DatabaseModifier.User();
+        GMD_Form.DMSoapLocal.WebService1SoapClient service;
+        DMSoapLocal.User currentUser = new DMSoapLocal.User();
 
         string convFN, convLN, convMN;
         long convSSN;
@@ -25,17 +25,17 @@ namespace GMD_Form
         public void convertInput(TextBox firstName, TextBox lastName, TextBox socialSecurity, TextBox mobileNum, TextBox PIN, ref string convFirstName, ref string convLastName, 
             ref long convSocialSecurity, ref string convMobileNum, ref int convPIN)
         {
-            convFirstName = Convert.ToString(firstName);
-            convLastName = Convert.ToString(lastName);
+            convFirstName = Convert.ToString(firstName.Text);
+            convLastName = Convert.ToString(lastName.Text);
             convSocialSecurity = Convert.ToInt64(socialSecurity.Text.ToString());
-            convMobileNum = Convert.ToString(mobileNum);
+            convMobileNum = Convert.ToString(mobileNum.Text);
             convPIN = int.Parse(PIN.Text.ToString());
         }
 
         //Function for adding new users
-        public User addUser(string FN, string LN, string mobileNum, long SSN, int PIN)
+        public DMSoapLocal.User addUser(string FN, string LN, string mobileNum, long SSN, int PIN)
         {
-            User newUser = new User();
+            DMSoapLocal.User newUser = new DMSoapLocal.User();
             newUser.firstName = FN;
             newUser.lastName = LN;
             newUser.mobileNumber = mobileNum;
@@ -44,12 +44,21 @@ namespace GMD_Form
             return newUser;
         }
 
+        public DMSoapLocal.User addUserMN(string MN)
+        {
+            DMSoapLocal.User newUser = new DMSoapLocal.User();
+            newUser.mobileNumber = MN;
+
+            return newUser;
+        }
+
 
 
         public Form1()
         {
             InitializeComponent();
-            service = new ServiceReference1.WebService1SoapClient();
+            service = new DMSoapLocal.WebService1SoapClient();
+            
         }
 
 
@@ -60,21 +69,56 @@ namespace GMD_Form
             convertInput(registerFirstName, registerLastName, registerSocialSecurityNumber, registerMobileNum, registerPIN, ref convFN, ref convLN, ref convSSN, ref convMN, ref convPIN);
             currentUser = addUser(convFN, convLN, convMN, convSSN, convPIN);
 
-            //Need to figure out a better way to do this or some way to fix it:
             currentUser = service.RegisterUserWeb(currentUser);
             int returnState = currentUser.option;
 
-            //IF New user state:
+            //DEBUG OUTPUT            MessageBox.Show("FN: " + currentUser.firstName + "\nLN: " + currentUser.lastName + "\nMN: " + currentUser.mobileNumber + "\nSSN " + currentUser.SSN + "\nPIN " + currentUser.PIN + "\nDEBUG OUTPUT");
             if (returnState == 1)
             {
-                MessageBox.Show("Welcome " + currentUser.firstName + "! You are officially registered in our sytem", "Welcome");
+                MessageBox.Show("Welcome " + currentUser.firstName + "! you are officially registered in our sytem!", "Welcome");
             }
-            //IF Existing user state:
+            //if existing user state:
             else if (returnState == 2)
             {
                 MessageBox.Show("Welcome " + currentUser.firstName + ",\nyou are logged in to our sytem!", "Logged In");
             }
+
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            currentUser = addUserMN(loginMobileNumber.Text.ToString());
             
+
+            currentUser = service.loginUser(currentUser);
+            int returnState = currentUser.option;
+
+            if (returnState == 1)
+            {
+                MessageBox.Show("You are not registered. Check your mobile number or register.", "Not Registered");
+            }
+
+            else if (returnState == 2)
+            {
+                MessageBox.Show("You are logged in " + currentUser.firstName + "!", "Logged In");
+            }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            currentUser = new DMSoapLocal.User();
+            registerFirstName.Clear();
+            registerLastName.Clear();
+            registerMobileNum.Clear();
+            registerSocialSecurityNumber.Clear();
+            registerPIN.Clear();
+            loginMobileNumber.Clear();
+            MessageBox.Show("You have been logged out");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
 
         //UpdateLoyaltyButton:
@@ -82,11 +126,11 @@ namespace GMD_Form
         {
             if (currentUser.ID == 0)
             {
-                MessageBox.Show("You must register/login first!\nPlease try again!");
+                MessageBox.Show("Please Login!", "You must register/login first!\nPlease try again!");
             }
             else
             {
-                service.addLoyalty(currentUser);
+                currentUser = service.addLoyalty(currentUser);
                 MessageBox.Show("You have " + currentUser.loyaltyVal + " points!", "Sucessfully Updated Points");
             }
         }

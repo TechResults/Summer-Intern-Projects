@@ -58,6 +58,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="loginUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentUser" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="guid">
@@ -85,6 +99,12 @@
   <wsdl:message name="getLoyaltyBalanceSoapOut">
     <wsdl:part name="parameters" element="tns:getLoyaltyBalanceResponse" />
   </wsdl:message>
+  <wsdl:message name="loginUserSoapIn">
+    <wsdl:part name="parameters" element="tns:loginUser" />
+  </wsdl:message>
+  <wsdl:message name="loginUserSoapOut">
+    <wsdl:part name="parameters" element="tns:loginUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="RegisterUserWeb">
       <wsdl:input message="tns:RegisterUserWebSoapIn" />
@@ -97,6 +117,10 @@
     <wsdl:operation name="getLoyaltyBalance">
       <wsdl:input message="tns:getLoyaltyBalanceSoapIn" />
       <wsdl:output message="tns:getLoyaltyBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <wsdl:input message="tns:loginUserSoapIn" />
+      <wsdl:output message="tns:loginUserSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -128,6 +152,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <soap:operation soapAction="http://www.ellistrtest.com/loginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -151,6 +184,15 @@
     </wsdl:operation>
     <wsdl:operation name="getLoyaltyBalance">
       <soap12:operation soapAction="http://www.ellistrtest.com/getLoyaltyBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <soap12:operation soapAction="http://www.ellistrtest.com/loginUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

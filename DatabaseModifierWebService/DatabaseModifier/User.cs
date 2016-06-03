@@ -10,9 +10,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Generic;
-
 namespace DatabaseModifier
 {
+    [Serializable()]
     public class User
     {
         string _firstName;
@@ -30,6 +30,7 @@ namespace DatabaseModifier
         public User()
         {
             _acessedNum = 0;
+            _ID = 0;
         }
 
         public string firstName

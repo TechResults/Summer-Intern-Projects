@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GMD_Form.ServiceReference1 {
+namespace GMD_Form.DMSoapLocal {
     using System.Runtime.Serialization;
     using System;
     
@@ -181,29 +181,36 @@ namespace GMD_Form.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.ellistrtest.com/", ConfigurationName="ServiceReference1.WebService1Soap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.ellistrtest.com/", ConfigurationName="DMSoapLocal.WebService1Soap")]
     public interface WebService1Soap {
         
         // CODEGEN: Generating message contract since element name newUser from namespace http://www.ellistrtest.com/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/RegisterUserWeb", ReplyAction="*")]
-        GMD_Form.ServiceReference1.RegisterUserWebResponse RegisterUserWeb(GMD_Form.ServiceReference1.RegisterUserWebRequest request);
+        GMD_Form.DMSoapLocal.RegisterUserWebResponse RegisterUserWeb(GMD_Form.DMSoapLocal.RegisterUserWebRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/RegisterUserWeb", ReplyAction="*")]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.RegisterUserWebResponse> RegisterUserWebAsync(GMD_Form.ServiceReference1.RegisterUserWebRequest request);
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.RegisterUserWebResponse> RegisterUserWebAsync(GMD_Form.DMSoapLocal.RegisterUserWebRequest request);
         
         // CODEGEN: Generating message contract since element name currentUser from namespace http://www.ellistrtest.com/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/addLoyalty", ReplyAction="*")]
-        GMD_Form.ServiceReference1.addLoyaltyResponse addLoyalty(GMD_Form.ServiceReference1.addLoyaltyRequest request);
+        GMD_Form.DMSoapLocal.addLoyaltyResponse addLoyalty(GMD_Form.DMSoapLocal.addLoyaltyRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/addLoyalty", ReplyAction="*")]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.addLoyaltyResponse> addLoyaltyAsync(GMD_Form.ServiceReference1.addLoyaltyRequest request);
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.addLoyaltyResponse> addLoyaltyAsync(GMD_Form.DMSoapLocal.addLoyaltyRequest request);
         
         // CODEGEN: Generating message contract since element name currentUser from namespace http://www.ellistrtest.com/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/getLoyaltyBalance", ReplyAction="*")]
-        GMD_Form.ServiceReference1.getLoyaltyBalanceResponse getLoyaltyBalance(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request);
+        GMD_Form.DMSoapLocal.getLoyaltyBalanceResponse getLoyaltyBalance(GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/getLoyaltyBalance", ReplyAction="*")]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.getLoyaltyBalanceResponse> getLoyaltyBalanceAsync(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request);
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.getLoyaltyBalanceResponse> getLoyaltyBalanceAsync(GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest request);
+        
+        // CODEGEN: Generating message contract since element name currentUser from namespace http://www.ellistrtest.com/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/loginUser", ReplyAction="*")]
+        GMD_Form.DMSoapLocal.loginUserResponse loginUser(GMD_Form.DMSoapLocal.loginUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ellistrtest.com/loginUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.loginUserResponse> loginUserAsync(GMD_Form.DMSoapLocal.loginUserRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -213,12 +220,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class RegisterUserWebRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="RegisterUserWeb", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.RegisterUserWebRequestBody Body;
+        public GMD_Form.DMSoapLocal.RegisterUserWebRequestBody Body;
         
         public RegisterUserWebRequest() {
         }
         
-        public RegisterUserWebRequest(GMD_Form.ServiceReference1.RegisterUserWebRequestBody Body) {
+        public RegisterUserWebRequest(GMD_Form.DMSoapLocal.RegisterUserWebRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -230,12 +237,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class RegisterUserWebRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public GMD_Form.ServiceReference1.User newUser;
+        public GMD_Form.DMSoapLocal.User newUser;
         
         public RegisterUserWebRequestBody() {
         }
         
-        public RegisterUserWebRequestBody(GMD_Form.ServiceReference1.User newUser) {
+        public RegisterUserWebRequestBody(GMD_Form.DMSoapLocal.User newUser) {
             this.newUser = newUser;
         }
     }
@@ -247,12 +254,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class RegisterUserWebResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="RegisterUserWebResponse", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.RegisterUserWebResponseBody Body;
+        public GMD_Form.DMSoapLocal.RegisterUserWebResponseBody Body;
         
         public RegisterUserWebResponse() {
         }
         
-        public RegisterUserWebResponse(GMD_Form.ServiceReference1.RegisterUserWebResponseBody Body) {
+        public RegisterUserWebResponse(GMD_Form.DMSoapLocal.RegisterUserWebResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -264,12 +271,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class RegisterUserWebResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public GMD_Form.ServiceReference1.User RegisterUserWebResult;
+        public GMD_Form.DMSoapLocal.User RegisterUserWebResult;
         
         public RegisterUserWebResponseBody() {
         }
         
-        public RegisterUserWebResponseBody(GMD_Form.ServiceReference1.User RegisterUserWebResult) {
+        public RegisterUserWebResponseBody(GMD_Form.DMSoapLocal.User RegisterUserWebResult) {
             this.RegisterUserWebResult = RegisterUserWebResult;
         }
     }
@@ -281,12 +288,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class addLoyaltyRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="addLoyalty", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.addLoyaltyRequestBody Body;
+        public GMD_Form.DMSoapLocal.addLoyaltyRequestBody Body;
         
         public addLoyaltyRequest() {
         }
         
-        public addLoyaltyRequest(GMD_Form.ServiceReference1.addLoyaltyRequestBody Body) {
+        public addLoyaltyRequest(GMD_Form.DMSoapLocal.addLoyaltyRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -298,12 +305,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class addLoyaltyRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public GMD_Form.ServiceReference1.User currentUser;
+        public GMD_Form.DMSoapLocal.User currentUser;
         
         public addLoyaltyRequestBody() {
         }
         
-        public addLoyaltyRequestBody(GMD_Form.ServiceReference1.User currentUser) {
+        public addLoyaltyRequestBody(GMD_Form.DMSoapLocal.User currentUser) {
             this.currentUser = currentUser;
         }
     }
@@ -315,12 +322,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class addLoyaltyResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="addLoyaltyResponse", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.addLoyaltyResponseBody Body;
+        public GMD_Form.DMSoapLocal.addLoyaltyResponseBody Body;
         
         public addLoyaltyResponse() {
         }
         
-        public addLoyaltyResponse(GMD_Form.ServiceReference1.addLoyaltyResponseBody Body) {
+        public addLoyaltyResponse(GMD_Form.DMSoapLocal.addLoyaltyResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -332,12 +339,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class addLoyaltyResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public GMD_Form.ServiceReference1.User addLoyaltyResult;
+        public GMD_Form.DMSoapLocal.User addLoyaltyResult;
         
         public addLoyaltyResponseBody() {
         }
         
-        public addLoyaltyResponseBody(GMD_Form.ServiceReference1.User addLoyaltyResult) {
+        public addLoyaltyResponseBody(GMD_Form.DMSoapLocal.User addLoyaltyResult) {
             this.addLoyaltyResult = addLoyaltyResult;
         }
     }
@@ -349,12 +356,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class getLoyaltyBalanceRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getLoyaltyBalance", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody Body;
+        public GMD_Form.DMSoapLocal.getLoyaltyBalanceRequestBody Body;
         
         public getLoyaltyBalanceRequest() {
         }
         
-        public getLoyaltyBalanceRequest(GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody Body) {
+        public getLoyaltyBalanceRequest(GMD_Form.DMSoapLocal.getLoyaltyBalanceRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -366,12 +373,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class getLoyaltyBalanceRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public GMD_Form.ServiceReference1.User currentUser;
+        public GMD_Form.DMSoapLocal.User currentUser;
         
         public getLoyaltyBalanceRequestBody() {
         }
         
-        public getLoyaltyBalanceRequestBody(GMD_Form.ServiceReference1.User currentUser) {
+        public getLoyaltyBalanceRequestBody(GMD_Form.DMSoapLocal.User currentUser) {
             this.currentUser = currentUser;
         }
     }
@@ -383,12 +390,12 @@ namespace GMD_Form.ServiceReference1 {
     public partial class getLoyaltyBalanceResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getLoyaltyBalanceResponse", Namespace="http://www.ellistrtest.com/", Order=0)]
-        public GMD_Form.ServiceReference1.getLoyaltyBalanceResponseBody Body;
+        public GMD_Form.DMSoapLocal.getLoyaltyBalanceResponseBody Body;
         
         public getLoyaltyBalanceResponse() {
         }
         
-        public getLoyaltyBalanceResponse(GMD_Form.ServiceReference1.getLoyaltyBalanceResponseBody Body) {
+        public getLoyaltyBalanceResponse(GMD_Form.DMSoapLocal.getLoyaltyBalanceResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -400,23 +407,91 @@ namespace GMD_Form.ServiceReference1 {
     public partial class getLoyaltyBalanceResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public GMD_Form.ServiceReference1.User getLoyaltyBalanceResult;
+        public GMD_Form.DMSoapLocal.User getLoyaltyBalanceResult;
         
         public getLoyaltyBalanceResponseBody() {
         }
         
-        public getLoyaltyBalanceResponseBody(GMD_Form.ServiceReference1.User getLoyaltyBalanceResult) {
+        public getLoyaltyBalanceResponseBody(GMD_Form.DMSoapLocal.User getLoyaltyBalanceResult) {
             this.getLoyaltyBalanceResult = getLoyaltyBalanceResult;
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WebService1SoapChannel : GMD_Form.ServiceReference1.WebService1Soap, System.ServiceModel.IClientChannel {
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class loginUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="loginUser", Namespace="http://www.ellistrtest.com/", Order=0)]
+        public GMD_Form.DMSoapLocal.loginUserRequestBody Body;
+        
+        public loginUserRequest() {
+        }
+        
+        public loginUserRequest(GMD_Form.DMSoapLocal.loginUserRequestBody Body) {
+            this.Body = Body;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WebService1SoapClient : System.ServiceModel.ClientBase<GMD_Form.ServiceReference1.WebService1Soap>, GMD_Form.ServiceReference1.WebService1Soap {
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
+    public partial class loginUserRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public GMD_Form.DMSoapLocal.User currentUser;
+        
+        public loginUserRequestBody() {
+        }
+        
+        public loginUserRequestBody(GMD_Form.DMSoapLocal.User currentUser) {
+            this.currentUser = currentUser;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class loginUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="loginUserResponse", Namespace="http://www.ellistrtest.com/", Order=0)]
+        public GMD_Form.DMSoapLocal.loginUserResponseBody Body;
+        
+        public loginUserResponse() {
+        }
+        
+        public loginUserResponse(GMD_Form.DMSoapLocal.loginUserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ellistrtest.com/")]
+    public partial class loginUserResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public GMD_Form.DMSoapLocal.User loginUserResult;
+        
+        public loginUserResponseBody() {
+        }
+        
+        public loginUserResponseBody(GMD_Form.DMSoapLocal.User loginUserResult) {
+            this.loginUserResult = loginUserResult;
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface WebService1SoapChannel : GMD_Form.DMSoapLocal.WebService1Soap, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class WebService1SoapClient : System.ServiceModel.ClientBase<GMD_Form.DMSoapLocal.WebService1Soap>, GMD_Form.DMSoapLocal.WebService1Soap {
         
         public WebService1SoapClient() {
         }
@@ -438,78 +513,103 @@ namespace GMD_Form.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GMD_Form.ServiceReference1.RegisterUserWebResponse GMD_Form.ServiceReference1.WebService1Soap.RegisterUserWeb(GMD_Form.ServiceReference1.RegisterUserWebRequest request) {
+        GMD_Form.DMSoapLocal.RegisterUserWebResponse GMD_Form.DMSoapLocal.WebService1Soap.RegisterUserWeb(GMD_Form.DMSoapLocal.RegisterUserWebRequest request) {
             return base.Channel.RegisterUserWeb(request);
         }
         
-        public GMD_Form.ServiceReference1.User RegisterUserWeb(GMD_Form.ServiceReference1.User newUser) {
-            GMD_Form.ServiceReference1.RegisterUserWebRequest inValue = new GMD_Form.ServiceReference1.RegisterUserWebRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.RegisterUserWebRequestBody();
+        public GMD_Form.DMSoapLocal.User RegisterUserWeb(GMD_Form.DMSoapLocal.User newUser) {
+            GMD_Form.DMSoapLocal.RegisterUserWebRequest inValue = new GMD_Form.DMSoapLocal.RegisterUserWebRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.RegisterUserWebRequestBody();
             inValue.Body.newUser = newUser;
-            GMD_Form.ServiceReference1.RegisterUserWebResponse retVal = ((GMD_Form.ServiceReference1.WebService1Soap)(this)).RegisterUserWeb(inValue);
+            GMD_Form.DMSoapLocal.RegisterUserWebResponse retVal = ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).RegisterUserWeb(inValue);
             return retVal.Body.RegisterUserWebResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.RegisterUserWebResponse> GMD_Form.ServiceReference1.WebService1Soap.RegisterUserWebAsync(GMD_Form.ServiceReference1.RegisterUserWebRequest request) {
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.RegisterUserWebResponse> GMD_Form.DMSoapLocal.WebService1Soap.RegisterUserWebAsync(GMD_Form.DMSoapLocal.RegisterUserWebRequest request) {
             return base.Channel.RegisterUserWebAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.RegisterUserWebResponse> RegisterUserWebAsync(GMD_Form.ServiceReference1.User newUser) {
-            GMD_Form.ServiceReference1.RegisterUserWebRequest inValue = new GMD_Form.ServiceReference1.RegisterUserWebRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.RegisterUserWebRequestBody();
+        public System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.RegisterUserWebResponse> RegisterUserWebAsync(GMD_Form.DMSoapLocal.User newUser) {
+            GMD_Form.DMSoapLocal.RegisterUserWebRequest inValue = new GMD_Form.DMSoapLocal.RegisterUserWebRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.RegisterUserWebRequestBody();
             inValue.Body.newUser = newUser;
-            return ((GMD_Form.ServiceReference1.WebService1Soap)(this)).RegisterUserWebAsync(inValue);
+            return ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).RegisterUserWebAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GMD_Form.ServiceReference1.addLoyaltyResponse GMD_Form.ServiceReference1.WebService1Soap.addLoyalty(GMD_Form.ServiceReference1.addLoyaltyRequest request) {
+        GMD_Form.DMSoapLocal.addLoyaltyResponse GMD_Form.DMSoapLocal.WebService1Soap.addLoyalty(GMD_Form.DMSoapLocal.addLoyaltyRequest request) {
             return base.Channel.addLoyalty(request);
         }
         
-        public GMD_Form.ServiceReference1.User addLoyalty(GMD_Form.ServiceReference1.User currentUser) {
-            GMD_Form.ServiceReference1.addLoyaltyRequest inValue = new GMD_Form.ServiceReference1.addLoyaltyRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.addLoyaltyRequestBody();
+        public GMD_Form.DMSoapLocal.User addLoyalty(GMD_Form.DMSoapLocal.User currentUser) {
+            GMD_Form.DMSoapLocal.addLoyaltyRequest inValue = new GMD_Form.DMSoapLocal.addLoyaltyRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.addLoyaltyRequestBody();
             inValue.Body.currentUser = currentUser;
-            GMD_Form.ServiceReference1.addLoyaltyResponse retVal = ((GMD_Form.ServiceReference1.WebService1Soap)(this)).addLoyalty(inValue);
+            GMD_Form.DMSoapLocal.addLoyaltyResponse retVal = ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).addLoyalty(inValue);
             return retVal.Body.addLoyaltyResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.addLoyaltyResponse> GMD_Form.ServiceReference1.WebService1Soap.addLoyaltyAsync(GMD_Form.ServiceReference1.addLoyaltyRequest request) {
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.addLoyaltyResponse> GMD_Form.DMSoapLocal.WebService1Soap.addLoyaltyAsync(GMD_Form.DMSoapLocal.addLoyaltyRequest request) {
             return base.Channel.addLoyaltyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.addLoyaltyResponse> addLoyaltyAsync(GMD_Form.ServiceReference1.User currentUser) {
-            GMD_Form.ServiceReference1.addLoyaltyRequest inValue = new GMD_Form.ServiceReference1.addLoyaltyRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.addLoyaltyRequestBody();
+        public System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.addLoyaltyResponse> addLoyaltyAsync(GMD_Form.DMSoapLocal.User currentUser) {
+            GMD_Form.DMSoapLocal.addLoyaltyRequest inValue = new GMD_Form.DMSoapLocal.addLoyaltyRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.addLoyaltyRequestBody();
             inValue.Body.currentUser = currentUser;
-            return ((GMD_Form.ServiceReference1.WebService1Soap)(this)).addLoyaltyAsync(inValue);
+            return ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).addLoyaltyAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GMD_Form.ServiceReference1.getLoyaltyBalanceResponse GMD_Form.ServiceReference1.WebService1Soap.getLoyaltyBalance(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request) {
+        GMD_Form.DMSoapLocal.getLoyaltyBalanceResponse GMD_Form.DMSoapLocal.WebService1Soap.getLoyaltyBalance(GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest request) {
             return base.Channel.getLoyaltyBalance(request);
         }
         
-        public GMD_Form.ServiceReference1.User getLoyaltyBalance(GMD_Form.ServiceReference1.User currentUser) {
-            GMD_Form.ServiceReference1.getLoyaltyBalanceRequest inValue = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody();
+        public GMD_Form.DMSoapLocal.User getLoyaltyBalance(GMD_Form.DMSoapLocal.User currentUser) {
+            GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest inValue = new GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.getLoyaltyBalanceRequestBody();
             inValue.Body.currentUser = currentUser;
-            GMD_Form.ServiceReference1.getLoyaltyBalanceResponse retVal = ((GMD_Form.ServiceReference1.WebService1Soap)(this)).getLoyaltyBalance(inValue);
+            GMD_Form.DMSoapLocal.getLoyaltyBalanceResponse retVal = ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).getLoyaltyBalance(inValue);
             return retVal.Body.getLoyaltyBalanceResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GMD_Form.ServiceReference1.getLoyaltyBalanceResponse> GMD_Form.ServiceReference1.WebService1Soap.getLoyaltyBalanceAsync(GMD_Form.ServiceReference1.getLoyaltyBalanceRequest request) {
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.getLoyaltyBalanceResponse> GMD_Form.DMSoapLocal.WebService1Soap.getLoyaltyBalanceAsync(GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest request) {
             return base.Channel.getLoyaltyBalanceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GMD_Form.ServiceReference1.getLoyaltyBalanceResponse> getLoyaltyBalanceAsync(GMD_Form.ServiceReference1.User currentUser) {
-            GMD_Form.ServiceReference1.getLoyaltyBalanceRequest inValue = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequest();
-            inValue.Body = new GMD_Form.ServiceReference1.getLoyaltyBalanceRequestBody();
+        public System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.getLoyaltyBalanceResponse> getLoyaltyBalanceAsync(GMD_Form.DMSoapLocal.User currentUser) {
+            GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest inValue = new GMD_Form.DMSoapLocal.getLoyaltyBalanceRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.getLoyaltyBalanceRequestBody();
             inValue.Body.currentUser = currentUser;
-            return ((GMD_Form.ServiceReference1.WebService1Soap)(this)).getLoyaltyBalanceAsync(inValue);
+            return ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).getLoyaltyBalanceAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        GMD_Form.DMSoapLocal.loginUserResponse GMD_Form.DMSoapLocal.WebService1Soap.loginUser(GMD_Form.DMSoapLocal.loginUserRequest request) {
+            return base.Channel.loginUser(request);
+        }
+        
+        public GMD_Form.DMSoapLocal.User loginUser(GMD_Form.DMSoapLocal.User currentUser) {
+            GMD_Form.DMSoapLocal.loginUserRequest inValue = new GMD_Form.DMSoapLocal.loginUserRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.loginUserRequestBody();
+            inValue.Body.currentUser = currentUser;
+            GMD_Form.DMSoapLocal.loginUserResponse retVal = ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).loginUser(inValue);
+            return retVal.Body.loginUserResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.loginUserResponse> GMD_Form.DMSoapLocal.WebService1Soap.loginUserAsync(GMD_Form.DMSoapLocal.loginUserRequest request) {
+            return base.Channel.loginUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<GMD_Form.DMSoapLocal.loginUserResponse> loginUserAsync(GMD_Form.DMSoapLocal.User currentUser) {
+            GMD_Form.DMSoapLocal.loginUserRequest inValue = new GMD_Form.DMSoapLocal.loginUserRequest();
+            inValue.Body = new GMD_Form.DMSoapLocal.loginUserRequestBody();
+            inValue.Body.currentUser = currentUser;
+            return ((GMD_Form.DMSoapLocal.WebService1Soap)(this)).loginUserAsync(inValue);
         }
     }
 }

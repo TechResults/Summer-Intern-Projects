@@ -12,6 +12,7 @@ using System.Collections;
 
 
 
+
 namespace DatabaseModifier
 {
     static class Constants
@@ -22,6 +23,7 @@ namespace DatabaseModifier
         public const int RegisterFailedID = 3;
         public const int GetBalanceID = 4;
         public const int UpdateLoyaltyID = 5;
+        public const int LoginID = 6;
 
         //Stored Procedure Names:
         public const string checkRegistration = "dbo.uspCheckRegistration";
@@ -35,6 +37,10 @@ namespace DatabaseModifier
         //Registration States:
         public const Int32 REGnewUser = 1;
         public const Int32 REGexistingUser = 2;
+
+        //Login States:
+        public const Int32 LOGnewUser = 1;
+        public const Int32 LOGexistingUser = 2;
 
 
     }
@@ -134,13 +140,9 @@ namespace DatabaseModifier
             {
                 wasCreated = false;
                 isSucessful = true;
+                loginUser(toRegister);
+               
                 return isSucessful;
-                //IF Login has expired, update login
-                bool doesExpirationWork = false;
-                if (checkExpiration(ref toRegister, ref doesExpirationWork))
-                {
-                    bool doesUpdateWork = updateLogin(ref toRegister);
-                }
             }
 
             else
@@ -171,6 +173,42 @@ namespace DatabaseModifier
             }
         }
 
+        #endregion
+
+        #region LoginUser
+        /// <summary>
+        ///		Attempt to register new user, or exits if user is already registered
+        ///		<para>
+        ///			
+        ///		</para>
+        /// </summary>
+        /// <param name="toLogin">Reference User Class to update an individual user.</param>
+        /// <returns>Bool - Return True if the operation was sucessful, or false if it was not.</returns>
+        /// 
+        public bool LoginUser(ref User toLogin)
+        {
+            //Set booleans to false. If operations are sucessful they will be updated.
+            bool isSucessful = false;
+            bool userExists = GetUserDB(ref toLogin);
+
+            if (userExists)
+            {
+                isSucessful = true;
+                toLogin.option = Constants.LOGexistingUser;
+                //IF Login has expired, update login
+                bool doesExpirationWork = false;
+                if (checkExpiration(ref toLogin, ref doesExpirationWork))
+                {
+                    bool doesUpdateWork = updateLogin(ref toLogin);   
+                }
+            }
+
+            else
+            {
+                toLogin.option = Constants.LOGnewUser;
+            }
+            return isSucessful;
+        }
         #endregion
 
         //Works
@@ -419,6 +457,34 @@ namespace DatabaseModifier
             LogWM(Constants.GetBalanceID, currentUser, sucessful, getCurrentTime());
 
             return currentUser;
+        }
+
+        [WebMethod]
+        public User loginUser(User currentUser)
+        {
+            //GET START TIME OF FUNCTION:
+            var timeOfStart = getCurrentTime();
+
+            bool functionSucess = false;
+            int returnOption = Constants.REGexistingUser;
+
+            //Variable to check if user exists and is logged in
+            bool loginSucess = false;
+
+            //Log User In:
+            functionSucess = LoginUser(ref currentUser);
+
+            if(currentUser.option == Constants.LOGexistingUser)
+            {
+                LogWM(Constants.LoginID, currentUser, loginSucess, timeOfStart);
+            }
+
+            else if(currentUser.option == Constants.LOGnewUser)
+            {
+                LogWM(Constants.RegisterFailedID, currentUser, functionSucess, timeOfStart);
+            }
+            return currentUser;
+
         }
     }
 }
