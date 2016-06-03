@@ -3,7 +3,7 @@
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.ellistrtest.com/">
       <s:import namespace="http://microsoft.com/wsdl/types/" />
-      <s:element name="RegisterUser">
+      <s:element name="RegisterUserWeb">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="newUser" type="tns:User" />
@@ -20,12 +20,13 @@
           <s:element minOccurs="1" maxOccurs="1" name="userToken" type="s1:guid" />
           <s:element minOccurs="1" maxOccurs="1" name="loyaltyVal" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="option" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:element name="RegisterUserResponse">
+      <s:element name="RegisterUserWebResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="newUser" type="tns:User" />
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterUserWebResult" type="tns:User" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -39,7 +40,7 @@
       <s:element name="addLoyaltyResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="currentUser" type="tns:User" />
+            <s:element minOccurs="0" maxOccurs="1" name="addLoyaltyResult" type="tns:User" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -53,8 +54,7 @@
       <s:element name="getLoyaltyBalanceResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="getLoyaltyBalanceResult" type="s:long" />
-            <s:element minOccurs="0" maxOccurs="1" name="currentUser" type="tns:User" />
+            <s:element minOccurs="0" maxOccurs="1" name="getLoyaltyBalanceResult" type="tns:User" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -67,11 +67,11 @@
       </s:simpleType>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="RegisterUserSoapIn">
-    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  <wsdl:message name="RegisterUserWebSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterUserWeb" />
   </wsdl:message>
-  <wsdl:message name="RegisterUserSoapOut">
-    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  <wsdl:message name="RegisterUserWebSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterUserWebResponse" />
   </wsdl:message>
   <wsdl:message name="addLoyaltySoapIn">
     <wsdl:part name="parameters" element="tns:addLoyalty" />
@@ -86,9 +86,9 @@
     <wsdl:part name="parameters" element="tns:getLoyaltyBalanceResponse" />
   </wsdl:message>
   <wsdl:portType name="WebService1Soap">
-    <wsdl:operation name="RegisterUser">
-      <wsdl:input message="tns:RegisterUserSoapIn" />
-      <wsdl:output message="tns:RegisterUserSoapOut" />
+    <wsdl:operation name="RegisterUserWeb">
+      <wsdl:input message="tns:RegisterUserWebSoapIn" />
+      <wsdl:output message="tns:RegisterUserWebSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="addLoyalty">
       <wsdl:input message="tns:addLoyaltySoapIn" />
@@ -101,8 +101,8 @@
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="RegisterUser">
-      <soap:operation soapAction="http://www.ellistrtest.com/RegisterUser" style="document" />
+    <wsdl:operation name="RegisterUserWeb">
+      <soap:operation soapAction="http://www.ellistrtest.com/RegisterUserWeb" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -131,8 +131,8 @@
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="RegisterUser">
-      <soap12:operation soapAction="http://www.ellistrtest.com/RegisterUser" style="document" />
+    <wsdl:operation name="RegisterUserWeb">
+      <soap12:operation soapAction="http://www.ellistrtest.com/RegisterUserWeb" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

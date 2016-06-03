@@ -61,7 +61,8 @@ namespace GMD_Form
             currentUser = addUser(convFN, convLN, convMN, convSSN, convPIN);
 
             //Need to figure out a better way to do this or some way to fix it:
-            int returnState = service.RegisterUser(ref currentUser);
+            currentUser = service.RegisterUserWeb(currentUser);
+            int returnState = currentUser.option;
 
             //IF New user state:
             if (returnState == 1)
@@ -85,7 +86,7 @@ namespace GMD_Form
             }
             else
             {
-                service.addLoyalty(ref currentUser);
+                service.addLoyalty(currentUser);
                 MessageBox.Show("You have " + currentUser.loyaltyVal + " points!", "Sucessfully Updated Points");
             }
         }
@@ -99,7 +100,7 @@ namespace GMD_Form
             }
             else
             {
-                service.getLoyaltyBalance(ref currentUser);
+                currentUser = service.getLoyaltyBalance(currentUser);
                 MessageBox.Show("You have " + currentUser.loyaltyVal + " points!", "Sucessfully Checked Points");
             }
         }

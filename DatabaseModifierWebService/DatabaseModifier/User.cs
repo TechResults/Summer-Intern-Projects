@@ -23,6 +23,7 @@ namespace DatabaseModifier
         Guid _UserToken;
         int _acessedNum;
         long _ID;
+        int _option;
         
         
         //Constructor
@@ -77,6 +78,12 @@ namespace DatabaseModifier
         {
             get { return _ID; }
             set { _ID = value; }
+        }
+
+        public int option
+        {
+            get { return _option; }
+            set { _option = value; }
         }
     }
 }

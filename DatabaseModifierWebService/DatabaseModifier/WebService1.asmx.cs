@@ -358,14 +358,13 @@ namespace DatabaseModifier
 
         //Register A User (WORKS)
         [WebMethod]
-        public Int32 RegisterUser(ref User newUser)
+        public User RegisterUserWeb(User newUser)
         {
-            int returnOption = Constants.REGnewUser;
             //GET START TIME OF FUNCTION:
             var timeOfStart = getCurrentTime();
 
             bool functionSucess = false;
-            
+            int returnOption = Constants.REGnewUser;
 
 
             //Variable to check if a new user was added or if it is an existing user
@@ -380,13 +379,14 @@ namespace DatabaseModifier
                 LogWM(Constants.RegisterFailedID, newUser, functionSucess, timeOfStart);
                 returnOption = Constants.REGexistingUser;
             }
-
-            return returnOption;
+            newUser.option = returnOption;
+            return newUser;
         }
+
 
         //Update Loyalty values for a user (WORKS)
         [WebMethod]
-        public void addLoyalty(ref User currentUser)
+        public User addLoyalty(User currentUser)
         {
             //IF Login has expired, update login
             bool doesExpirationWork = false;
@@ -398,11 +398,12 @@ namespace DatabaseModifier
             DateTime startTime = getCurrentTime();
             bool sucess = UpdateLoyalty(ref currentUser);
             LogWM(Constants.UpdateLoyaltyID, currentUser, sucess, startTime);
+            return currentUser;
         }
 
         //Get loyalty balance from server (WORKS)
         [WebMethod]
-        public long getLoyaltyBalance(ref User currentUser)
+        public User getLoyaltyBalance(User currentUser)
         {
             bool sucessful = true;
 
@@ -414,11 +415,10 @@ namespace DatabaseModifier
                 bool doesUpdateWork = updateLogin(ref currentUser);
             }
 
-            long balance = currentUser.loyaltyVal;
             
             LogWM(Constants.GetBalanceID, currentUser, sucessful, getCurrentTime());
 
-            return balance;
+            return currentUser;
         }
     }
 }

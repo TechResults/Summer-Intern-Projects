@@ -103,7 +103,7 @@
     <None Include="Service References\ServiceReference1\GMD_Form.ServiceReference1.getLoyaltyBalanceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\GMD_Form.ServiceReference1.RegisterUserResponse.datasource">
+    <None Include="Service References\ServiceReference1\GMD_Form.ServiceReference1.RegisterUserWebResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\GMD_Form.ServiceReference1.User.datasource">
