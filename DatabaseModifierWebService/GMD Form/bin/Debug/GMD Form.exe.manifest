@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="GMD Form.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="GMD Form.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="GMD Form" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0YRsLIqRvTO7s9E/wr0HjPUeTu5UxZmI+hL876FVEHw=</dsig:DigestValue>
+        <dsig:DigestValue>x3HudyzrLw/VliBm7N3owuLEk293jr52jXh7IorvKH0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,17 +61,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tIikxKQl9uetw/W+4CTZuUWEOjCAfdiCcMFG8G32Mcw=</dsig:DigestValue>
+        <dsig:DigestValue>jPrIQmSLD7DigItrkFaM2+ZP7wYr80vDiISoEuc2gR0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="GMD Form.exe.config" size="675">
+  <file name="GMD Form.exe.config" size="688">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>5t2hs4dQNbez4pr8XxmUpgq+E8syCPrlArkptKIQdDY=</dsig:DigestValue>
+      <dsig:DigestValue>HZrjmsV3kj3yjZlucQbje6k0cLFWMZYFoIzVa8zmulE=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

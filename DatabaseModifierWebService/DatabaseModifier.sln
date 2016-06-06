@@ -10,6 +10,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMD Form", "GMD Form\GMD Fo
 		{ECB3D1BB-6080-4B46-BA15-DA9CB3D949A9} = {ECB3D1BB-6080-4B46-BA15-DA9CB3D949A9}
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite1/PEClient", "http://localhost:8080/PEClient", "{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/PEClient"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\My Web Sites\WebSite1\PEClient\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PEClient\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PEClient"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\My Web Sites\WebSite1\PEClient\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PEClient\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\My Web Sites\WebSite1\PEClient\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +76,22 @@ Global
 		{5129F5C8-245D-4E50-9D6D-2EEB25BDC7CF}.Release|x64.Build.0 = Release|Any CPU
 		{5129F5C8-245D-4E50-9D6D-2EEB25BDC7CF}.Release|x86.ActiveCfg = Release|Any CPU
 		{5129F5C8-245D-4E50-9D6D-2EEB25BDC7CF}.Release|x86.Build.0 = Release|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|ARM.Build.0 = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|x64.Build.0 = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Debug|x86.Build.0 = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|ARM.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|ARM.Build.0 = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|x64.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|x64.Build.0 = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|x86.ActiveCfg = Debug|Any CPU
+		{445EFBD9-3928-4A5F-A1BF-E814AF40C4F3}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
