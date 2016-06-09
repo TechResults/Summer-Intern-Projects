@@ -561,7 +561,97 @@ namespace PE.DataReturn
         public int eventID;
         public string headerCaptionLine1;
         public string headerCaptionLine2;
+        public byte[] eventLargeImage;
+        public string eventCaption;
+        public DateTime eventStartDate;
+        public DateTime eventStartTime;
+        public DateTime eventEndDate;
+        public DateTime eventEndTime;
+        public bool displayOptions;
+        public EventOption[] eventOptions;
+        public string footerCaptionLine1;
+        public string footerCaptionLine2;
+
+        public void DBGetEventDetails(string mobile, int eventID)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    [Serializable]
+    public class EventOption
+    {
+        public string optionCaption;
+        public byte[] optionImage;
+        public bool optionExecutable;
+        public int optionReferenceID;
     }
 
+    [Serializable]
+    public class EnrollGuestInEventReturn : Default
+    {
+        public int eventID;
+        public int optionReferenceID;
+        public string headerCaptionLine1;
+        public string headerCaptionLine2;
+        public bool isEnrolled;
+        public string confirmationNumber;
+        public byte[] bodyImage1;
+        public byte[] bodyImage2;
+        public string footerCaptionLine1;
+        public string footerCaptionLine2;
+
+        public void DBEnrollGuestInEvent(string mobile, int eventID, int optionReferenceID)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    [Serializable]
+    public class RequestTicketsToEventReturn : Default
+    {
+        public int eventID;
+        public int optionReferenceID;
+        public string headerCaptionLine1;
+        public string headerCaptionLine2;
+        public bool isEnrolled;
+        public string confirmationNumber;
+        public int ticketCountAwarded;
+        public bool isOnWaitList;
+        public string expectedResponseInterval;
+        public byte[] bodyImage1;
+        public byte[] bodyImage2;
+        public string footerCaptionLine1;
+        public string footerCaptionLine2;
+
+        public void DBRequestTicketsToEvent(string mobile, int eventID, int optionReferenceID)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    [Serializable]
+    public class PurchaseTicketsToEventWithPointsReturn : Default
+    {
+        public int eventID;
+        public int optionReferenceID;
+        public string headerCaptionLine1;
+        public string headerCaptionLine2;
+        public bool isPurchaseSuccessful;
+        public float newPointsBalance;
+        public bool isEnrolled;
+        public string confirmationNumber;
+        public int ticketCountAwarded;
+        public bool isOnWaitList;
+        public string expectedResponseInterval;
+        public byte[] bodyImage1;
+        public byte[] bodyImage2;
+        public string footerCaptionLine1;
+        public string footerCaptionLine2;
+
+        public void DBPurchaseTicketsToEventWithPoints(string mobile, int eventID, int optionReferenceID, int ticketCountRequested)
+        {
+            throw new NotImplementedException();
+        }
+    }
     #endregion
 }

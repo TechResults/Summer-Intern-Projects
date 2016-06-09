@@ -507,6 +507,63 @@ namespace PlayerElite
             return new JavaScriptSerializer().Serialize(currentUser);
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string EnrollGuestInEvent(string mobile, string userToken, int eventID, int optionReferenceID)
+        {
+            EnrollGuestInEventReturn currentUser = new EnrollGuestInEventReturn();
+            currentUser.checkSession(mobile, userToken);
+            if (currentUser.validToken)
+            {
+                currentUser.DBEnrollGuestInEvent(mobile, eventID, optionReferenceID);
+                currentUser.validToken = true;
+            }
+            else
+            {
+                currentUser = null;
+                currentUser.validToken = false;
+            }
+            return new JavaScriptSerializer().Serialize(currentUser);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string RequestTicketsToEvent(string mobile, string userToken, int eventID, int optionReferenceID)
+        {
+            RequestTicketsToEventReturn currentUser = new RequestTicketsToEventReturn();
+            currentUser.checkSession(mobile, userToken);
+            if (currentUser.validToken)
+            {
+                currentUser.DBRequestTicketsToEvent(mobile, eventID, optionReferenceID);
+                currentUser.validToken = true;
+            }
+            else
+            {
+                currentUser = null;
+                currentUser.validToken = false;
+            }
+            return new JavaScriptSerializer().Serialize(currentUser);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string PurchaseTicketsToEventWithPoints(string mobile, string userToken, int eventID, int optionReferenceID, int ticketCountRequested)
+        {
+            PurchaseTicketsToEventWithPointsReturn currentUser = new PurchaseTicketsToEventWithPointsReturn();
+            currentUser.checkSession(mobile, userToken);
+            if (currentUser.validToken)
+            {
+                currentUser.DBPurchaseTicketsToEventWithPoints(mobile, eventID, optionReferenceID,);
+                currentUser.validToken = true;
+            }
+            else
+            {
+                currentUser = null;
+                currentUser.validToken = false;
+            }
+            return new JavaScriptSerializer().Serialize(currentUser);
+        }
+
     }
     public class Constants
     {
