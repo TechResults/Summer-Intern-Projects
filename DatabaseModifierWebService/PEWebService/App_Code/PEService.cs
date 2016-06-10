@@ -13,6 +13,13 @@ namespace PlayerElite
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class PEService : System.Web.Services.WebService
     {
+
+        public class Constants
+        {
+            //WebMethodIDS:
+            public const int ShowBalancesOnOpeningScreenID = 3;
+        }
+
         int registrationTries;
         public PEService()
         {
@@ -553,7 +560,7 @@ namespace PlayerElite
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBPurchaseTicketsToEventWithPoints(mobile, eventID, optionReferenceID,);
+                currentUser.DBPurchaseTicketsToEventWithPoints(mobile, eventID, optionReferenceID, ticketCountRequested);
                 currentUser.validToken = true;
             }
             else
@@ -563,11 +570,5 @@ namespace PlayerElite
             }
             return new JavaScriptSerializer().Serialize(currentUser);
         }
-
-    }
-    public class Constants
-    {
-        //WebMethodIDS:
-        public const int ShowBalancesOnOpeningScreenID = 3;
     }
 }
