@@ -256,11 +256,12 @@ namespace PlayerElite
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string StartGame(string mobile, string userToken, int gameID)
         {
+            string ipAddress = HttpContext.Current.Request.UserHostAddress;
             StartGameReturn currentUser = new StartGameReturn();
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBStartGame(gameID);
+                currentUser.DBStartGame(gameID, ipAddress);
                 currentUser.validToken = true;
             }
             else

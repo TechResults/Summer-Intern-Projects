@@ -209,8 +209,15 @@ namespace PE.DataReturn
         public string headerData;
         public List<Game> Games;
         public List<long> PromotionID;
+        private void RemoveData()
+        {
+            headerCaption = null;
+            headerData = null;
+            Games = null;
+            PromotionID = null;
+        }
         //SQL DB Function to get games wrapper from DB
-        public GetGamesScreenWrapperReturn DBGetGamesScreenWrapper(string mobile, string ipAddress)
+        public void DBGetGamesScreenWrapper(string mobile, string ipAddress)
         {
             
             string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
@@ -219,14 +226,13 @@ namespace PE.DataReturn
             spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
             result = DataAcess.ExecuteQuerySP("PEC.PROMOTION_ID_GetByCMSPlayerID", spParams);
 
-            GetGamesScreenWrapperReturn data = new GetGamesScreenWrapperReturn();
-
+          
             if (result.Tables[0].Rows.Count > 0)
             {
                 
                 for (int i = 0; i < result.Tables[0].Rows.Count; i++)
                 {
-                    data.PromotionID.Add(Int64.Parse(result.Tables[0].Rows[i]["PromotionID"].ToString()));
+                    PromotionID.Add(Int64.Parse(result.Tables[0].Rows[i]["PromotionID"].ToString()));
                 }
                 foreach (long ID in PromotionID)
                 {
@@ -263,21 +269,15 @@ namespace PE.DataReturn
                         {
                             newGame.gameIcon = null;
                         }
-                        data.Games.Add(newGame);
-                    }
-                    else
-                    {
-                        return null;
+                        Games.Add(newGame);
                     }
 
                 }
             }
             else
             {
-                data = null;
+                RemoveData();
             }
-
-            return data;
         }
     }
     [Serializable]
@@ -300,10 +300,13 @@ namespace PE.DataReturn
     public class GetIntervalsAndBackgroundsReturn : Default
     {
         public List<AttributeInfo> Attributes;
-
-        public GetIntervalsAndBackgroundsReturn DBGetIntervalsAndBackgrounds(string mobile, int gameID, int variantID, string IPAddress)
+        private void RemoveData()
         {
-            GetIntervalsAndBackgroundsReturn data = new GetIntervalsAndBackgroundsReturn();
+            Attributes = null;
+        }
+
+        public void DBGetIntervalsAndBackgrounds(string mobile, int gameID, int variantID, string IPAddress)
+        {
 
             string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
             DataSet result = new DataSet();
@@ -346,15 +349,14 @@ namespace PE.DataReturn
                     {
                         gameAttributes.attributeBinaryValue = null;
                     }
-                    data.Attributes.Add(gameAttributes);
+                    Attributes.Add(gameAttributes);
                 }
             }
 
             else
             {
-                data = null;
+                RemoveData();
             }
-            return data;
         }
     }
     [Serializable]
@@ -377,24 +379,28 @@ namespace PE.DataReturn
         public string caption;
         public List<Attributes> listAttributes;
 
-        public GetPageAttributesReturn DBGetPageAttributes(string mobile, string pageName, int gameID, string IPAddress)
+        private void RemoveData()
         {
-            GetPageAttributesReturn data = new GetPageAttributesReturn();
+            gameName = null;
+            pageName = null;
+            caption = null;
+            listAttributes = null;
+        }
+
+        public void DBGetPageAttributes(string mobile, string inPageName, int gameID, string IPAddress)
+        {
 
             string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
             DataSet result = new DataSet();
             List<SqlParameter> spParams = new List<SqlParameter>();
-            spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
             spParams.Add(new SqlParameter("@GameID", gameID));
-            spParams.Add(new SqlParameter("@IPAddress", IPAddress));
-            spParams.Add(new SqlParameter("@PageName", pageName));
 
-            result = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetGamePageNameANDCaption", spParams);
+            result = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetGameNameANDCaption_ByGameID", spParams);
             if(result.Tables[0].Rows.Count > 0)
             {
-                data.gameName = result.Tables[0].Rows[0]["GameName"].ToString();
-                data.pageName = result.Tables[0].Rows[0]["PageName"].ToString();
-                data.caption = result.Tables[0].Rows[0]["Caption"].ToString();
+                gameName = result.Tables[0].Rows[0]["GameName"].ToString();
+                pageName = inPageName;
+                caption = result.Tables[0].Rows[0]["Caption"].ToString();
 
                 DataSet aR = new DataSet();
                 List<SqlParameter> attParams = new List<SqlParameter>();
@@ -403,7 +409,7 @@ namespace PE.DataReturn
                 attParams.Add(new SqlParameter("@IPAddress", IPAddress));
                 attParams.Add(new SqlParameter("@PageName", pageName));
 
-                aR = DataAcess.ExecuteQuerySP("PEC", attParams);
+                aR = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetPageAttributes", attParams);
                 
                 if(aR.Tables[0].Rows.Count > 0)
                 {
@@ -434,22 +440,20 @@ namespace PE.DataReturn
                             pageAttributes.attributeValueBinary = null;
                         } 
 
-                        data.listAttributes.Add(pageAttributes);
+                        listAttributes.Add(pageAttributes);
                     }
                     
                 }
                 //ELSE: There are no attributes for a given pageNumber
                 else
                 {
-                    data = null;
+                    RemoveData();
                 }
             }
             else
             {
-                data = null;
+                RemoveData();
             }
-
-            return data;
         }
     }
     [Serializable]
@@ -469,9 +473,21 @@ namespace PE.DataReturn
         public string startGameCaption;
         public string startGameText;
 
-        public void DBStartGame(int gameID)
+        private void RemoveData()
         {
-            throw new NotImplementedException();
+            gameToken = null;
+            startGameCaption = null;
+            startGameText = null;
+        }
+
+        public void DBStartGame(int gameID, string IPAddress)
+        {
+            StartGameReturn data = new StartGameReturn();
+            DataSet result = new DataSet();
+            List<SqlParameter> spParams = new List<SqlParameter>();
+
+            RemoveData();
+            
         }
     }
 
