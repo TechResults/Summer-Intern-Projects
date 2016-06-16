@@ -3,6 +3,21 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Configuration;
+using PE.DataModifier;
+using System.IO;
+
+/* EXAMPLE
+ *                   DataSet result9 = new DataSet();
+ *                   spParams = new List<SqlParameter>();
+ *                   spParams.Add(new SqlParameter("@promoid", promotionId));
+ *                   spParams.Add(new SqlParameter("@bucketid", bucketId));
+ *                   spParams.Add(new SqlParameter("@drawingdatetime", drawingDateTime));
+ *                   result9 = DataAccess.ExecuteQuerySP("PROMOTION_DRAWING_GetNextForEvent", spParams);
+ */
+
 
 /// <summary>
 /// Summary description for DataReturns
@@ -10,6 +25,24 @@ using System.Web;
 
 namespace PE.DataReturn
 {
+    public class ServerSide
+    {
+        public static DateTime GetTime()
+        {
+            DataTable dt = DataAcess.ExecuteQuerySP("DRAW_GET_TIMEATSERVER", null).Tables[0];
+            return DateTime.Parse(dt.Rows[0][0].ToString());
+        }
+        public static string DBGetCMSPlayerID(string mobile)
+        {
+            string CMSplayerID = "";
+            return CMSplayerID;
+        }
+    }
+    static class StoredProcedure
+    {
+        public const string GetGameInfoForPromotion = "";
+    }
+
     [Serializable]
     public class Default
     {
@@ -71,7 +104,7 @@ namespace PE.DataReturn
             throw new NotImplementedException();
         }
 
-        public Account []AccountBalances;
+        public Account[] AccountBalances;
 
     }
 
@@ -169,16 +202,82 @@ namespace PE.DataReturn
 
     #region My Games Screen
     [Serializable]
+    //TODO: Make sure foreach / for work correctly. Need to attempt to run DB GET functions at some point
     public class GetGamesScreenWrapperReturn : Default
     {
         public string headerCaption;
         public string headerData;
-        public Game[] Games;
-
+        public List<Game> Games;
+        public List<long> PromotionID;
         //SQL DB Function to get games wrapper from DB
-        public void DBGetGamesScreenWrapper(string mobile)
+        public GetGamesScreenWrapperReturn DBGetGamesScreenWrapper(string mobile, string ipAddress)
         {
-            throw new NotImplementedException();
+            
+            string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+            DataSet result = new DataSet();
+            List<SqlParameter> spParams = new List<SqlParameter>();
+            spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+            result = DataAcess.ExecuteQuerySP("PEC.PROMOTION_ID_GetByCMSPlayerID", spParams);
+
+            GetGamesScreenWrapperReturn data = new GetGamesScreenWrapperReturn();
+
+            if (result.Tables[0].Rows.Count > 0)
+            {
+                
+                for (int i = 0; i < result.Tables[0].Rows.Count; i++)
+                {
+                    data.PromotionID.Add(Int64.Parse(result.Tables[0].Rows[i]["PromotionID"].ToString()));
+                }
+                foreach (long ID in PromotionID)
+                {
+                    //GET Game Attributes from GD_PROMOtionGames
+                    DataSet ds = new DataSet();
+                    List<SqlParameter> gameParams = new List<SqlParameter>();
+                    gameParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                    gameParams.Add(new SqlParameter("@PromotionID", ID));
+                    gameParams.Add(new SqlParameter("@IPAddress", ipAddress));
+
+                    ds = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_WRAPPER_GetByPromotionID", gameParams);
+
+                    DataSet imageSet = new DataSet();
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Game newGame = new Game();
+                        newGame.gameID = ds.Tables[0].Rows[0]["GameID"].ToString();
+                        newGame.gameName = ds.Tables[0].Rows[0]["GameName"].ToString();
+                        newGame.gameDescription = ds.Tables[0].Rows[0]["GameDescription"].ToString();
+                        newGame.buttonDescription = ds.Tables[0].Rows[0]["ButtonDesc"].ToString();
+                        newGame.isButtonEnabled = Convert.ToBoolean(ds.Tables[0].Rows[0]["isButtonEnabled"].ToString());
+
+                        DataSet imageData = new DataSet();
+                        List<SqlParameter> imageParam = new List<SqlParameter>();
+                        imageParam.Add(new SqlParameter("@PromotionID", ID));
+                        imageData = DataAcess.ExecuteQuerySP("MG_PROMOTION_WRAPPER_ReadGameIcon", imageParam);
+                        if (imageData.Tables[0].Rows.Count > 0)
+                        {
+                            MemoryStream ms = new MemoryStream((byte[])imageData.Tables[0].Rows[0]["promoKioskImage"]);
+                            byte[] bytes = ms.ToArray();
+                            newGame.gameIcon = bytes;
+                        }
+                        else
+                        {
+                            newGame.gameIcon = null;
+                        }
+                        data.Games.Add(newGame);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                }
+            }
+            else
+            {
+                data = null;
+            }
+
+            return data;
         }
     }
     [Serializable]
@@ -187,9 +286,87 @@ namespace PE.DataReturn
         public string gameID;
         public string gameName;
         public string gameDescription;
-        public string gameIcon;
+        public byte[] gameIcon;
         public string buttonDescription;
         public bool isButtonEnabled;
+    }
+
+
+    // Lars: Where should i be looking for AttributeBinaryValue? Would I just select all 'image' from AttributeName and store the
+    // value as attributeBinaryValue, else leave blank? Need to know for writing this method.
+
+    // TODO: Implement attributeBinaryValue (clarify with LK)
+    [Serializable]
+    public class GetIntervalsAndBackgroundsReturn : Default
+    {
+        public List<AttributeInfo> Attributes;
+
+        public GetIntervalsAndBackgroundsReturn DBGetIntervalsAndBackgrounds(string mobile, int gameID, int variantID, string IPAddress)
+        {
+            GetIntervalsAndBackgroundsReturn data = new GetIntervalsAndBackgroundsReturn();
+
+            string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+            DataSet result = new DataSet();
+            List<SqlParameter> spParams = new List<SqlParameter>();
+            spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+            spParams.Add(new SqlParameter("@GameID", gameID));
+            spParams.Add(new SqlParameter("@VariantID", variantID));
+            spParams.Add(new SqlParameter("@IPAddress", IPAddress));
+
+            result = DataAcess.ExecuteQuerySP("MG_PROMOTION_BACKGROUND_GetByGameID", spParams);
+
+            if(result.Tables[0].Rows.Count > 0)
+            {
+                for (int j = 0; j < result.Tables[0].Rows.Count; j++)
+                {
+                    AttributeInfo gameAttributes = new AttributeInfo();
+                    gameAttributes.gameName = result.Tables[0].Rows[j]["gameName"].ToString();
+                    gameAttributes.pageName = result.Tables[0].Rows[j]["pageName"].ToString();
+                    gameAttributes.typeName = result.Tables[0].Rows[j]["typename"].ToString();
+                    gameAttributes.objectName = result.Tables[0].Rows[j]["objectName"].ToString();
+                    gameAttributes.attributeName = result.Tables[0].Rows[j]["attributeName"].ToString();
+                    gameAttributes.attributeValue = result.Tables[0].Rows[j]["attributeValue"].ToString();
+
+
+                    // TODO: See above for LK check
+                    DataSet binaryData = new DataSet();
+                    List<SqlParameter> binaryParams = new List<SqlParameter>();
+                    binaryParams.Add(new SqlParameter("@GameID", gameID));
+                    binaryParams.Add(new SqlParameter("@VariantID", variantID));
+
+                    binaryData = DataAcess.ExecuteQuerySP("TODO", binaryParams);
+
+                    if (binaryData.Tables[0].Rows.Count > 0)
+                    {
+                        MemoryStream ms = new MemoryStream((byte[])binaryData.Tables[0].Rows[0]["attributeBinaryData"]);
+                        byte[] bytes = ms.ToArray();
+                        gameAttributes.attributeBinaryValue = bytes;
+                    }
+                    else
+                    {
+                        gameAttributes.attributeBinaryValue = null;
+                    }
+                    data.Attributes.Add(gameAttributes);
+                }
+            }
+
+            else
+            {
+                data = null;
+            }
+            return data;
+        }
+    }
+    [Serializable]
+    public class AttributeInfo
+    {
+        public string gameName;
+        public string pageName;
+        public string typeName;
+        public string objectName;
+        public string attributeName;
+        public string attributeValue;
+        public byte[] attributeBinaryValue;
     }
 
     [Serializable]
@@ -198,11 +375,81 @@ namespace PE.DataReturn
         public string gameName;
         public string pageName;
         public string caption;
-        public Attribute[] attributes;
+        public List<Attributes> listAttributes;
 
-        public GetPageAttributesReturn DBGetPageAttributes(string mobile)
+        public GetPageAttributesReturn DBGetPageAttributes(string mobile, string pageName, int gameID, string IPAddress)
         {
-            throw new NotImplementedException();
+            GetPageAttributesReturn data = new GetPageAttributesReturn();
+
+            string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+            DataSet result = new DataSet();
+            List<SqlParameter> spParams = new List<SqlParameter>();
+            spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+            spParams.Add(new SqlParameter("@GameID", gameID));
+            spParams.Add(new SqlParameter("@IPAddress", IPAddress));
+            spParams.Add(new SqlParameter("@PageName", pageName));
+
+            result = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetGamePageNameANDCaption", spParams);
+            if(result.Tables[0].Rows.Count > 0)
+            {
+                data.gameName = result.Tables[0].Rows[0]["GameName"].ToString();
+                data.pageName = result.Tables[0].Rows[0]["PageName"].ToString();
+                data.caption = result.Tables[0].Rows[0]["Caption"].ToString();
+
+                DataSet aR = new DataSet();
+                List<SqlParameter> attParams = new List<SqlParameter>();
+                attParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                attParams.Add(new SqlParameter("@GameID", gameID));
+                attParams.Add(new SqlParameter("@IPAddress", IPAddress));
+                attParams.Add(new SqlParameter("@PageName", pageName));
+
+                aR = DataAcess.ExecuteQuerySP("PEC", attParams);
+                
+                if(aR.Tables[0].Rows.Count > 0)
+                {
+                    for(int j = 0; j < aR.Tables[0].Rows.Count; j++)
+                    {
+                        Attributes pageAttributes = new Attributes();
+                        pageAttributes.typeName = aR.Tables[0].Rows[j]["TypeName"].ToString();
+                        pageAttributes.objectName = aR.Tables[0].Rows[j]["ObjectName"].ToString();
+                        pageAttributes.attributeName = aR.Tables[0].Rows[j]["AttributeName"].ToString();
+                        pageAttributes.attributeValue = aR.Tables[0].Rows[j]["AttributeValue"].ToString();
+
+
+                        DataSet binaryData = new DataSet();
+                        List<SqlParameter> binaryParams = new List<SqlParameter>();
+                        binaryParams.Add(new SqlParameter("@GameID", gameID));
+                        binaryParams.Add(new SqlParameter("@PageName", pageName));
+
+                        binaryData = DataAcess.ExecuteQuerySP("TODO", binaryParams);
+
+                        if (binaryData.Tables[0].Rows.Count > 0)
+                        {
+                            MemoryStream ms = new MemoryStream((byte[])binaryData.Tables[0].Rows[0]["attributeBinaryData"]);
+                            byte[] bytes = ms.ToArray();
+                            pageAttributes.attributeValueBinary = bytes;
+                        }
+                        else
+                        {
+                            pageAttributes.attributeValueBinary = null;
+                        } 
+
+                        data.listAttributes.Add(pageAttributes);
+                    }
+                    
+                }
+                //ELSE: There are no attributes for a given pageNumber
+                else
+                {
+                    data = null;
+                }
+            }
+            else
+            {
+                data = null;
+            }
+
+            return data;
         }
     }
     [Serializable]
@@ -212,7 +459,7 @@ namespace PE.DataReturn
         public string objectName;
         public string attributeName;
         public string attributeValue;
-        public string attributeValueBinary;
+        public byte[] attributeValueBinary;
     }
 
     [Serializable]
@@ -237,9 +484,24 @@ namespace PE.DataReturn
         public string gameType;
         public GameObject[] GameObjects;
 
-        public void DBGetGameInfoForPromotion(int gameID, string gameToken)
+        public void DBGetGameInfoForPromotion(string mobile, int gameID, string gameToken)
         {
-            throw new NotImplementedException();
+            if(gameID == 0 || gameToken == null)
+            {
+                throw new WrongParamsError();
+            }
+            else
+            {
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@Mobile", mobile));
+                spParams.Add(new SqlParameter("@GameID", gameID));
+                spParams.Add(new SqlParameter("@GameToken", gameToken));
+                result = DataAcess.ExecuteQuerySP(StoredProcedure.GetGameInfoForPromotion, spParams);
+                gameNameForDisplay = result.Tables[0].Rows[0]["GameName"].ToString();
+                playInstructions = result.Tables[0].Rows[0]["PlayInstructions"].ToString();
+                gameType = result.Tables[0].Rows[0]["GameType"].ToString();
+            }
         }
     }
     [Serializable]

@@ -9,7 +9,7 @@ using PE.DataReturn;
 
 namespace PlayerElite
 {
-    [WebService(Namespace = "PlayerElite")]
+    [WebService(Namespace = "playerelite.com.au")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class PEService : System.Web.Services.WebService
     {
@@ -17,7 +17,6 @@ namespace PlayerElite
         public class Constants
         {
             //WebMethodIDS:
-            public const int ShowBalancesOnOpeningScreenID = 3;
         }
 
         int registrationTries;
@@ -26,6 +25,7 @@ namespace PlayerElite
             registrationTries = 0;
         }
 
+        #region Application Installation and Setup
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string RegisterNewUser(string mobile, string pinCode)
@@ -52,7 +52,9 @@ namespace PlayerElite
             }
             return new JavaScriptSerializer().Serialize(newUser);
         }
+        #endregion
 
+        #region Application Launch
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string ValidatePhoneRegistered(string mobile)
@@ -72,7 +74,6 @@ namespace PlayerElite
             return new JavaScriptSerializer().Serialize(currentUser);
         }
 
-        //ID: 3
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string ShowBalancesOnOpeningScreen(string mobile, string userToken)
@@ -84,7 +85,6 @@ namespace PlayerElite
             return new JavaScriptSerializer().Serialize(currentUser);
         }
 
-        // Return True if the user is Valid, or False if they are not.
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string ValidateUser(string mobile, string pinNum)
@@ -123,7 +123,9 @@ namespace PlayerElite
             return new JavaScriptSerializer().Serialize(currentUser);
 
         }
+        #endregion
 
+        #region Overview Screen
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetPlayerGeneralInfo(string mobile, string userToken)
@@ -184,17 +186,41 @@ namespace PlayerElite
 
             return new JavaScriptSerializer().Serialize(currentUser);
         }
+        #endregion
 
+        #region My Games Screen
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetGamesScreenWrapper(string mobile, string userToken)
         {
+            string ipAddress = HttpContext.Current.Request.UserHostAddress;
             GetGamesScreenWrapperReturn currentUser = new GetGamesScreenWrapperReturn();
             currentUser.checkSession(mobile, userToken);
 
             if (currentUser.validToken)
             {
-                currentUser.DBGetGamesScreenWrapper(mobile);
+                currentUser.DBGetGamesScreenWrapper(mobile, ipAddress);
+                currentUser.validToken = true;
+            }
+            else
+            {
+                currentUser = null;
+                currentUser.validToken = false;
+            }
+            return new JavaScriptSerializer().Serialize(currentUser);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //LARS: SHOULD GETINTEVALS take a variantID or should this be found from the server somehow?
+        public string GetIntervalsAndBackgrounds(string mobile, string userToken, int gameID, int variantID)
+        {
+            string ipAddress = HttpContext.Current.Request.UserHostAddress;
+            GetIntervalsAndBackgroundsReturn currentUser = new GetIntervalsAndBackgroundsReturn();
+            currentUser.checkSession(mobile, userToken);
+            if (currentUser.validToken)
+            {
+                currentUser.DBGetIntervalsAndBackgrounds(mobile, gameID, variantID, ipAddress);
                 currentUser.validToken = true;
             }
             else
@@ -208,13 +234,14 @@ namespace PlayerElite
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string GetPageAttributes(string mobile, string userToken, string pageName)
+        public string GetPageAttributes(string mobile, string userToken, string pageName, int gameID)
         {
+            string ipAddress = HttpContext.Current.Request.UserHostAddress;
             GetPageAttributesReturn currentUser = new GetPageAttributesReturn();
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBGetPageAttributes(mobile);
+                currentUser.DBGetPageAttributes(mobile, pageName, gameID, ipAddress);
                 currentUser.validToken = true;
             }
             else
@@ -253,7 +280,7 @@ namespace PlayerElite
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBGetGameInfoForPromotion(gameID, gameToken);
+                currentUser.DBGetGameInfoForPromotion(mobile, gameID, gameToken);
                 currentUser.validToken = true;
             }
             else
@@ -303,7 +330,9 @@ namespace PlayerElite
             }
             return new JavaScriptSerializer().Serialize(currentUser);
         }
+        #endregion
 
+        #region My Promotions Screen
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetPromotionsScreenWrapper(string mobile, string userToken)
@@ -399,7 +428,9 @@ namespace PlayerElite
             }
             return new JavaScriptSerializer().Serialize(currentUser);
         }
+        #endregion
 
+        #region My Offers Screen
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetOffersScreenWrapper(string mobile, string userToken)
@@ -475,7 +506,9 @@ namespace PlayerElite
             }
             return new JavaScriptSerializer().Serialize(currentUser);
         }
+        #endregion
 
+        #region My Events Screen
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetEventsScreenWallpaper(string mobile, string userToken)
@@ -570,5 +603,6 @@ namespace PlayerElite
             }
             return new JavaScriptSerializer().Serialize(currentUser);
         }
+        #endregion
     }
 }

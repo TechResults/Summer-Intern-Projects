@@ -12,7 +12,7 @@ using System.Configuration;
 /// Summary description for DataAcess
 /// </summary>
 /// 
-namespace PE.DataAcess
+namespace PE.DataModifier
 {
     class DataAcess
     {
@@ -161,6 +161,7 @@ namespace PE.DataAcess
         }
         #endregion
 
+        #region GetConnection
         /// <summary>
         /// Gets static connection object
         /// </summary>
@@ -169,5 +170,7 @@ namespace PE.DataAcess
         {
             return new SqlConnection(connectionString);
         }
+        #endregion
+
     }
 }

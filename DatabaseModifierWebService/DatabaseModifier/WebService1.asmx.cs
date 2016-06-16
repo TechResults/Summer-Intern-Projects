@@ -466,7 +466,6 @@ namespace DatabaseModifier
             var timeOfStart = getCurrentTime();
 
             bool functionSucess = false;
-            int returnOption = Constants.REGexistingUser;
 
             //Variable to check if user exists and is logged in
             bool loginSucess = false;
