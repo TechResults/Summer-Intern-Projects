@@ -46,7 +46,14 @@ namespace PE.DataReturn
     [Serializable]
     public class Default
     {
-        public bool validToken;
+        private bool _validToken;
+
+        public bool validToken
+        {
+            get { return _validToken; }
+            set { _validToken = value; }
+        }
+
         public bool checkSession(string mobile, string userToken)
         {
             throw new NotImplementedException();
@@ -62,8 +69,20 @@ namespace PE.DataReturn
     [Serializable]
     public class RegisterNewUserResult
     {
-        public bool isRegistered;
-        public bool isLocked;
+        private bool _isRegistered;
+        private bool _isLocked;
+
+        public bool isRegistered
+        {
+            get { return _isRegistered; }
+            set { _isRegistered = value; }
+        }
+
+        public bool isLocked
+        {
+            get { return _isLocked; }
+            set { _isLocked = value; }
+        }
 
         public string DBGetStoredPin(string mobile)
         {
@@ -76,9 +95,41 @@ namespace PE.DataReturn
     [Serializable]
     public class ValidatePhoneRegisteredResult
     {
-        public string userToken;
-        public bool showBalancesNoPin;
-        public bool isRegistered;
+        private string _userToken;
+        private bool _showBalancesNoPin;
+        private bool _isRegistered;
+
+        public string userToken
+        {
+            get { return _userToken; }
+            set { _userToken = value; }
+        }
+
+        public bool ShowBalancesNoPin
+        {
+            get
+            {
+                return _showBalancesNoPin;
+            }
+
+            set
+            {
+                _showBalancesNoPin = value;
+            }
+        }
+
+        public bool IsRegistered
+        {
+            get
+            {
+                return _isRegistered;
+            }
+
+            set
+            {
+                _isRegistered = value;
+            }
+        }
 
         // Generate a one way hash, API does not specify implementation
         public void GenerateOneWayHash()
@@ -98,29 +149,55 @@ namespace PE.DataReturn
     [Serializable]
     public class ShowBalancesOnOpeningScreenResult
     {
-        public bool isValid;
+        private bool _isValid;
+
+        public bool isValid
+        {
+            get { return _isValid; }
+            set { _isValid = value; }
+        }
+
         public void DBGetAccountBalancesSet(string mobile)
         {
             throw new NotImplementedException();
         }
 
-        public Account[] AccountBalances;
+        private List<Account> AccountBalances;
 
+        private class Account
+        {
+            private string _accountName;
+            public string accountName
+            {
+                get { return _accountName; }
+                set { _accountName = value; }
+            }
+            private string _accountBalance;
+            public string accountBalance
+            {
+                get { return _accountBalance;  }
+                set { _accountBalance = value; }
+            }
+        }
     }
 
-    [Serializable]
-    public class Account
-    {
-        public string accountName;
-        public string accountBalance;
-    }
     
-
     [Serializable]
     public class ValidateUserReturn
     {
-        public bool isValid;
-        public string userToken;
+        private bool _isValid;
+        private string _userToken;
+
+        public bool isValid
+        {
+            get { return _isValid; }
+            set { _isValid = value; }
+        }
+        public string userToken
+        {
+            get { return _userToken; }
+            set { _userToken = value; }
+        }
         public string DBGetStoredPin(string mobile)
         {
             throw new NotImplementedException();
@@ -136,7 +213,12 @@ namespace PE.DataReturn
     [Serializable]
     public class LoadLogoReturn : Default
     {
-        public byte[] logo;
+        private byte[] _logo;
+        public byte[] logo
+        {
+            get { return _logo; }
+            set { _logo = value; }
+        }
         //Gets the current logo link from the server (could also be binary)
         public void DBGetLogo()
         {
@@ -150,15 +232,132 @@ namespace PE.DataReturn
     [Serializable]
     public class GetPlayerGeneralInfoReturn : Default
     {
-        public string callToActionCaption;
-        public string callToActionText;
-        public bool callToActionIsScrolling;
-        public string customerName;
-        public string customerNumber;
-        public string customerTierLevelText;
-        public string customerAspirationalText;
-        public string customerAwardCaption;
-        public string customerAwardText;
+        private string callToActionCaption;
+        private string callToActionText;
+        private bool callToActionIsScrolling;
+        private string customerName;
+        private string customerNumber;
+        private string customerTierLevelText;
+        private string customerAspirationalText;
+        private string customerAwardCaption;
+        private string customerAwardText;
+
+        public string CallToActionCaption
+        {
+            get
+            {
+                return callToActionCaption;
+            }
+
+            set
+            {
+                callToActionCaption = value;
+            }
+        }
+
+        public string CallToActionText
+        {
+            get
+            {
+                return callToActionText;
+            }
+
+            set
+            {
+                callToActionText = value;
+            }
+        }
+
+        public bool CallToActionIsScrolling
+        {
+            get
+            {
+                return callToActionIsScrolling;
+            }
+
+            set
+            {
+                callToActionIsScrolling = value;
+            }
+        }
+
+        public string CustomerName
+        {
+            get
+            {
+                return customerName;
+            }
+
+            set
+            {
+                customerName = value;
+            }
+        }
+
+        public string CustomerNumber
+        {
+            get
+            {
+                return customerNumber;
+            }
+
+            set
+            {
+                customerNumber = value;
+            }
+        }
+
+        public string CustomerTierLevelText
+        {
+            get
+            {
+                return customerTierLevelText;
+            }
+
+            set
+            {
+                customerTierLevelText = value;
+            }
+        }
+
+        public string CustomerAspirationalText
+        {
+            get
+            {
+                return customerAspirationalText;
+            }
+
+            set
+            {
+                customerAspirationalText = value;
+            }
+        }
+
+        public string CustomerAwardCaption
+        {
+            get
+            {
+                return customerAwardCaption;
+            }
+
+            set
+            {
+                customerAwardCaption = value;
+            }
+        }
+
+        public string CustomerAwardText
+        {
+            get
+            {
+                return customerAwardText;
+            }
+
+            set
+            {
+                customerAwardText = value;
+            }
+        }
 
         public void DBGetPlayerInfo(string mobile)
         {
@@ -170,7 +369,39 @@ namespace PE.DataReturn
     [Serializable]
     public class GetPlayerPointBucketDetailsReturn : Default
     {
-        public Bucket[] customerPointBuckets;
+        private List<Bucket> customerPointBuckets;
+
+        public class Bucket
+        {
+            private string bucketCaption;
+            private Int32 bucketPointsValue;
+
+            public string BucketCaption
+            {
+                get
+                {
+                    return bucketCaption;
+                }
+
+                set
+                {
+                    bucketCaption = value;
+                }
+            }
+
+            public int BucketPointsValue
+            {
+                get
+                {
+                    return bucketPointsValue;
+                }
+
+                set
+                {
+                    bucketPointsValue = value;
+                }
+            }
+        }
 
         //Get a set of buckets from SQL DB
         public void DBGetPointsBucket(string mobile)
@@ -181,17 +412,37 @@ namespace PE.DataReturn
     }
 
     [Serializable]
-    public class Bucket
-    {
-        string bucketCaption;
-        Int32 bucketPointsValue;
-    }
-
-    [Serializable]
     public class GetPlayerCardImageDetailsReturn : Default
     {
-        public string playerCardImageFrontLink;
-        public string playerCardImageBackLink;
+        private byte[] _playerCardImageFront;
+        private byte[] _playerCardImageBack;
+
+        public byte[] PlayerCardImageFront
+        {
+            get
+            {
+                return _playerCardImageFront;
+            }
+
+            set
+            {
+                _playerCardImageFront = value;
+            }
+        }
+
+        public byte[] PlayerCardImageBack
+        {
+            get
+            {
+                return _playerCardImageBack;
+            }
+
+            set
+            {
+                _playerCardImageBack = value;
+            }
+        }
+
         //GetPlayerCard details from the SQL DB
         public void DBGetPlayerCardImage(string mobile)
         {
@@ -205,10 +456,97 @@ namespace PE.DataReturn
     //TODO: Make sure foreach / for work correctly. Need to attempt to run DB GET functions at some point
     public class GetGamesScreenWrapperReturn : Default
     {
-        public string headerCaption;
-        public string headerData;
-        public List<Game> Games;
-        public List<long> PromotionID;
+        private class Game
+        {
+            private string gameID;
+            private string gameName;
+            private string gameDescription;
+            private byte[] gameIcon;
+            private string buttonDescription;
+            private bool isButtonEnabled;
+
+            public string GameID
+            {
+                get
+                {
+                    return gameID;
+                }
+
+                set
+                {
+                    gameID = value;
+                }
+            }
+
+            public string GameName
+            {
+                get
+                {
+                    return gameName;
+                }
+
+                set
+                {
+                    gameName = value;
+                }
+            }
+
+            public string GameDescription
+            {
+                get
+                {
+                    return gameDescription;
+                }
+
+                set
+                {
+                    gameDescription = value;
+                }
+            }
+
+            public byte[] GameIcon
+            {
+                get
+                {
+                    return gameIcon;
+                }
+
+                set
+                {
+                    gameIcon = value;
+                }
+            }
+
+            public string ButtonDescription
+            {
+                get
+                {
+                    return buttonDescription;
+                }
+
+                set
+                {
+                    buttonDescription = value;
+                }
+            }
+
+            public bool IsButtonEnabled
+            {
+                get
+                {
+                    return isButtonEnabled;
+                }
+
+                set
+                {
+                    isButtonEnabled = value;
+                }
+            }
+        }
+        private string headerCaption;
+        private string headerData;
+        private List<Game> Games;
+        private List<long> PromotionID;
         private void RemoveData()
         {
             headerCaption = null;
@@ -217,79 +555,87 @@ namespace PE.DataReturn
             PromotionID = null;
         }
         //SQL DB Function to get games wrapper from DB
-        public void DBGetGamesScreenWrapper(string mobile, string ipAddress)
+        public void DBGetGamesScreenWrapper(string mobile)
         {
-            
-            string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
-            DataSet result = new DataSet();
-            List<SqlParameter> spParams = new List<SqlParameter>();
-            spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
-            result = DataAcess.ExecuteQuerySP("PEC.PROMOTION_ID_GetByCMSPlayerID", spParams);
-
-          
-            if (result.Tables[0].Rows.Count > 0)
+            try
             {
-                
-                for (int i = 0; i < result.Tables[0].Rows.Count; i++)
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+
+                // TODO: SP for header
+                DataSet headerDS = new DataSet();
+                List<SqlParameter> headerParams = new List<SqlParameter>();
+                headerParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                headerDS = DataAcess.ExecuteQuerySP("PEC.", headerParams);
+
+                if(headerDS.Tables[0].Rows.Count > 0)
                 {
-                    PromotionID.Add(Int64.Parse(result.Tables[0].Rows[i]["PromotionID"].ToString()));
+                    headerCaption = headerDS.Tables[0].Rows[0]["HeaderCaption"].ToString();
+                    headerData = headerDS.Tables[0].Rows[0]["HeaderData"].ToString();
                 }
-                foreach (long ID in PromotionID)
+
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                result = DataAcess.ExecuteQuerySP("PEC.PROMOTION_ID_GetByCMSPlayerID", spParams);
+
+
+                if (result.Tables[0].Rows.Count > 0)
                 {
-                    //GET Game Attributes from GD_PROMOtionGames
-                    DataSet ds = new DataSet();
-                    List<SqlParameter> gameParams = new List<SqlParameter>();
-                    gameParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
-                    gameParams.Add(new SqlParameter("@PromotionID", ID));
-                    gameParams.Add(new SqlParameter("@IPAddress", ipAddress));
 
-                    ds = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_WRAPPER_GetByPromotionID", gameParams);
-
-                    DataSet imageSet = new DataSet();
-                    if (ds.Tables[0].Rows.Count > 0)
+                    for (int i = 0; i < result.Tables[0].Rows.Count; i++)
                     {
-                        Game newGame = new Game();
-                        newGame.gameID = ds.Tables[0].Rows[0]["GameID"].ToString();
-                        newGame.gameName = ds.Tables[0].Rows[0]["GameName"].ToString();
-                        newGame.gameDescription = ds.Tables[0].Rows[0]["GameDescription"].ToString();
-                        newGame.buttonDescription = ds.Tables[0].Rows[0]["ButtonDesc"].ToString();
-                        newGame.isButtonEnabled = Convert.ToBoolean(ds.Tables[0].Rows[0]["isButtonEnabled"].ToString());
-
-                        DataSet imageData = new DataSet();
-                        List<SqlParameter> imageParam = new List<SqlParameter>();
-                        imageParam.Add(new SqlParameter("@PromotionID", ID));
-                        imageData = DataAcess.ExecuteQuerySP("MG_PROMOTION_WRAPPER_ReadGameIcon", imageParam);
-                        if (imageData.Tables[0].Rows.Count > 0)
-                        {
-                            MemoryStream ms = new MemoryStream((byte[])imageData.Tables[0].Rows[0]["promoKioskImage"]);
-                            byte[] bytes = ms.ToArray();
-                            newGame.gameIcon = bytes;
-                        }
-                        else
-                        {
-                            newGame.gameIcon = null;
-                        }
-                        Games.Add(newGame);
+                        PromotionID.Add(Int64.Parse(result.Tables[0].Rows[i]["PromotionID"].ToString()));
                     }
+                    foreach (long ID in PromotionID)
+                    {
+                        //GET Game Attributes from GD_PROMOtionGames
+                        DataSet ds = new DataSet();
+                        List<SqlParameter> gameParams = new List<SqlParameter>();
+                        gameParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                        gameParams.Add(new SqlParameter("@PromotionID", ID));
 
+                        ds = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_WRAPPER_GetByPromotionID", gameParams);
+
+                        DataSet imageSet = new DataSet();
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            Game newGame = new Game();
+                            newGame.GameID = ds.Tables[0].Rows[0]["GameID"].ToString();
+                            newGame.GameName = ds.Tables[0].Rows[0]["GameName"].ToString();
+                            newGame.GameDescription = ds.Tables[0].Rows[0]["GameDescription"].ToString();
+                            newGame.ButtonDescription = ds.Tables[0].Rows[0]["ButtonDesc"].ToString();
+                            newGame.IsButtonEnabled = Convert.ToBoolean(ds.Tables[0].Rows[0]["isButtonEnabled"].ToString());
+
+                            DataSet imageData = new DataSet();
+                            List<SqlParameter> imageParam = new List<SqlParameter>();
+                            imageParam.Add(new SqlParameter("@PromotionID", ID));
+                            imageData = DataAcess.ExecuteQuerySP("MG_PROMOTION_WRAPPER_ReadGameIcon", imageParam);
+                            if (imageData.Tables[0].Rows.Count > 0)
+                            {
+                                MemoryStream ms = new MemoryStream((byte[])imageData.Tables[0].Rows[0]["promoKioskImage"]);
+                                byte[] bytes = ms.ToArray();
+                                newGame.GameIcon = bytes;
+                            }
+                            else
+                            {
+                                newGame.GameIcon = null;
+                            }
+                            Games.Add(newGame);
+                        }
+
+                    }
                 }
             }
-            else
+
+            catch(SqlException ex)
             {
                 RemoveData();
+                string errorMessage = ex.Message;
             }
+            
         }
     }
-    [Serializable]
-    public class Game
-    {
-        public string gameID;
-        public string gameName;
-        public string gameDescription;
-        public byte[] gameIcon;
-        public string buttonDescription;
-        public bool isButtonEnabled;
-    }
+
 
 
     // Lars: Where should i be looking for AttributeBinaryValue? Would I just select all 'image' from AttributeName and store the
@@ -299,39 +645,140 @@ namespace PE.DataReturn
     [Serializable]
     public class GetIntervalsAndBackgroundsReturn : Default
     {
-        public List<AttributeInfo> Attributes;
+        private List<AttributeInfo> Attributes;
         private void RemoveData()
         {
             Attributes = null;
         }
 
-        public void DBGetIntervalsAndBackgrounds(string mobile, int gameID, int variantID, string IPAddress)
+        private class AttributeInfo
         {
+            private string gameName;
+            private string pageName;
+            private string typeName;
+            private string objectName;
+            private string attributeName;
+            private string attributeValue;
+            private byte[] attributeBinaryValue;
 
+            public string GameName
+            {
+                get
+                {
+                    return gameName;
+                }
+
+                set
+                {
+                    gameName = value;
+                }
+            }
+
+            public string PageName
+            {
+                get
+                {
+                    return pageName;
+                }
+
+                set
+                {
+                    pageName = value;
+                }
+            }
+
+            public string TypeName
+            {
+                get
+                {
+                    return typeName;
+                }
+
+                set
+                {
+                    typeName = value;
+                }
+            }
+
+            public string ObjectName
+            {
+                get
+                {
+                    return objectName;
+                }
+
+                set
+                {
+                    objectName = value;
+                }
+            }
+
+            public string AttributeName
+            {
+                get
+                {
+                    return attributeName;
+                }
+
+                set
+                {
+                    attributeName = value;
+                }
+            }
+
+            public string AttributeValue
+            {
+                get
+                {
+                    return attributeValue;
+                }
+
+                set
+                {
+                    attributeValue = value;
+                }
+            }
+
+            public byte[] AttributeBinaryValue
+            {
+                get
+                {
+                    return attributeBinaryValue;
+                }
+
+                set
+                {
+                    attributeBinaryValue = value;
+                }
+            }
+        }
+
+        // TODO: Binary Data for background
+        // LARS: What is the binary data I'm looking for here? Not sure based on API Doc
+        public void DBGetIntervalsAndBackgrounds(string mobile, int gameID, int variantID)
+        {
             string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+
             DataSet result = new DataSet();
             List<SqlParameter> spParams = new List<SqlParameter>();
             spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
             spParams.Add(new SqlParameter("@GameID", gameID));
             spParams.Add(new SqlParameter("@VariantID", variantID));
-            spParams.Add(new SqlParameter("@IPAddress", IPAddress));
 
             result = DataAcess.ExecuteQuerySP("MG_PROMOTION_BACKGROUND_GetByGameID", spParams);
 
-            if(result.Tables[0].Rows.Count > 0)
+            if (result.Tables[0].Rows.Count > 0)
             {
                 for (int j = 0; j < result.Tables[0].Rows.Count; j++)
                 {
                     AttributeInfo gameAttributes = new AttributeInfo();
-                    gameAttributes.gameName = result.Tables[0].Rows[j]["gameName"].ToString();
-                    gameAttributes.pageName = result.Tables[0].Rows[j]["pageName"].ToString();
-                    gameAttributes.typeName = result.Tables[0].Rows[j]["typename"].ToString();
-                    gameAttributes.objectName = result.Tables[0].Rows[j]["objectName"].ToString();
-                    gameAttributes.attributeName = result.Tables[0].Rows[j]["attributeName"].ToString();
-                    gameAttributes.attributeValue = result.Tables[0].Rows[j]["attributeValue"].ToString();
+                    gameAttributes.GameName = result.Tables[0].Rows[j]["gameName"].ToString();
+                    gameAttributes.PageName = result.Tables[0].Rows[j]["pageName"].ToString();
+                    gameAttributes.TypeName = result.Tables[0].Rows[j]["typename"].ToString();
+                    gameAttributes.ObjectName = result.Tables[0].Rows[j]["objectName"].ToString();
+                    gameAttributes.AttributeName = result.Tables[0].Rows[j]["attributeName"].ToString();
+                    gameAttributes.AttributeValue = result.Tables[0].Rows[j]["attributeValue"].ToString();
 
-
-                    // TODO: See above for LK check
                     DataSet binaryData = new DataSet();
                     List<SqlParameter> binaryParams = new List<SqlParameter>();
                     binaryParams.Add(new SqlParameter("@GameID", gameID));
@@ -343,11 +790,11 @@ namespace PE.DataReturn
                     {
                         MemoryStream ms = new MemoryStream((byte[])binaryData.Tables[0].Rows[0]["attributeBinaryData"]);
                         byte[] bytes = ms.ToArray();
-                        gameAttributes.attributeBinaryValue = bytes;
+                        gameAttributes.AttributeBinaryValue = bytes;
                     }
                     else
                     {
-                        gameAttributes.attributeBinaryValue = null;
+                        gameAttributes.AttributeBinaryValue = null;
                     }
                     Attributes.Add(gameAttributes);
                 }
@@ -359,208 +806,805 @@ namespace PE.DataReturn
             }
         }
     }
-    [Serializable]
-    public class AttributeInfo
-    {
-        public string gameName;
-        public string pageName;
-        public string typeName;
-        public string objectName;
-        public string attributeName;
-        public string attributeValue;
-        public byte[] attributeBinaryValue;
-    }
-
+   
+    // TODO
     [Serializable]
     public class GetPageAttributesReturn : Default
     {
-        public string gameName;
-        public string pageName;
-        public string caption;
-        public List<Attributes> listAttributes;
+        private string gameName;
+        private string pageName;
+        private string caption;
+        private List<Attributes> listAttributes;
+
+        private class Attributes
+        {
+            private string typeName;
+            private string objectName;
+            private string attributeName;
+            private string attributeValue;
+            private byte[] attributeValueBinary;
+
+            public string TypeName
+            {
+                get
+                {
+                    return typeName;
+                }
+
+                set
+                {
+                    typeName = value;
+                }
+            }
+
+            public string ObjectName
+            {
+                get
+                {
+                    return objectName;
+                }
+
+                set
+                {
+                    objectName = value;
+                }
+            }
+
+            public string AttributeName
+            {
+                get
+                {
+                    return attributeName;
+                }
+
+                set
+                {
+                    attributeName = value;
+                }
+            }
+
+            public string AttributeValue
+            {
+                get
+                {
+                    return attributeValue;
+                }
+
+                set
+                {
+                    attributeValue = value;
+                }
+            }
+
+            public byte[] AttributeValueBinary
+            {
+                get
+                {
+                    return attributeValueBinary;
+                }
+
+                set
+                {
+                    attributeValueBinary = value;
+                }
+            }
+        }
+
+
+
+        public string GameName
+        {
+            get
+            {
+                return gameName;
+            }
+
+            set
+            {
+                gameName = value;
+            }
+        }
+
+        public string PageName
+        {
+            get
+            {
+                return pageName;
+            }
+
+            set
+            {
+                pageName = value;
+            }
+        }
+
+        public string Caption
+        {
+            get
+            {
+                return caption;
+            }
+
+            set
+            {
+                caption = value;
+            }
+        }
 
         private void RemoveData()
         {
-            gameName = null;
-            pageName = null;
-            caption = null;
+            GameName = null;
+            PageName = null;
+            Caption = null;
             listAttributes = null;
         }
-
-        public void DBGetPageAttributes(string mobile, string inPageName, int gameID, string IPAddress)
+        
+        // TODO: ADD binary data SP
+        // LARS: Where do I find the binary data for page attributes? Not clear from API DOC
+        public void DBGetPageAttributes(string mobile, string inPageName, int gameID)
         {
-
-            string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
-            DataSet result = new DataSet();
-            List<SqlParameter> spParams = new List<SqlParameter>();
-            spParams.Add(new SqlParameter("@GameID", gameID));
-
-            result = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetGameNameANDCaption_ByGameID", spParams);
-            if(result.Tables[0].Rows.Count > 0)
+            try
             {
-                gameName = result.Tables[0].Rows[0]["GameName"].ToString();
-                pageName = inPageName;
-                caption = result.Tables[0].Rows[0]["Caption"].ToString();
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@GameID", gameID));
 
-                DataSet aR = new DataSet();
-                List<SqlParameter> attParams = new List<SqlParameter>();
-                attParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
-                attParams.Add(new SqlParameter("@GameID", gameID));
-                attParams.Add(new SqlParameter("@IPAddress", IPAddress));
-                attParams.Add(new SqlParameter("@PageName", pageName));
-
-                aR = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetPageAttributes", attParams);
-                
-                if(aR.Tables[0].Rows.Count > 0)
+                result = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetGameNameANDCaption_ByGameID", spParams);
+                if (result.Tables[0].Rows.Count > 0)
                 {
-                    for(int j = 0; j < aR.Tables[0].Rows.Count; j++)
+                    GameName = result.Tables[0].Rows[0]["GameName"].ToString();
+                    PageName = inPageName;
+                    Caption = result.Tables[0].Rows[0]["Caption"].ToString();
+
+                    DataSet aR = new DataSet();
+                    List<SqlParameter> attParams = new List<SqlParameter>();
+                    attParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                    attParams.Add(new SqlParameter("@GameID", gameID));
+                    attParams.Add(new SqlParameter("@PageName", PageName));
+
+                    aR = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_GetPageAttributes", attParams);
+
+                    if (aR.Tables[0].Rows.Count > 0)
                     {
-                        Attributes pageAttributes = new Attributes();
-                        pageAttributes.typeName = aR.Tables[0].Rows[j]["TypeName"].ToString();
-                        pageAttributes.objectName = aR.Tables[0].Rows[j]["ObjectName"].ToString();
-                        pageAttributes.attributeName = aR.Tables[0].Rows[j]["AttributeName"].ToString();
-                        pageAttributes.attributeValue = aR.Tables[0].Rows[j]["AttributeValue"].ToString();
-
-
-                        DataSet binaryData = new DataSet();
-                        List<SqlParameter> binaryParams = new List<SqlParameter>();
-                        binaryParams.Add(new SqlParameter("@GameID", gameID));
-                        binaryParams.Add(new SqlParameter("@PageName", pageName));
-
-                        binaryData = DataAcess.ExecuteQuerySP("TODO", binaryParams);
-
-                        if (binaryData.Tables[0].Rows.Count > 0)
+                        for (int j = 0; j < aR.Tables[0].Rows.Count; j++)
                         {
-                            MemoryStream ms = new MemoryStream((byte[])binaryData.Tables[0].Rows[0]["attributeBinaryData"]);
-                            byte[] bytes = ms.ToArray();
-                            pageAttributes.attributeValueBinary = bytes;
+                            Attributes pageAttributes = new Attributes();
+                            pageAttributes.TypeName = aR.Tables[0].Rows[j]["TypeName"].ToString();
+                            pageAttributes.ObjectName = aR.Tables[0].Rows[j]["ObjectName"].ToString();
+                            pageAttributes.AttributeName = aR.Tables[0].Rows[j]["AttributeName"].ToString();
+                            pageAttributes.AttributeValue = aR.Tables[0].Rows[j]["AttributeValue"].ToString();
+
+
+                            DataSet binaryData = new DataSet();
+                            List<SqlParameter> binaryParams = new List<SqlParameter>();
+                            binaryParams.Add(new SqlParameter("@GameID", gameID));
+                            binaryParams.Add(new SqlParameter("@PageName", PageName));
+
+                            binaryData = DataAcess.ExecuteQuerySP("TODO", binaryParams);
+
+                            if (binaryData.Tables[0].Rows.Count > 0)
+                            {
+                                MemoryStream ms = new MemoryStream((byte[])binaryData.Tables[0].Rows[0]["attributeBinaryData"]);
+                                byte[] bytes = ms.ToArray();
+                                pageAttributes.AttributeValueBinary = bytes;
+                            }
+                            else
+                            {
+                                pageAttributes.AttributeValueBinary = null;
+                            }
+
+                            listAttributes.Add(pageAttributes);
                         }
-                        else
-                        {
-                            pageAttributes.attributeValueBinary = null;
-                        } 
 
-                        listAttributes.Add(pageAttributes);
                     }
-                    
+                    //ELSE: There are no attributes for a given pageNumber
+                    else
+                    {
+                        RemoveData();
+                    }
                 }
-                //ELSE: There are no attributes for a given pageNumber
                 else
                 {
                     RemoveData();
                 }
             }
-            else
+
+            catch(SqlException ex)
             {
+                string errorMessage = ex.Message;
                 RemoveData();
             }
+            
         }
-    }
-    [Serializable]
-    public class Attributes
-    {
-        public string typeName;
-        public string objectName;
-        public string attributeName;
-        public string attributeValue;
-        public byte[] attributeValueBinary;
     }
 
     [Serializable]
     public class StartGameReturn : Default
     {
-        public string gameToken;
-        public string startGameCaption;
-        public string startGameText;
+        private string gameToken;
+        private string startGameCaption;
+        private string startGameText;
+
+        public string GameToken
+        {
+            get
+            {
+                return gameToken;
+            }
+
+            set
+            {
+                gameToken = value;
+            }
+        }
+
+        public string StartGameCaption
+        {
+            get
+            {
+                return startGameCaption;
+            }
+
+            set
+            {
+                startGameCaption = value;
+            }
+        }
+
+        public string StartGameText
+        {
+            get
+            {
+                return startGameText;
+            }
+
+            set
+            {
+                startGameText = value;
+            }
+        }
 
         private void RemoveData()
         {
-            gameToken = null;
-            startGameCaption = null;
-            startGameText = null;
+            GameToken = null;
+            StartGameCaption = null;
+            StartGameText = null;
         }
 
-        public void DBStartGame(int gameID, string IPAddress)
+        public void DBStartGame(string mobile, int gameID, long PromotionID)
         {
-            StartGameReturn data = new StartGameReturn();
-            DataSet result = new DataSet();
-            List<SqlParameter> spParams = new List<SqlParameter>();
 
-            RemoveData();
-            
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                StartGameReturn data = new StartGameReturn();
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@GameID", gameID));
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@PromotionID", PromotionID));
+                result = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTION_StartGame", spParams);
+
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    GameToken = result.Tables[0].Rows[0]["GameToken"].ToString();
+                    StartGameCaption = result.Tables[0].Rows[0]["StartGameCaption"].ToString();
+                    StartGameText = result.Tables[0].Rows[0]["StartGameText"].ToString();
+                }
+                else
+                {
+                    RemoveData();
+                }
+            }
+
+            catch(SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
     }
 
     [Serializable]
     public class GetGameInfoForPromotionReturn : Default
     {
-        public int variantID;
-        public string gameNameForDisplay;
-        public string playInstructions;
-        public string gameType;
-        public GameObject[] GameObjects;
+        private int variantID;
+        private string gameNameForDisplay;
+        private string playInstructions;
+        private string gameType;
+        private List<GameObject> GameObjects;
+
+        public int VariantID
+        {
+            get
+            {
+                return variantID;
+            }
+
+            set
+            {
+                variantID = value;
+            }
+        }
+
+        public string GameNameForDisplay
+        {
+            get
+            {
+                return gameNameForDisplay;
+            }
+
+            set
+            {
+                gameNameForDisplay = value;
+            }
+        }
+
+        public string PlayInstructions
+        {
+            get
+            {
+                return playInstructions;
+            }
+
+            set
+            {
+                playInstructions = value;
+            }
+        }
+
+        public string GameType
+        {
+            get
+            {
+                return gameType;
+            }
+
+            set
+            {
+                gameType = value;
+            }
+        }
+
+        private void RemoveData()
+        {
+            VariantID = -1;
+            GameNameForDisplay = null;
+            PlayInstructions = null;
+            GameType = null;
+            GameObjects = null;
+        }
+
+        private class GameObject
+        {
+            private string objectName;
+            private int objectID;
+            private string gOAttributeName;
+            private string gOAttributeValue;
+            private byte[] gOAttributeValueBinary;
+            #region publics
+            public string ObjectName
+            {
+                get
+                {
+                    return objectName;
+                }
+
+                set
+                {
+                    objectName = value;
+                }
+            }
+
+            public int ObjectID
+            {
+                get
+                {
+                    return objectID;
+                }
+
+                set
+                {
+                    objectID = value;
+                }
+            }
+
+            public string GOAttributeName
+            {
+                get
+                {
+                    return gOAttributeName;
+                }
+
+                set
+                {
+                    gOAttributeName = value;
+                }
+            }
+
+            public string GOAttributeValue
+            {
+                get
+                {
+                    return gOAttributeValue;
+                }
+
+                set
+                {
+                    gOAttributeValue = value;
+                }
+            }
+
+            public byte[] GOAttributeValueBinary
+            {
+                get
+                {
+                    return gOAttributeValueBinary;
+                }
+
+                set
+                {
+                    gOAttributeValueBinary = value;
+                }
+            }
+            #endregion 
+        }
 
         public void DBGetGameInfoForPromotion(string mobile, int gameID, string gameToken)
         {
-            if(gameID == 0 || gameToken == null)
+            if(gameID < 0 || gameToken == null)
             {
                 throw new WrongParamsError();
             }
             else
             {
-                DataSet result = new DataSet();
-                List<SqlParameter> spParams = new List<SqlParameter>();
-                spParams.Add(new SqlParameter("@Mobile", mobile));
-                spParams.Add(new SqlParameter("@GameID", gameID));
-                spParams.Add(new SqlParameter("@GameToken", gameToken));
-                result = DataAcess.ExecuteQuerySP(StoredProcedure.GetGameInfoForPromotion, spParams);
-                gameNameForDisplay = result.Tables[0].Rows[0]["GameName"].ToString();
-                playInstructions = result.Tables[0].Rows[0]["PlayInstructions"].ToString();
-                gameType = result.Tables[0].Rows[0]["GameType"].ToString();
+                try
+                {
+                    string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+
+                    DataSet result = new DataSet();
+                    List<SqlParameter> spParams = new List<SqlParameter>();
+                    spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                    spParams.Add(new SqlParameter("@GameID", gameID));
+                    spParams.Add(new SqlParameter("@GameToken", gameToken));
+                    
+
+                    result = DataAcess.ExecuteQuerySP("PEC.MG_", spParams);
+                    if(result.Tables[0].Rows.Count > 0)
+                    {
+                        variantID = Convert.ToInt32(result.Tables[0].Rows[0]["VariantID"].ToString());
+                        gameNameForDisplay = result.Tables[0].Rows[0]["GameName"].ToString();
+                        playInstructions = result.Tables[0].Rows[0]["PlayInstructions"].ToString();
+                        gameType = result.Tables[0].Rows[0]["GameType"].ToString();
+
+
+
+                        DataSet gameDS = new DataSet();
+                        List<SqlParameter> gParams = new List<SqlParameter>();
+                        gParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                        gParams.Add(new SqlParameter("@GameID", gameID));
+                        gParams.Add(new SqlParameter("@VariantID", variantID));
+
+                        gameDS = DataAcess.ExecuteQuerySP("PEC.MG_PROMOTIONS_GetGameObjects", gParams);
+
+                        for(int i = 0; i < gameDS.Tables[0].Rows.Count; i++)
+                        {
+                            GameObject newObject = new GameObject();
+                            newObject.ObjectName = gameDS.Tables[0].Rows[i]["ObjectName"].ToString();
+                            newObject.ObjectID = Convert.ToInt32(gameDS.Tables[0].Rows[i]["ObjectID"].ToString());
+                            newObject.GOAttributeName = gameDS.Tables[0].Rows[i]["AttributeName"].ToString();
+                            newObject.GOAttributeValue = gameDS.Tables[0].Rows[i]["AttributeValue"].ToString();
+
+                            DataSet imageData = new DataSet();
+                            List<SqlParameter> imageParam = new List<SqlParameter>();
+                            imageParam.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                            imageParam.Add(new SqlParameter("@GameID", gameID));
+                            imageParam.Add(new SqlParameter("@VariantID", variantID));
+
+                            imageData = DataAcess.ExecuteQuerySP("MG_PROMOTION_GameObjectGetImage", imageParam);
+                            if (imageData.Tables[0].Rows.Count > 0)
+                            {
+                                MemoryStream ms = new MemoryStream((byte[])imageData.Tables[0].Rows[0]["GameObjectAttributeBinary"]);
+                                byte[] bytes = ms.ToArray();
+                                newObject.GOAttributeValueBinary = bytes;
+                            }
+                            else
+                            {
+                                newObject.GOAttributeValueBinary = null;
+                            }
+                            GameObjects.Add(newObject);
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("No data");
+                    }
+                }
+                
+                catch (Exception)
+                {
+                    RemoveData();
+                }
             }
         }
-    }
-    [Serializable]
-    public class GameObject
-    {
-        public string objectName;
-        public int objectID;
-        public string GOAttributeName;
-        public string GOAttributeValue;
-        public string GOAttributeValueBinary;
     }
 
     [Serializable]
     public class SaveWinInfoReturn : Default
     {
-        public string gameNameForDisplay;
-        public string closingCaption;
-        public string prizePickUpDescription;
-        public string callToActionCaption;
-        public string callToActionText;
-        public string callToActionScrolling;
+        private string gameNameForDisplay;
+        private string closingCaption;
+        private string prizePickUpDescription;
+        private string callToActionCaption;
+        private string callToActionText;
+        private bool callToActionIsScrolling;
+
+        #region publics
+        public string GameNameForDisplay
+        {
+            get
+            {
+                return gameNameForDisplay;
+            }
+
+            set
+            {
+                gameNameForDisplay = value;
+            }
+        }
+
+        public string ClosingCaption
+        {
+            get
+            {
+                return closingCaption;
+            }
+
+            set
+            {
+                closingCaption = value;
+            }
+        }
+
+        public string PrizePickUpDescription
+        {
+            get
+            {
+                return prizePickUpDescription;
+            }
+
+            set
+            {
+                prizePickUpDescription = value;
+            }
+        }
+
+        public string CallToActionCaption
+        {
+            get
+            {
+                return callToActionCaption;
+            }
+
+            set
+            {
+                callToActionCaption = value;
+            }
+        }
+
+        public string CallToActionText
+        {
+            get
+            {
+                return callToActionText;
+            }
+
+            set
+            {
+                callToActionText = value;
+            }
+        }
+
+        public bool CallToActionIsScrolling
+        {
+            get
+            {
+                return callToActionIsScrolling;
+            }
+
+            set
+            {
+                callToActionIsScrolling = value;
+            }
+        }
+        #endregion
+
+        private void RemoveData()
+        {
+            GameNameForDisplay = null;
+            ClosingCaption = null;
+            PrizePickUpDescription = null;
+            CallToActionCaption = null;
+            CallToActionText = null;
+            CallToActionIsScrolling = false;
+        }
 
         //Convert parameters into object, save to database, and return object
-        public void DBSaveWinInfo(string mobile, string userToken, int gameID, string gameToken, string objectsSelected)
+        public void DBSaveWinInfo(string mobile, int gameID, string gameToken, string objectsSelected)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@GameID", gameID));
+                spParams.Add(new SqlParameter("@GameToken", gameToken));
+                spParams.Add(new SqlParameter("@ObjectsSelected", objectsSelected));
+
+                result = DataAcess.ExecuteQuerySP(StoredProcedure.GetGameInfoForPromotion, spParams);
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    GameNameForDisplay = result.Tables[0].Rows[0]["GameName"].ToString();
+                    ClosingCaption = result.Tables[0].Rows[0]["ClosingCaption"].ToString();
+                    PrizePickUpDescription = result.Tables[0].Rows[0]["PrizePickupDescription"].ToString();
+                    CallToActionCaption = result.Tables[0].Rows[0]["CallToActionCaption"].ToString();
+                    CallToActionText = result.Tables[0].Rows[0]["CallToActionText"].ToString();
+                    CallToActionIsScrolling = Convert.ToBoolean(result.Tables[0].Rows[0]["CallToActionScrolling"].ToString());
+                }
+                else
+                {
+                    throw new Exception("DBSaveWinInfo Failed");
+                }
+            }
+
+            catch(SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
+            
+
         }
     }
 
     [Serializable]
     public class SaveLoseInfoReturn : Default
     {
-        public string gameNameForDisplay;
-        public string closingCaption;
-        public string closingText;
-        public string callToActionCaption;
-        public string callToActionText;
-        public string callToActionScrolling;
+        private string gameNameForDisplay;
+        private string closingCaption;
+        private string closingText;
+        private string callToActionCaption;
+        private string callToActionText;
+        private bool callToActionIsScrolling;
 
-        //Convert parameters to object, save to DB, return object
-        public void DBSaveLoseInfo(string mobile, string userToken, int gameID, string gameToken, string objectsSelected)
+        #region public
+        public string GameNameForDisplay
         {
-            throw new NotImplementedException();
+            get
+            {
+                return gameNameForDisplay;
+            }
+
+            set
+            {
+                gameNameForDisplay = value;
+            }
+        }
+
+        public string ClosingCaption
+        {
+            get
+            {
+                return closingCaption;
+            }
+
+            set
+            {
+                closingCaption = value;
+            }
+        }
+
+        public string ClosingText
+        {
+            get
+            {
+                return closingText;
+            }
+
+            set
+            {
+                closingText = value;
+            }
+        }
+
+        public string CallToActionCaption
+        {
+            get
+            {
+                return callToActionCaption;
+            }
+
+            set
+            {
+                callToActionCaption = value;
+            }
+        }
+
+        public string CallToActionText
+        {
+            get
+            {
+                return callToActionText;
+            }
+
+            set
+            {
+                callToActionText = value;
+            }
+        }
+
+        public bool CallToActionIsScrolling
+        {
+            get
+            {
+                return callToActionIsScrolling;
+            }
+
+            set
+            {
+                callToActionIsScrolling = value;
+            }
+        }
+        #endregion
+
+        private void RemoveData()
+        {
+            gameNameForDisplay = null;
+            closingCaption = null;
+            callToActionCaption = null;
+            callToActionText = null;
+            callToActionIsScrolling = false;
+        }
+        //Convert parameters to object, save to DB, return object
+        public void DBSaveLoseInfo(string mobile, int gameID, string gameToken, string objectsSelected)
+        {
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", mobile));
+                spParams.Add(new SqlParameter("@GameID", gameID));
+                spParams.Add(new SqlParameter("@GameToken", gameToken));
+                spParams.Add(new SqlParameter("@ObjectsSelected", objectsSelected));
+
+                result = DataAcess.ExecuteQuerySP(StoredProcedure.GetGameInfoForPromotion, spParams);
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    GameNameForDisplay = result.Tables[0].Rows[0]["GameName"].ToString();
+                    ClosingCaption = result.Tables[0].Rows[0]["ClosingCaption"].ToString();
+                    ClosingText = result.Tables[0].Rows[0]["ClosingText"].ToString();
+                    CallToActionCaption = result.Tables[0].Rows[0]["CallToActionCaption"].ToString();
+                    CallToActionText = result.Tables[0].Rows[0]["CallToActionText"].ToString();
+                    CallToActionIsScrolling = Convert.ToBoolean(result.Tables[0].Rows[0]["CallToActionScrolling"].ToString());
+                }
+                else
+                {
+                    throw new Exception("DBSaveWinInfo Failed");
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
+
+
         }
     }
     #endregion
@@ -569,71 +1613,689 @@ namespace PE.DataReturn
     [Serializable]
     public class GetPromotionsScreenWrapperReturn : Default
     {
-        public string line1Caption;
-        public string line1Data;
-        public string line2Caption;
-        public string line2Data;
-        public PromoButton[] buttons;
+        private string line1Caption;
+        private string line1Data;
+        private string line2Caption;
+        private string line2Data;
+        private List<PromoButton> buttons;
+        #region publics
+        public string Line1Caption
+        {
+            get
+            {
+                return line1Caption;
+            }
 
+            set
+            {
+                line1Caption = value;
+            }
+        }
+
+        public string Line1Data
+        {
+            get
+            {
+                return line1Data;
+            }
+
+            set
+            {
+                line1Data = value;
+            }
+        }
+
+        public string Line2Caption
+        {
+            get
+            {
+                return line2Caption;
+            }
+
+            set
+            {
+                line2Caption = value;
+            }
+        }
+
+        public string Line2Data
+        {
+            get
+            {
+                return line2Data;
+            }
+
+            set
+            {
+                line2Data = value;
+            }
+        }
+
+        public List<PromoButton> Buttons
+        {
+            get
+            {
+                return buttons;
+            }
+
+            set
+            {
+                buttons = value;
+            }
+        }
+        #endregion
+
+        public class PromoButton
+        {
+            private string buttonCaption;
+            private int buttonOrdPos;
+
+            public string ButtonCaption
+            {
+                get
+                {
+                    return buttonCaption;
+                }
+
+                set
+                {
+                    buttonCaption = value;
+                }
+            }
+
+            public int ButtonOrdPos
+            {
+                get
+                {
+                    return buttonOrdPos;
+                }
+
+                set
+                {
+                    buttonOrdPos = value;
+                }
+            }
+        }
+
+        private void RemoveData()
+        {
+            Line1Caption = null;
+            Line2Caption = null;
+            Line1Data = null;
+            Line2Data = null;
+            Buttons = null;
+
+        }
         //DB Get Promotions Screen Wrapper from SQL Server
         public void DBGetPromotionsScreenWrapperReturn(string mobile)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                result = DataAcess.ExecuteQuerySP("PEC.PROMOTIONS_GetWrapper", spParams);
+
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    Line1Caption = result.Tables[0].Rows[0]["Line1Caption"].ToString();
+                    Line1Data = result.Tables[0].Rows[0]["Line1Data"].ToString();
+                    Line2Caption = result.Tables[0].Rows[0]["Line2Caption"].ToString();
+                    Line2Data = result.Tables[0].Rows[0]["Line2Data"].ToString();
+
+                    DataSet buttonDS = new DataSet();
+                    List<SqlParameter> buttonParams = new List<SqlParameter>();
+                    buttonParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                    buttonDS = DataAcess.ExecuteQuerySP("PEC.PROMOTIONS_WrapperButtons", buttonParams);
+
+                    if (buttonDS.Tables[0].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < buttonDS.Tables[0].Rows.Count; i++)
+                        {
+                            PromoButton newButton = new PromoButton();
+                            newButton.ButtonCaption = buttonDS.Tables[0].Rows[i]["ButtonCaption"].ToString();
+                            newButton.ButtonOrdPos = Convert.ToInt32(buttonDS.Tables[0].Rows[i]["ButtonOrdPos"].ToString());
+                            Buttons.Add(newButton);
+                        }
+                    }
+                    else
+                    {
+                        RemoveData();
+                    }
+                }
+                else
+                {
+                    RemoveData();
+                }
+            }
+
+
+
+            catch (SqlException ex)
+            {
+                RemoveData();
+                string errorMessage = ex.Message;
+            }
+
         }
-    }
-    [Serializable]
-    public class PromoButton
-    {
-        public string buttonCaption;
-        public int buttonOrdPos;
     }
 
     [Serializable]
     public class GetPromotionListReturn : Default
     {
-        public Promotion[] promotions;
+        private List<Promotion> promotions;
 
+        public List<Promotion> Promotions
+        {
+            get
+            {
+                return promotions;
+            }
+
+            set
+            {
+                promotions = value;
+            }
+        }
+
+        public class Promotion
+        {
+            private int promotionID;
+            private int promoVersionID;
+            private int gameID;
+            private string promotionName;
+            private DateTime startDate;
+            private DateTime endDate;
+            private bool enrolled;
+            private bool couponsAvaliable;
+            private DateTime nextDrawingDate;
+            private bool checkInAvaliable;
+            private bool freeEntryAvaliable;
+            private bool remoteEntryAvaliable;
+            private int pointsToDate;
+            private int entriesToDate;
+            private int pointsPerEntry;
+            private int todaysPoint;
+            private int dailyEntryLImit;
+            private string thresholdType;
+            private int thresholdPoints;
+            private string prizeName;
+            private bool thresholdReached;
+            private bool prizeClaimed;
+            private bool gameAvaliable;
+            private string checkInStatusMessage;
+            private bool raffleAvaliable;
+            private List<RaffleTicketList> raffleTickets;
+            private byte[] promotionImage;
+
+            public int PromotionID
+            {
+                get
+                {
+                    return promotionID;
+                }
+
+                set
+                {
+                    promotionID = value;
+                }
+            }
+
+            public int PromoVersionID
+            {
+                get
+                {
+                    return promoVersionID;
+                }
+
+                set
+                {
+                    promoVersionID = value;
+                }
+            }
+
+            public int GameID
+            {
+                get
+                {
+                    return gameID;
+                }
+
+                set
+                {
+                    gameID = value;
+                }
+            }
+
+            public string PromotionName
+            {
+                get
+                {
+                    return promotionName;
+                }
+
+                set
+                {
+                    promotionName = value;
+                }
+            }
+
+            public DateTime StartDate
+            {
+                get
+                {
+                    return startDate;
+                }
+
+                set
+                {
+                    startDate = value;
+                }
+            }
+
+            public DateTime EndDate
+            {
+                get
+                {
+                    return endDate;
+                }
+
+                set
+                {
+                    endDate = value;
+                }
+            }
+
+            public bool Enrolled
+            {
+                get
+                {
+                    return enrolled;
+                }
+
+                set
+                {
+                    enrolled = value;
+                }
+            }
+
+            public bool CouponsAvaliable
+            {
+                get
+                {
+                    return couponsAvaliable;
+                }
+
+                set
+                {
+                    couponsAvaliable = value;
+                }
+            }
+
+            public DateTime NextDrawingDate
+            {
+                get
+                {
+                    return nextDrawingDate;
+                }
+
+                set
+                {
+                    nextDrawingDate = value;
+                }
+            }
+
+            public bool CheckInAvaliable
+            {
+                get
+                {
+                    return checkInAvaliable;
+                }
+
+                set
+                {
+                    checkInAvaliable = value;
+                }
+            }
+
+            public bool FreeEntryAvaliable
+            {
+                get
+                {
+                    return freeEntryAvaliable;
+                }
+
+                set
+                {
+                    freeEntryAvaliable = value;
+                }
+            }
+
+            public bool RemoteEntryAvaliable
+            {
+                get
+                {
+                    return remoteEntryAvaliable;
+                }
+
+                set
+                {
+                    remoteEntryAvaliable = value;
+                }
+            }
+
+            public int PointsToDate
+            {
+                get
+                {
+                    return pointsToDate;
+                }
+
+                set
+                {
+                    pointsToDate = value;
+                }
+            }
+
+            public int EntriesToDate
+            {
+                get
+                {
+                    return entriesToDate;
+                }
+
+                set
+                {
+                    entriesToDate = value;
+                }
+            }
+
+            public int PointsPerEntry
+            {
+                get
+                {
+                    return pointsPerEntry;
+                }
+
+                set
+                {
+                    pointsPerEntry = value;
+                }
+            }
+
+            public int TodaysPoint
+            {
+                get
+                {
+                    return todaysPoint;
+                }
+
+                set
+                {
+                    todaysPoint = value;
+                }
+            }
+
+            public int DailyEntryLImit
+            {
+                get
+                {
+                    return dailyEntryLImit;
+                }
+
+                set
+                {
+                    dailyEntryLImit = value;
+                }
+            }
+
+            public string ThresholdType
+            {
+                get
+                {
+                    return thresholdType;
+                }
+
+                set
+                {
+                    thresholdType = value;
+                }
+            }
+
+            public int ThresholdPoints
+            {
+                get
+                {
+                    return thresholdPoints;
+                }
+
+                set
+                {
+                    thresholdPoints = value;
+                }
+            }
+
+            public string PrizeName
+            {
+                get
+                {
+                    return prizeName;
+                }
+
+                set
+                {
+                    prizeName = value;
+                }
+            }
+
+            public bool ThresholdReached
+            {
+                get
+                {
+                    return thresholdReached;
+                }
+
+                set
+                {
+                    thresholdReached = value;
+                }
+            }
+
+            public bool PrizeClaimed
+            {
+                get
+                {
+                    return prizeClaimed;
+                }
+
+                set
+                {
+                    prizeClaimed = value;
+                }
+            }
+
+            public bool GameAvaliable
+            {
+                get
+                {
+                    return gameAvaliable;
+                }
+
+                set
+                {
+                    gameAvaliable = value;
+                }
+            }
+
+            public string CheckInStatusMessage
+            {
+                get
+                {
+                    return checkInStatusMessage;
+                }
+
+                set
+                {
+                    checkInStatusMessage = value;
+                }
+            }
+
+            public bool RaffleAvaliable
+            {
+                get
+                {
+                    return raffleAvaliable;
+                }
+
+                set
+                {
+                    raffleAvaliable = value;
+                }
+            }
+
+            public List<RaffleTicketList> RaffleTickets
+            {
+                get
+                {
+                    return raffleTickets;
+                }
+
+                set
+                {
+                    raffleTickets = value;
+                }
+            }
+
+            public byte[] PromotionImage
+            {
+                get
+                {
+                    return promotionImage;
+                }
+
+                set
+                {
+                    promotionImage = value;
+                }
+            }
+        }
+
+        public class RaffleTicketList
+        {
+            private string raffleTicket;
+
+            public string RaffleTicket
+            {
+                get
+                {
+                    return raffleTicket;
+                }
+
+                set
+                {
+                    raffleTicket = value;
+                }
+            }
+        }
+
+        private void RemoveData()
+        {
+            Promotions = null;
+        }
         //DB Get Promotion List
         public void DBGetPromotionList(string mobile)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet ds = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                ds = DataAcess.ExecuteQuerySP("PEC.PROMOTIONS_GetPromotionList_ByCMSPlayerID", spParams);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for(int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        Promotion newPromo = new Promotion();
+                        newPromo.PromotionID = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.PromoVersionID = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.GameID = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.PromotionName = ds.Tables[0].Rows[i][""].ToString();
+                        newPromo.StartDate = Convert.ToDateTime(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.EndDate = Convert.ToDateTime(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.Enrolled = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.CouponsAvaliable = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.NextDrawingDate = Convert.ToDateTime(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.CheckInAvaliable = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.CheckInStatusMessage = ds.Tables[0].Rows[i][""].ToString();
+                        newPromo.FreeEntryAvaliable = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.RemoteEntryAvaliable = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.PointsToDate = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.EntriesToDate = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.PointsPerEntry = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.TodaysPoint = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.DailyEntryLImit = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.ThresholdType = ds.Tables[0].Rows[i][""].ToString();
+                        newPromo.ThresholdPoints = Convert.ToInt32(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.PrizeName = ds.Tables[0].Rows[i][""].ToString();
+                        newPromo.ThresholdReached = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.PrizeClaimed = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.GameAvaliable = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+                        newPromo.RaffleAvaliable = Convert.ToBoolean(ds.Tables[0].Rows[i][""].ToString());
+
+                        DataSet raffleDS = new DataSet();
+                        List<SqlParameter> raffleParams = new List<SqlParameter>();
+                        raffleParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                        raffleDS = DataAcess.ExecuteQuerySP("PEC.PROMOTIONS_GetPromotionRaffleTickets", raffleParams);
+
+                        if(raffleDS.Tables[0].Rows.Count > 0)
+                        {
+                            for(int j = 0; j < raffleDS.Tables[0].Rows.Count; j++)
+                            {
+                                RaffleTicketList newRaffleTicket = new RaffleTicketList();
+                                newRaffleTicket.RaffleTicket = raffleDS.Tables[0].Rows[j][""].ToString();
+                                newPromo.RaffleTickets.Add(newRaffleTicket);
+                            }
+                        }
+                        else
+                        {
+                            newPromo.RaffleTickets = null;
+                        }
+
+                        DataSet imageDS = new DataSet();
+                        List<SqlParameter> imageParams = new List<SqlParameter>();
+                        imageParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                        imageDS = DataAcess.ExecuteQuerySP("PEC.PROMOTIONS_GetPromotionImage", imageParams);
+
+                        if(imageDS.Tables[0].Rows.Count > 0)
+                        {
+                            MemoryStream ms = new MemoryStream((byte[])imageDS.Tables[0].Rows[0]["Image"]);
+                            byte[] bytes = ms.ToArray();
+                            newPromo.PromotionImage = bytes;
+                        }
+                        else
+                        {
+                            newPromo.PromotionName = null;
+                        }
+
+                        Promotions.Add(newPromo);
+                    }
+                }
+                else
+                {
+                    RemoveData();
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
-    }
-    [Serializable]
-    public class Promotion
-    {
-        public int promotionID;
-        public int promoVersionID;
-        public int gameID;
-        public string promotionName;
-        public string startDate;
-        public string endDate;
-        public bool enrolled;
-        public bool couponsAvaliable;
-        public string nextDrawingDate;
-        public bool checkInAvaliable;
-        public bool freeEntryAvaliable;
-        public bool remoteEntryAvaliable;
-        public int pointsToDate;
-        public int entriesToDate;
-        public int pointsPerEntry;
-        public int todaysPoint;
-        public int dailyEntryLImit;
-        public string thresholdType;
-        public int thresholdPoints;
-        public string prizeName;
-        public bool thresholdReached;
-        public bool prizeClaimed;
-        public bool gameAvaliable;
-        public string checkInStatusMessage;
-        public bool raffleAvaliable;
-        public RaffleTicket[] raffleTickets;
-        public byte[] promotionImage;
-    }
-    [Serializable]
-    public class RaffleTicket
-    {
-        public string raffleTicket;
+
+
     }
 
     [Serializable]
@@ -817,11 +2479,20 @@ namespace PE.DataReturn
         public string line1Data;
         public string line2Caption;
         public string line2Data;
-        public EventButton[] buttons;
+        public List<EventButton> buttons;
+
+        private void RemoveData()
+        {
+            line1Caption = null;
+            line1Data = null;
+            line2Caption = null;
+            line2Data = null;
+            buttons = null;
+        }
 
         public void DBGetEventsScreenWrapper(string mobile)
         {
-            throw new NotImplementedException();
+            
         }
     }
     [Serializable]

@@ -63,13 +63,13 @@ namespace PlayerElite
             if (currentUser.checkIsRegistered(mobile))
             {
                 currentUser.GenerateOneWayHash();
-                currentUser.isRegistered = true;
+                currentUser.IsRegistered = true;
                 //Show balances based on configuration (Config is not elaborated by API DOC)
-                currentUser.showBalancesNoPin = true;
+                currentUser.ShowBalancesNoPin = true;
             }
             else
             {
-                currentUser.isRegistered = false;
+                currentUser.IsRegistered = false;
             }
             return new JavaScriptSerializer().Serialize(currentUser);
         }
@@ -193,13 +193,12 @@ namespace PlayerElite
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetGamesScreenWrapper(string mobile, string userToken)
         {
-            string ipAddress = HttpContext.Current.Request.UserHostAddress;
             GetGamesScreenWrapperReturn currentUser = new GetGamesScreenWrapperReturn();
             currentUser.checkSession(mobile, userToken);
 
             if (currentUser.validToken)
             {
-                currentUser.DBGetGamesScreenWrapper(mobile, ipAddress);
+                currentUser.DBGetGamesScreenWrapper(mobile);
                 currentUser.validToken = true;
             }
             else
@@ -215,12 +214,11 @@ namespace PlayerElite
         //LARS: SHOULD GETINTEVALS take a variantID or should this be found from the server somehow?
         public string GetIntervalsAndBackgrounds(string mobile, string userToken, int gameID, int variantID)
         {
-            string ipAddress = HttpContext.Current.Request.UserHostAddress;
             GetIntervalsAndBackgroundsReturn currentUser = new GetIntervalsAndBackgroundsReturn();
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBGetIntervalsAndBackgrounds(mobile, gameID, variantID, ipAddress);
+                currentUser.DBGetIntervalsAndBackgrounds(mobile, gameID, variantID);
                 currentUser.validToken = true;
             }
             else
@@ -236,12 +234,11 @@ namespace PlayerElite
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetPageAttributes(string mobile, string userToken, string pageName, int gameID)
         {
-            string ipAddress = HttpContext.Current.Request.UserHostAddress;
             GetPageAttributesReturn currentUser = new GetPageAttributesReturn();
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBGetPageAttributes(mobile, pageName, gameID, ipAddress);
+                currentUser.DBGetPageAttributes(mobile, pageName, gameID);
                 currentUser.validToken = true;
             }
             else
@@ -252,16 +249,17 @@ namespace PlayerElite
             return new JavaScriptSerializer().Serialize(currentUser);
         }
 
+
+        // Lars: changed function to take promotionID (LET ME KNOW IF THIS IS A NO GO)
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string StartGame(string mobile, string userToken, int gameID)
+        public string StartGame(string mobile, string userToken, int gameID, long promotionID)
         {
-            string ipAddress = HttpContext.Current.Request.UserHostAddress;
             StartGameReturn currentUser = new StartGameReturn();
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBStartGame(gameID, ipAddress);
+                currentUser.DBStartGame(mobile, gameID, promotionID);
                 currentUser.validToken = true;
             }
             else
@@ -301,7 +299,7 @@ namespace PlayerElite
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBSaveWinInfo(mobile, userToken, gameID, gameToken, objectsSelected);
+                currentUser.DBSaveWinInfo(mobile, gameID, gameToken, objectsSelected);
                 currentUser.validToken = true;
             }
             else
@@ -321,7 +319,7 @@ namespace PlayerElite
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBSaveLoseInfo(mobile, userToken, gameID, gameToken, objectsSelected);
+                currentUser.DBSaveLoseInfo(mobile, gameID, gameToken, objectsSelected);
                 currentUser.validToken = true;
             }
             else
