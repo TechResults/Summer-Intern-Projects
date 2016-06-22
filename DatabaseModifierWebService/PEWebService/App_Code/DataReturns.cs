@@ -38,10 +38,6 @@ namespace PE.DataReturn
             return CMSplayerID;
         }
     }
-    static class StoredProcedure
-    {
-        public const string GetGameInfoForPromotion = "";
-    }
 
     [Serializable]
     public class Default
@@ -1444,7 +1440,7 @@ namespace PE.DataReturn
                 spParams.Add(new SqlParameter("@GameToken", gameToken));
                 spParams.Add(new SqlParameter("@ObjectsSelected", objectsSelected));
 
-                result = DataAcess.ExecuteQuerySP(StoredProcedure.GetGameInfoForPromotion, spParams);
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
                 if(result.Tables[0].Rows.Count > 0)
                 {
                     GameNameForDisplay = result.Tables[0].Rows[0]["GameName"].ToString();
@@ -1582,7 +1578,7 @@ namespace PE.DataReturn
                 spParams.Add(new SqlParameter("@GameToken", gameToken));
                 spParams.Add(new SqlParameter("@ObjectsSelected", objectsSelected));
 
-                result = DataAcess.ExecuteQuerySP(StoredProcedure.GetGameInfoForPromotion, spParams);
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
                 if (result.Tables[0].Rows.Count > 0)
                 {
                     GameNameForDisplay = result.Tables[0].Rows[0]["GameName"].ToString();
@@ -2277,7 +2273,7 @@ namespace PE.DataReturn
                         }
                         else
                         {
-                            newPromo.PromotionName = null;
+                            newPromo.PromotionImage = null;
                         }
 
                         Promotions.Add(newPromo);
@@ -2301,63 +2297,523 @@ namespace PE.DataReturn
     [Serializable]
     public class EnterRemoteEntryReturn : Default
     {
-        public int promotionID;
-        public int updateEntryCount;
-        public bool remoteEntryAvaliable;
+        private int promotionID;
+        private int updateEntryCount;
+        private bool remoteEntryAvaliable;
+        private void RemoveData()
+        {
+            PromotionID = -1;
+            UpdateEntryCount = -1;
+            RemoteEntryAvaliable = false;
+        }
+        #region publics
+        public int PromotionID
+        {
+            get
+            {
+                return promotionID;
+            }
 
+            set
+            {
+                promotionID = value;
+            }
+        }
+
+        public int UpdateEntryCount
+        {
+            get
+            {
+                return updateEntryCount;
+            }
+
+            set
+            {
+                updateEntryCount = value;
+            }
+        }
+
+        public bool RemoteEntryAvaliable
+        {
+            get
+            {
+                return remoteEntryAvaliable;
+            }
+
+            set
+            {
+                remoteEntryAvaliable = value;
+            }
+        }
+        #endregion
         public void DBEnterRemoteEntry(string mobile, int promotionID)
         {
-            throw new NotImplementedException();
+            PromotionID = promotionID;
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@PromotionID", promotionID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    UpdateEntryCount = Convert.ToInt32(result.Tables[0].Rows[0]["UpdateEntryCount"].ToString());
+                    RemoteEntryAvaliable = Convert.ToBoolean(result.Tables[0].Rows[0]["RemoteEntryAvaliable"].ToString());
+                }
+                else
+                {
+                    RemoveData();
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
     }
 
     [Serializable]
     public class ClaimBonusCouponsReturn : Default
     {
-        public int promotionID;
-        public ResultDescription[] resultDescriptions;
-        public bool claimButtonRemainsVisible;
-        public bool claimButtonRemainsActive;
-        public string claimButtonNewCaption;
-        public byte[] claimButtonNewImage;
+        private int promotionID;
+        private List<ResultDescriptionBonus> resultDescriptions;
+        private bool claimButtonRemainsVisible;
+        private bool claimButtonRemainsActive;
+        private string claimButtonNewCaption;
+        private byte[] claimButtonNewImage;
+        #region publics
+        public int PromotionID
+        {
+            get
+            {
+                return promotionID;
+            }
+
+            set
+            {
+                promotionID = value;
+            }
+        }
+
+        public List<ResultDescriptionBonus> ResultDescriptions
+        {
+            get
+            {
+                return resultDescriptions;
+            }
+
+            set
+            {
+                resultDescriptions = value;
+            }
+        }
+
+        public bool ClaimButtonRemainsVisible
+        {
+            get
+            {
+                return claimButtonRemainsVisible;
+            }
+
+            set
+            {
+                claimButtonRemainsVisible = value;
+            }
+        }
+
+        public bool ClaimButtonRemainsActive
+        {
+            get
+            {
+                return claimButtonRemainsActive;
+            }
+
+            set
+            {
+                claimButtonRemainsActive = value;
+            }
+        }
+
+        public string ClaimButtonNewCaption
+        {
+            get
+            {
+                return claimButtonNewCaption;
+            }
+
+            set
+            {
+                claimButtonNewCaption = value;
+            }
+        }
+
+        public byte[] ClaimButtonNewImage
+        {
+            get
+            {
+                return claimButtonNewImage;
+            }
+
+            set
+            {
+                claimButtonNewImage = value;
+            }
+        }
+        #endregion
+        public class ResultDescriptionBonus
+        {
+            private string resultCaption;
+            private string resultUpdatedElement;
+            private byte[] resultImage;
+            private List<DataPoint> dataPoints;
+            #region publics
+            public string ResultCaption
+            {
+                get
+                {
+                    return resultCaption;
+                }
+
+                set
+                {
+                    resultCaption = value;
+                }
+            }
+
+            public string ResultUpdatedElement
+            {
+                get
+                {
+                    return resultUpdatedElement;
+                }
+
+                set
+                {
+                    resultUpdatedElement = value;
+                }
+            }
+
+            public byte[] ResultImage
+            {
+                get
+                {
+                    return resultImage;
+                }
+
+                set
+                {
+                    resultImage = value;
+                }
+            }
+
+            public List<DataPoint> DataPoints
+            {
+                get
+                {
+                    return dataPoints;
+                }
+
+                set
+                {
+                    dataPoints = value;
+                }
+            }
+            #endregion
+
+        }
+
+        public class DataPoint
+        {
+            private string dataPointCaption;
+            private string dataPointData;
+
+            public string DataPointCaption
+            {
+                get
+                {
+                    return dataPointCaption;
+                }
+
+                set
+                {
+                    dataPointCaption = value;
+                }
+            }
+
+            public string DataPointData
+            {
+                get
+                {
+                    return dataPointData;
+                }
+
+                set
+                {
+                    dataPointData = value;
+                }
+            }
+        }
+
+        private void RemoveData()
+        {
+            PromotionID = -1;
+            ResultDescriptions = null;
+            ClaimButtonNewCaption = null;
+            ClaimButtonNewImage = null;
+            ClaimButtonRemainsVisible = false;
+            ClaimButtonRemainsActive = false;
+        }
 
         public void DBClaimBonusCoupons(string mobile, int promotionID)
         {
-            throw new NotImplementedException();
-        }
-    }
+            try
+            {
+                PromotionID = promotionID;
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@PromotionID", PromotionID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    ClaimButtonRemainsVisible = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
+                    ClaimButtonRemainsActive = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
+                    ClaimButtonNewCaption = result.Tables[0].Rows[0][""].ToString();
 
-    [Serializable]
-    public class ResultDescription
-    {
-        public string resultCaption;
-        public string resultUpdatedElement;
-        // LARS: Binary Data??
-        public string resultImage;
-        public HashSet<DataPoint> dataPoints;
-    }
-    [Serializable]
-    public class DataPoint
-    {
-        public string dataPointCaption;
-        public string dataPointData;
+                    MemoryStream ms = new MemoryStream((byte[])result.Tables[0].Rows[0]["Image"]);
+                    byte[] bytes = ms.ToArray();
+                    ClaimButtonNewImage = bytes;
+
+                    DataSet descDS = new DataSet();
+                    List<SqlParameter> descParams = new List<SqlParameter>();
+                    descParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                    descParams.Add(new SqlParameter("@PromotionID", PromotionID));
+                    descDS = DataAcess.ExecuteQuerySP("PEC.TODO", descParams);
+
+
+                    if(descDS.Tables[0].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < descDS.Tables[0].Rows.Count; i++)
+                        {
+                            ResultDescriptionBonus newRDB = new ResultDescriptionBonus();
+                            newRDB.ResultCaption = descDS.Tables[0].Rows[i][""].ToString();
+                            newRDB.ResultUpdatedElement = descDS.Tables[0].Rows[i][""].ToString();
+
+                            MemoryStream msResult = new MemoryStream((byte[])descDS.Tables[0].Rows[i]["Image"]);
+                            byte[] resultBytes = msResult.ToArray();
+                            newRDB.ResultImage = resultBytes;
+
+                            DataSet dP = new DataSet();
+                            List<SqlParameter> pointsParams = new List<SqlParameter>();
+                            pointsParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                            pointsParams.Add(new SqlParameter("@PromotionID", PromotionID));
+                            dP = DataAcess.ExecuteQuerySP("PEC.TODO", pointsParams);
+                            if(dP.Tables[0].Rows.Count > 0)
+                            {
+                                for(int j = 0; j < dP.Tables[0].Rows.Count; j++)
+                                {
+                                    DataPoint newPoint = new DataPoint();
+                                    newPoint.DataPointCaption = dP.Tables[0].Rows[i]["DataPointCaption"].ToString();
+                                    newPoint.DataPointData = dP.Tables[0].Rows[i]["DataPointData"].ToString();
+                                    newRDB.DataPoints.Add(newPoint);
+                                }
+                            }
+                            else
+                            {
+                                newRDB.DataPoints = null;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        ResultDescriptions = null;
+                    }
+
+                }
+                else
+                {
+                    RemoveData();
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
+        }
     }
 
     [Serializable]
     public class ListEntriesInNextDrawReturn : Default
     {
-        public int promotionID;
-        public DateTime nextDrawDate;
-        public DateTime nextDrawTime;
-        public int entriesForNextDraw;
-        public bool isDrumPopulated;
-        public string[] entryNumbers;
-        public string entryNumber;
-        public string specialMessage;
+        private int promotionID;
+        private DateTime nextDrawDate;
+        private DateTime nextDrawTime;
+        private int entriesForNextDraw;
+        private bool isDrumPopulated;
+        private List<string> entryNumbers;
+        private string specialMessage;
+        #region publics
+        public int PromotionID
+        {
+            get
+            {
+                return promotionID;
+            }
 
+            set
+            {
+                promotionID = value;
+            }
+        }
+
+        public DateTime NextDrawDate
+        {
+            get
+            {
+                return nextDrawDate;
+            }
+
+            set
+            {
+                nextDrawDate = value;
+            }
+        }
+
+        public DateTime NextDrawTime
+        {
+            get
+            {
+                return nextDrawTime;
+            }
+
+            set
+            {
+                nextDrawTime = value;
+            }
+        }
+
+        public int EntriesForNextDraw
+        {
+            get
+            {
+                return entriesForNextDraw;
+            }
+
+            set
+            {
+                entriesForNextDraw = value;
+            }
+        }
+
+        public bool IsDrumPopulated
+        {
+            get
+            {
+                return isDrumPopulated;
+            }
+
+            set
+            {
+                isDrumPopulated = value;
+            }
+        }
+
+        public List<string> EntryNumbers
+        {
+            get
+            {
+                return entryNumbers;
+            }
+
+            set
+            {
+                entryNumbers = value;
+            }
+        }
+
+        public string SpecialMessage
+        {
+            get
+            {
+                return specialMessage;
+            }
+
+            set
+            {
+                specialMessage = value;
+            }
+        }
+
+        #endregion
+        private void RemoveData()
+        {
+            PromotionID = -1;
+            EntriesForNextDraw = -1;
+            IsDrumPopulated = false;
+            EntryNumbers = null;
+            SpecialMessage = null;
+        }
         public void DBListEntriesInNextDraw(string mobile, int promotionID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                PromotionID = promotionID;
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@PromotionID", PromotionID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    NextDrawDate = Convert.ToDateTime(result.Tables[0].Rows[0]["NextDrawDate"].ToString());
+                    NextDrawTime = Convert.ToDateTime(result.Tables[0].Rows[0]["NextDrawTime"].ToString());
+                    EntriesForNextDraw = Convert.ToInt32(result.Tables[0].Rows[0]["EntriesForNextDraw"].ToString());
+                    IsDrumPopulated = Convert.ToBoolean(result.Tables[0].Rows[0]["IsPopulated"].ToString());
+                    SpecialMessage = result.Tables[0].Rows[0]["SpecialMessage"].ToString();
+                    if(IsDrumPopulated)
+                    {
+                        DataSet entryDS = new DataSet();
+                        entryDS = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                        if(entryDS.Tables[0].Rows.Count > 0)
+                        {
+                            for(int i = 0; i < entryDS.Tables[0].Rows.Count; i++)
+                            {
+                                string entryNum = entryDS.Tables[0].Rows[i]["EntryNumber"].ToString();
+                                EntryNumbers.Add(entryNum);
+                            }
+                        }
+                        else
+                        {
+                            EntryNumbers = null;
+                        }
+                    }
+                    else
+                    {
+                        EntryNumbers = null;
+                    }
+                }
+                else
+                {
+                    RemoveData();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
     }
     #endregion
@@ -2366,25 +2822,197 @@ namespace PE.DataReturn
     [Serializable]
     public class GetOffersScreenWrapperReturn : Default
     {
-        public string line1Caption;
-        public string line1Data;
-        public string line2Caption;
-        public string line2Data;
-        public OfferButton[] buttons;
+        private string line1Caption;
+        private string line1Data;
+        private string line2Caption;
+        private string line2Data;
+        private List<OfferButton> offerButtons;
+        
+        private void RemoveData()
+        {
+            Line1Caption = null;
+            Line1Data = null;
+            Line2Caption = null;
+            Line2Data = null;
+            OfferButtons = null;
+        }
+        #region Publics
+        public string Line1Caption
+        {
+            get
+            {
+                return line1Caption;
+            }
 
+            set
+            {
+                line1Caption = value;
+            }
+        }
+
+        public string Line1Data
+        {
+            get
+            {
+                return line1Data;
+            }
+
+            set
+            {
+                line1Data = value;
+            }
+        }
+
+        public string Line2Caption
+        {
+            get
+            {
+                return line2Caption;
+            }
+
+            set
+            {
+                line2Caption = value;
+            }
+        }
+
+        public string Line2Data
+        {
+            get
+            {
+                return line2Data;
+            }
+
+            set
+            {
+                line2Data = value;
+            }
+        }
+
+        public List<OfferButton> OfferButtons
+        {
+            get
+            {
+                return offerButtons;
+            }
+
+            set
+            {
+                offerButtons = value;
+            }
+        }
+
+        public class OfferButton
+        {
+            private string buttonCaption;
+            private int buttonOrdPos;
+            private int buttonOfferID;
+            private byte[] buttonImage;
+
+            public string ButtonCaption
+            {
+                get
+                {
+                    return buttonCaption;
+                }
+
+                set
+                {
+                    buttonCaption = value;
+                }
+            }
+
+            public int ButtonOrdPos
+            {
+                get
+                {
+                    return buttonOrdPos;
+                }
+
+                set
+                {
+                    buttonOrdPos = value;
+                }
+            }
+
+            public int ButtonOfferID
+            {
+                get
+                {
+                    return buttonOfferID;
+                }
+
+                set
+                {
+                    buttonOfferID = value;
+                }
+            }
+
+            public byte[] ButtonImage
+            {
+                get
+                {
+                    return buttonImage;
+                }
+
+                set
+                {
+                    buttonImage = value;
+                }
+            }
+        }
+        #endregion
         public void DBGetOffersScreenWrapper(string mobile)
         {
-            throw new NotImplementedException();
-        }
-    }
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
 
-    [Serializable]
-    public class OfferButton
-    {
-        public string buttonCaption;
-        public int buttonOrdPos;
-        public int buttonOfferID;
-        public byte[] buttonImage;
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    Line1Caption = result.Tables[0].Rows[0][""].ToString();
+                    Line1Data = result.Tables[0].Rows[0][""].ToString();
+                    Line2Caption = result.Tables[0].Rows[0][""].ToString(); 
+                    Line2Data = result.Tables[0].Rows[0][""].ToString();
+
+                    DataSet buttonDS = new DataSet();
+                    List<SqlParameter> buttonParams = new List<SqlParameter>();
+                    buttonParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                    buttonDS = DataAcess.ExecuteQuerySP("PEC.TODO", buttonParams);
+                    if(buttonDS.Tables[0].Rows.Count > 0)
+                    {
+                        for(int i = 0; i < buttonDS.Tables[0].Rows.Count; i++)
+                        {
+                            OfferButton newButton = new OfferButton();
+                            newButton.ButtonCaption = buttonDS.Tables[0].Rows[i]["ButtonCaption"].ToString();
+                            newButton.ButtonOrdPos = Convert.ToInt32(buttonDS.Tables[0].Rows[i]["ButtonOrdPos"].ToString());
+                            newButton.ButtonOfferID = Convert.ToInt32(buttonDS.Tables[0].Rows[i]["ButtonOfferID"].ToString());
+                            MemoryStream ms = new MemoryStream((byte[])buttonDS.Tables[0].Rows[i]["Image"]);
+                            byte[] bytes = ms.ToArray();
+                            newButton.ButtonImage = bytes;
+                            OfferButtons.Add(newButton);
+                        }
+                    }
+                    else
+                    {
+                        OfferButtons = null;
+                    }
+                }
+                else
+                {
+                    RemoveData();
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
+        }
     }
 
     [Serializable]
