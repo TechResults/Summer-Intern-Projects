@@ -34,8 +34,8 @@ namespace PlayerElite
             if (registrationTries <= 3)
             {
                 newUser.isLocked = false;
-                string storedPin = newUser.DBGetStoredPin(mobile);
-                if (pinCode == storedPin)
+                newUser.DBGetStoredPin(mobile, pinCode);
+                if (newUser.isRegistered)
                 {
                     newUser.isRegistered = true;
                 }
@@ -60,9 +60,10 @@ namespace PlayerElite
         public string ValidatePhoneRegistered(string mobile)
         {
             ValidatePhoneRegisteredResult currentUser = new ValidatePhoneRegisteredResult();
-            if (currentUser.checkIsRegistered(mobile))
+            currentUser.checkIsRegistered(mobile);
+            if (currentUser.IsRegistered)
             {
-                currentUser.GenerateOneWayHash();
+                currentUser.GenerateOneWayHash(mobile);
                 currentUser.IsRegistered = true;
                 //Show balances based on configuration (Config is not elaborated by API DOC)
                 currentUser.ShowBalancesNoPin = true;
@@ -567,13 +568,13 @@ namespace PlayerElite
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string RequestTicketsToEvent(string mobile, string userToken, int eventID, int optionReferenceID)
+        public string RequestTicketsToEvent(string mobile, string userToken, int eventID, int optionReferenceID, int numberOfTickets)
         {
             RequestTicketsToEventReturn currentUser = new RequestTicketsToEventReturn();
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBRequestTicketsToEvent(mobile, eventID, optionReferenceID);
+                currentUser.DBRequestTicketsToEvent(mobile, eventID, optionReferenceID, numberOfTickets);
                 currentUser.validToken = true;
             }
             else

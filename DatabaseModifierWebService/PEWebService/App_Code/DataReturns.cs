@@ -67,7 +67,7 @@ namespace PE.DataReturn
     {
         private bool _isRegistered;
         private bool _isLocked;
-
+        #region Publics
         public bool isRegistered
         {
             get { return _isRegistered; }
@@ -79,10 +79,43 @@ namespace PE.DataReturn
             get { return _isLocked; }
             set { _isLocked = value; }
         }
-
-        public string DBGetStoredPin(string mobile)
+        #endregion
+        public void DBGetStoredPin(string mobile, string pinCode)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@Mobile", mobile));
+                spParams.Add(new SqlParameter("@PIN", pinCode));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    isRegistered = true;
+                    isLocked = false;
+                    
+                }
+                else
+                {
+                    //Increment some form of counter for login attempts
+                    int loginAttempts = 0;
+                    if(loginAttempts > 3)
+                    {
+                        isLocked = true;
+                        isRegistered = false;
+                    }
+                    else
+                    {
+                        isLocked = false;
+                        isRegistered = false;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                
+            }
         }
     }
     #endregion
@@ -94,7 +127,7 @@ namespace PE.DataReturn
         private string _userToken;
         private bool _showBalancesNoPin;
         private bool _isRegistered;
-
+        #region PUBLICS
         public string userToken
         {
             get { return _userToken; }
@@ -126,18 +159,42 @@ namespace PE.DataReturn
                 _isRegistered = value;
             }
         }
-
+        #endregion
         // Generate a one way hash, API does not specify implementation
-        public void GenerateOneWayHash()
+        public void GenerateOneWayHash(string mobile)
         {
             //SHould set userToken = to something
-            throw new NotImplementedException();
+            string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+            //Generate hash based on mobile and current time
+            string generatedHash = "hash";
+            userToken = generatedHash;
         }
 
         // Query Database for existing mobile number. Return true if mobile number exists, false if it does not.
-        public bool checkIsRegistered(string mobile)
+        public void checkIsRegistered(string mobile)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@Mobile", mobile));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    IsRegistered = true;
+                }
+                else
+                {
+                    IsRegistered = false;
+                }
+                //Add logic for showbalancesnopin. Not specified in API doc (default to false?)
+                ShowBalancesNoPin = false;
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                
+            }
         }
     }
     
@@ -4065,99 +4122,1043 @@ namespace PE.DataReturn
     [Serializable]
     public class GetEventDetailsReturn : Default
     {
-        public int eventID;
-        public string headerCaptionLine1;
-        public string headerCaptionLine2;
-        public byte[] eventLargeImage;
-        public string eventCaption;
-        public DateTime eventStartDate;
-        public DateTime eventStartTime;
-        public DateTime eventEndDate;
-        public DateTime eventEndTime;
-        public bool displayOptions;
-        public EventOption[] eventOptions;
-        public string footerCaptionLine1;
-        public string footerCaptionLine2;
+        private int eventID;
+        private string headerCaptionLine1;
+        private string headerCaptionLine2;
+        private byte[] eventLargeImage;
+        private string eventCaption;
+        private DateTime eventStartDate;
+        private DateTime eventStartTime;
+        private DateTime eventEndDate;
+        private DateTime eventEndTime;
+        private bool displayOptions;
+        private List<EventOption> eventOptions;
+        private string footerCaptionLine1;
+        private string footerCaptionLine2;
+        #region PUBLICS
+        public int EventID
+        {
+            get
+            {
+                return eventID;
+            }
 
+            set
+            {
+                eventID = value;
+            }
+        }
+
+        public string HeaderCaptionLine1
+        {
+            get
+            {
+                return headerCaptionLine1;
+            }
+
+            set
+            {
+                headerCaptionLine1 = value;
+            }
+        }
+
+        public string HeaderCaptionLine2
+        {
+            get
+            {
+                return headerCaptionLine2;
+            }
+
+            set
+            {
+                headerCaptionLine2 = value;
+            }
+        }
+
+        public byte[] EventLargeImage
+        {
+            get
+            {
+                return eventLargeImage;
+            }
+
+            set
+            {
+                eventLargeImage = value;
+            }
+        }
+
+        public string EventCaption
+        {
+            get
+            {
+                return eventCaption;
+            }
+
+            set
+            {
+                eventCaption = value;
+            }
+        }
+
+        public DateTime EventStartDate
+        {
+            get
+            {
+                return eventStartDate;
+            }
+
+            set
+            {
+                eventStartDate = value;
+            }
+        }
+
+        public DateTime EventStartTime
+        {
+            get
+            {
+                return eventStartTime;
+            }
+
+            set
+            {
+                eventStartTime = value;
+            }
+        }
+
+        public DateTime EventEndDate
+        {
+            get
+            {
+                return eventEndDate;
+            }
+
+            set
+            {
+                eventEndDate = value;
+            }
+        }
+
+        public DateTime EventEndTime
+        {
+            get
+            {
+                return eventEndTime;
+            }
+
+            set
+            {
+                eventEndTime = value;
+            }
+        }
+
+        public bool DisplayOptions
+        {
+            get
+            {
+                return displayOptions;
+            }
+
+            set
+            {
+                displayOptions = value;
+            }
+        }
+
+        public List<EventOption> EventOptions
+        {
+            get
+            {
+                return eventOptions;
+            }
+
+            set
+            {
+                eventOptions = value;
+            }
+        }
+
+        public string FooterCaptionLine1
+        {
+            get
+            {
+                return footerCaptionLine1;
+            }
+
+            set
+            {
+                footerCaptionLine1 = value;
+            }
+        }
+
+        public string FooterCaptionLine2
+        {
+            get
+            {
+                return footerCaptionLine2;
+            }
+
+            set
+            {
+                footerCaptionLine2 = value;
+            }
+        }
+
+        #endregion
+
+        public class EventOption
+        {
+            private string optionCaption;
+            private byte[] optionImage;
+            private bool optionExecutable;
+            private int optionReferenceID;
+
+            public string OptionCaption
+            {
+                get
+                {
+                    return optionCaption;
+                }
+
+                set
+                {
+                    optionCaption = value;
+                }
+            }
+
+            public byte[] OptionImage
+            {
+                get
+                {
+                    return optionImage;
+                }
+
+                set
+                {
+                    optionImage = value;
+                }
+            }
+
+            public bool OptionExecutable
+            {
+                get
+                {
+                    return optionExecutable;
+                }
+
+                set
+                {
+                    optionExecutable = value;
+                }
+            }
+
+            public int OptionReferenceID
+            {
+                get
+                {
+                    return optionReferenceID;
+                }
+
+                set
+                {
+                    optionReferenceID = value;
+                }
+            }
+        }
+
+        private void RemoveData()
+        {
+            EventID = -1;
+            HeaderCaptionLine1 = null;
+            HeaderCaptionLine2 = null;
+            EventLargeImage = null;
+            EventCaption = null;
+            DisplayOptions = false;
+            FooterCaptionLine1 = null;
+            FooterCaptionLine2 = null;
+        }
         public void DBGetEventDetails(string mobile, int eventID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                EventID = eventID;
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@EventID", eventID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    HeaderCaptionLine1 = result.Tables[0].Rows[0][""].ToString();
+                    HeaderCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+                    EventCaption = result.Tables[0].Rows[0][""].ToString();
+                    EventStartDate = Convert.ToDateTime(result.Tables[0].Rows[0][""]);
+                    EventStartTime = Convert.ToDateTime(result.Tables[0].Rows[0][""]);
+                    EventEndDate = Convert.ToDateTime(result.Tables[0].Rows[0][""]);
+                    EventEndTime = Convert.ToDateTime(result.Tables[0].Rows[0][""]);
+                    DisplayOptions = Convert.ToBoolean(result.Tables[0].Rows[0][""]);
+                    FooterCaptionLine1 = result.Tables[0].Rows[0][""].ToString();
+                    FooterCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+                    MemoryStream ms = new MemoryStream((byte[])result.Tables[0].Rows[0]["LargeImage"]);
+                    byte[] largeImage = ms.ToArray();
+                    EventLargeImage = largeImage;
+
+                    if(DisplayOptions)
+                    {
+                        DataSet optionDS = new DataSet();
+                        List<SqlParameter> optionParams = new List<SqlParameter>();
+                        optionParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                        optionParams.Add(new SqlParameter("@EventID", EventID));
+                        optionDS = DataAcess.ExecuteQuerySP("PEC.TODO", optionParams);
+                        if(optionDS.Tables[0].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < optionDS.Tables[0].Rows.Count; i++)
+                            {
+                                EventOption newEvent = new EventOption();
+                                newEvent.OptionCaption = optionDS.Tables[0].Rows[i]["OptionCaption"].ToString();
+                                newEvent.OptionExecutable = Convert.ToBoolean(optionDS.Tables[0].Rows[i]["OptionExecutable"].ToString());
+                                MemoryStream optionMS = new MemoryStream((byte[])optionDS.Tables[0].Rows[i]["OptionImage"]);
+                                byte[] optionImageByte = optionMS.ToArray();
+                                newEvent.OptionImage = optionImageByte;
+                                newEvent.OptionReferenceID = Convert.ToInt32(optionDS.Tables[0].Rows[i]["ReferenceID"].ToString());
+                                EventOptions.Add(newEvent);
+                            }
+                        }
+                        else
+                        {
+                            EventOptions = null;
+                        }
+                    }
+                    else
+                    {
+                        EventOptions = null;
+                    }
+                }
+                else
+                {
+                    RemoveData();
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
-    }
-    [Serializable]
-    public class EventOption
-    {
-        public string optionCaption;
-        public byte[] optionImage;
-        public bool optionExecutable;
-        public int optionReferenceID;
     }
 
     [Serializable]
     public class EnrollGuestInEventReturn : Default
     {
-        public int eventID;
-        public int optionReferenceID;
-        public string headerCaptionLine1;
-        public string headerCaptionLine2;
-        public bool isEnrolled;
-        public string confirmationNumber;
-        public byte[] bodyImage1;
-        public byte[] bodyImage2;
-        public string footerCaptionLine1;
-        public string footerCaptionLine2;
+        private int eventID;
+        private int optionReferenceID;
+        private string headerCaptionLine1;
+        private string headerCaptionLine2;
+        private bool isEnrolled;
+        private string confirmationNumber;
+        private byte[] bodyImage1;
+        private byte[] bodyImage2;
+        private string footerCaptionLine1;
+        private string footerCaptionLine2;
+        #region PUBLICS
+        public int EventID
+        {
+            get
+            {
+                return eventID;
+            }
 
+            set
+            {
+                eventID = value;
+            }
+        }
+
+        public int OptionReferenceID
+        {
+            get
+            {
+                return optionReferenceID;
+            }
+
+            set
+            {
+                optionReferenceID = value;
+            }
+        }
+
+        public string HeaderCaptionLine1
+        {
+            get
+            {
+                return headerCaptionLine1;
+            }
+
+            set
+            {
+                headerCaptionLine1 = value;
+            }
+        }
+
+        public string HeaderCaptionLine2
+        {
+            get
+            {
+                return headerCaptionLine2;
+            }
+
+            set
+            {
+                headerCaptionLine2 = value;
+            }
+        }
+
+        public bool IsEnrolled
+        {
+            get
+            {
+                return isEnrolled;
+            }
+
+            set
+            {
+                isEnrolled = value;
+            }
+        }
+
+        public string ConfirmationNumber
+        {
+            get
+            {
+                return confirmationNumber;
+            }
+
+            set
+            {
+                confirmationNumber = value;
+            }
+        }
+
+        public byte[] BodyImage1
+        {
+            get
+            {
+                return bodyImage1;
+            }
+
+            set
+            {
+                bodyImage1 = value;
+            }
+        }
+
+        public byte[] BodyImage2
+        {
+            get
+            {
+                return bodyImage2;
+            }
+
+            set
+            {
+                bodyImage2 = value;
+            }
+        }
+
+        public string FooterCaptionLine1
+        {
+            get
+            {
+                return footerCaptionLine1;
+            }
+
+            set
+            {
+                footerCaptionLine1 = value;
+            }
+        }
+
+        public string FooterCaptionLine2
+        {
+            get
+            {
+                return footerCaptionLine2;
+            }
+
+            set
+            {
+                footerCaptionLine2 = value;
+            }
+        }
+        #endregion
+        private void RemoveData()
+        {
+            EventID = -1;
+            OptionReferenceID = -1;
+            HeaderCaptionLine1 = null;
+            HeaderCaptionLine2 = null;
+            IsEnrolled = false;
+            ConfirmationNumber = null;
+            BodyImage1 = null;
+            BodyImage2 = null;
+            FooterCaptionLine1 = null;
+            FooterCaptionLine2 = null;
+        }
         public void DBEnrollGuestInEvent(string mobile, int eventID, int optionReferenceID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                EventID = eventID;
+                OptionReferenceID = optionReferenceID;
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@EventID", eventID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                HeaderCaptionLine1 = result.Tables[0].Rows[0]["HeaderCaptionLine1"].ToString();
+                HeaderCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+                IsEnrolled = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
+                ConfirmationNumber = result.Tables[0].Rows[0][""].ToString();
+                MemoryStream bodyImage1MS = new MemoryStream((byte[])result.Tables[0].Rows[0][""]);
+                byte[] bodyImage1Byte = bodyImage1MS.ToArray();
+                BodyImage1 = bodyImage1Byte;
+
+                MemoryStream bodyImage2MS = new MemoryStream((byte[])result.Tables[0].Rows[0][""]);
+                byte[] bodyImage2Byte = bodyImage2MS.ToArray();
+                BodyImage2 = bodyImage2Byte;
+
+                FooterCaptionLine1 = result.Tables[0].Rows[0][""].ToString();
+                FooterCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
     }
 
     [Serializable]
     public class RequestTicketsToEventReturn : Default
     {
-        public int eventID;
-        public int optionReferenceID;
-        public string headerCaptionLine1;
-        public string headerCaptionLine2;
-        public bool isEnrolled;
-        public string confirmationNumber;
-        public int ticketCountAwarded;
-        public bool isOnWaitList;
-        public string expectedResponseInterval;
-        public byte[] bodyImage1;
-        public byte[] bodyImage2;
-        public string footerCaptionLine1;
-        public string footerCaptionLine2;
-
-        public void DBRequestTicketsToEvent(string mobile, int eventID, int optionReferenceID)
+        private int eventID;
+        private int optionReferenceID;
+        private string headerCaptionLine1;
+        private string headerCaptionLine2;
+        private bool isEnrolled;
+        private string confirmationNumber;
+        private int ticketCountAwarded;
+        private bool isOnWaitList;
+        private string expectedResponseInterval;
+        private byte[] bodyImage1;
+        private byte[] bodyImage2;
+        private string footerCaptionLine1;
+        private string footerCaptionLine2;
+        #region PUBLICS
+        public int EventID
         {
-            throw new NotImplementedException();
+            get
+            {
+                return eventID;
+            }
+
+            set
+            {
+                eventID = value;
+            }
+        }
+
+        public int OptionReferenceID
+        {
+            get
+            {
+                return optionReferenceID;
+            }
+
+            set
+            {
+                optionReferenceID = value;
+            }
+        }
+
+        public string HeaderCaptionLine1
+        {
+            get
+            {
+                return headerCaptionLine1;
+            }
+
+            set
+            {
+                headerCaptionLine1 = value;
+            }
+        }
+
+        public string HeaderCaptionLine2
+        {
+            get
+            {
+                return headerCaptionLine2;
+            }
+
+            set
+            {
+                headerCaptionLine2 = value;
+            }
+        }
+
+        public bool IsEnrolled
+        {
+            get
+            {
+                return isEnrolled;
+            }
+
+            set
+            {
+                isEnrolled = value;
+            }
+        }
+
+        public string ConfirmationNumber
+        {
+            get
+            {
+                return confirmationNumber;
+            }
+
+            set
+            {
+                confirmationNumber = value;
+            }
+        }
+
+        public int TicketCountAwarded
+        {
+            get
+            {
+                return ticketCountAwarded;
+            }
+
+            set
+            {
+                ticketCountAwarded = value;
+            }
+        }
+
+        public bool IsOnWaitList
+        {
+            get
+            {
+                return isOnWaitList;
+            }
+
+            set
+            {
+                isOnWaitList = value;
+            }
+        }
+
+        public string ExpectedResponseInterval
+        {
+            get
+            {
+                return expectedResponseInterval;
+            }
+
+            set
+            {
+                expectedResponseInterval = value;
+            }
+        }
+
+        public byte[] BodyImage1
+        {
+            get
+            {
+                return bodyImage1;
+            }
+
+            set
+            {
+                bodyImage1 = value;
+            }
+        }
+
+        public byte[] BodyImage2
+        {
+            get
+            {
+                return bodyImage2;
+            }
+
+            set
+            {
+                bodyImage2 = value;
+            }
+        }
+
+        public string FooterCaptionLine1
+        {
+            get
+            {
+                return footerCaptionLine1;
+            }
+
+            set
+            {
+                footerCaptionLine1 = value;
+            }
+        }
+
+        public string FooterCaptionLine2
+        {
+            get
+            {
+                return footerCaptionLine2;
+            }
+
+            set
+            {
+                footerCaptionLine2 = value;
+            }
+        }
+        #endregion
+
+        private void RemoveData()
+        {
+            EventID = -1;
+            OptionReferenceID = -1;
+            HeaderCaptionLine1 = null;
+            HeaderCaptionLine2 = null;
+            IsEnrolled = false;
+            ConfirmationNumber = null;
+            TicketCountAwarded = -1;
+            IsOnWaitList = false;
+            ExpectedResponseInterval = null;
+            BodyImage1 = null;
+            BodyImage2 = null;
+            FooterCaptionLine1 = null;
+            FooterCaptionLine2 = null;
+        }
+        public void DBRequestTicketsToEvent(string mobile, int eventID, int optionReferenceID, int ticketCountRequested)
+        {
+            try
+            {
+                EventID = eventID;
+                OptionReferenceID = optionReferenceID;
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@EventID", eventID));
+                spParams.Add(new SqlParameter("@OptionReferenceID", optionReferenceID));
+                spParams.Add(new SqlParameter("@TicketCountRequested", ticketCountRequested));
+
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                HeaderCaptionLine1 = result.Tables[0].Rows[0]["HeaderCaptionLine1"].ToString();
+                HeaderCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+                IsEnrolled = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
+                ConfirmationNumber = result.Tables[0].Rows[0][""].ToString();
+                MemoryStream bodyImage1MS = new MemoryStream((byte[])result.Tables[0].Rows[0][""]);
+                byte[] bodyImage1Byte = bodyImage1MS.ToArray();
+                BodyImage1 = bodyImage1Byte;
+
+                MemoryStream bodyImage2MS = new MemoryStream((byte[])result.Tables[0].Rows[0][""]);
+                byte[] bodyImage2Byte = bodyImage2MS.ToArray();
+                BodyImage2 = bodyImage2Byte;
+
+                FooterCaptionLine1 = result.Tables[0].Rows[0][""].ToString();
+                FooterCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
     }
 
     [Serializable]
     public class PurchaseTicketsToEventWithPointsReturn : Default
     {
-        public int eventID;
-        public int optionReferenceID;
-        public string headerCaptionLine1;
-        public string headerCaptionLine2;
-        public bool isPurchaseSuccessful;
-        public float newPointsBalance;
-        public bool isEnrolled;
-        public string confirmationNumber;
-        public int ticketCountAwarded;
-        public bool isOnWaitList;
-        public string expectedResponseInterval;
-        public byte[] bodyImage1;
-        public byte[] bodyImage2;
-        public string footerCaptionLine1;
-        public string footerCaptionLine2;
+        private int eventID;
+        private int optionReferenceID;
+        private string headerCaptionLine1;
+        private string headerCaptionLine2;
+        private bool isPurchaseSuccessful;
+        private float newPointsBalance;
+        private bool isEnrolled;
+        private string confirmationNumber;
+        private int ticketCountAwarded;
+        private bool isOnWaitList;
+        private string expectedResponseInterval;
+        private byte[] bodyImage1;
+        private byte[] bodyImage2;
+        private string footerCaptionLine1;
+        private string footerCaptionLine2;
+        #region PUBLICS
+        public int EventID
+        {
+            get
+            {
+                return eventID;
+            }
 
+            set
+            {
+                eventID = value;
+            }
+        }
+
+        public int OptionReferenceID
+        {
+            get
+            {
+                return optionReferenceID;
+            }
+
+            set
+            {
+                optionReferenceID = value;
+            }
+        }
+
+        public string HeaderCaptionLine1
+        {
+            get
+            {
+                return headerCaptionLine1;
+            }
+
+            set
+            {
+                headerCaptionLine1 = value;
+            }
+        }
+
+        public string HeaderCaptionLine2
+        {
+            get
+            {
+                return headerCaptionLine2;
+            }
+
+            set
+            {
+                headerCaptionLine2 = value;
+            }
+        }
+
+        public bool IsPurchaseSuccessful
+        {
+            get
+            {
+                return isPurchaseSuccessful;
+            }
+
+            set
+            {
+                isPurchaseSuccessful = value;
+            }
+        }
+
+        public float NewPointsBalance
+        {
+            get
+            {
+                return newPointsBalance;
+            }
+
+            set
+            {
+                newPointsBalance = value;
+            }
+        }
+
+        public bool IsEnrolled
+        {
+            get
+            {
+                return isEnrolled;
+            }
+
+            set
+            {
+                isEnrolled = value;
+            }
+        }
+
+        public string ConfirmationNumber
+        {
+            get
+            {
+                return confirmationNumber;
+            }
+
+            set
+            {
+                confirmationNumber = value;
+            }
+        }
+
+        public int TicketCountAwarded
+        {
+            get
+            {
+                return ticketCountAwarded;
+            }
+
+            set
+            {
+                ticketCountAwarded = value;
+            }
+        }
+
+        public bool IsOnWaitList
+        {
+            get
+            {
+                return isOnWaitList;
+            }
+
+            set
+            {
+                isOnWaitList = value;
+            }
+        }
+
+        public string ExpectedResponseInterval
+        {
+            get
+            {
+                return expectedResponseInterval;
+            }
+
+            set
+            {
+                expectedResponseInterval = value;
+            }
+        }
+
+        public byte[] BodyImage1
+        {
+            get
+            {
+                return bodyImage1;
+            }
+
+            set
+            {
+                bodyImage1 = value;
+            }
+        }
+
+        public byte[] BodyImage2
+        {
+            get
+            {
+                return bodyImage2;
+            }
+
+            set
+            {
+                bodyImage2 = value;
+            }
+        }
+
+        public string FooterCaptionLine1
+        {
+            get
+            {
+                return footerCaptionLine1;
+            }
+
+            set
+            {
+                footerCaptionLine1 = value;
+            }
+        }
+
+        public string FooterCaptionLine2
+        {
+            get
+            {
+                return footerCaptionLine2;
+            }
+
+            set
+            {
+                footerCaptionLine2 = value;
+            }
+        }
+        #endregion
+        private void RemoveData()
+        {
+            EventID = -1;
+            OptionReferenceID = -1;
+            HeaderCaptionLine1 = null;
+            HeaderCaptionLine2 = null;
+            IsPurchaseSuccessful = false;
+            NewPointsBalance = -1;
+            IsEnrolled = false;
+            ConfirmationNumber = null;
+            TicketCountAwarded = -1;
+            IsOnWaitList = false;
+            ExpectedResponseInterval = null;
+            BodyImage1 = null;
+            BodyImage2 = null;
+            FooterCaptionLine1 = null;
+            FooterCaptionLine2 = null;
+        }
         public void DBPurchaseTicketsToEventWithPoints(string mobile, int eventID, int optionReferenceID, int ticketCountRequested)
         {
-            throw new NotImplementedException();
+            try
+            {
+                EventID = eventID;
+                OptionReferenceID = optionReferenceID;
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                spParams.Add(new SqlParameter("@EventID", eventID));
+                spParams.Add(new SqlParameter("@OptionReferenceID", optionReferenceID));
+                spParams.Add(new SqlParameter("@TicketCountRequested", ticketCountRequested));
+
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                HeaderCaptionLine1 = result.Tables[0].Rows[0]["HeaderCaptionLine1"].ToString();
+                HeaderCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+                IsPurchaseSuccessful = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
+                NewPointsBalance = float.Parse(result.Tables[0].Rows[0][""].ToString());
+                IsEnrolled = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
+                ConfirmationNumber = result.Tables[0].Rows[0][""].ToString();
+                TicketCountAwarded = Convert.ToInt32(result.Tables[0].Rows[0][""].ToString());
+                IsOnWaitList = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
+                ExpectedResponseInterval = result.Tables[0].Rows[0][""].ToString();
+
+                MemoryStream bodyImage1MS = new MemoryStream((byte[])result.Tables[0].Rows[0][""]);
+                byte[] bodyImage1Byte = bodyImage1MS.ToArray();
+                BodyImage1 = bodyImage1Byte;
+
+                MemoryStream bodyImage2MS = new MemoryStream((byte[])result.Tables[0].Rows[0][""]);
+                byte[] bodyImage2Byte = bodyImage2MS.ToArray();
+                BodyImage2 = bodyImage2Byte;
+
+                FooterCaptionLine1 = result.Tables[0].Rows[0][""].ToString();
+                FooterCaptionLine2 = result.Tables[0].Rows[0][""].ToString();
+
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
     }
     #endregion
