@@ -93,7 +93,7 @@ namespace PE.DataReturn
                 {
                     isRegistered = true;
                     isLocked = false;
-                    
+
                 }
                 else
                 {
@@ -114,7 +114,7 @@ namespace PE.DataReturn
             catch (SqlException ex)
             {
                 string errorMessage = ex.Message;
-                
+
             }
         }
     }
@@ -193,11 +193,11 @@ namespace PE.DataReturn
             catch (SqlException ex)
             {
                 string errorMessage = ex.Message;
-                
+
             }
         }
     }
-    
+
 
     [Serializable]
     public class ShowBalancesOnOpeningScreenResult : Default
@@ -218,7 +218,7 @@ namespace PE.DataReturn
                         Account newAccount = new Account();
                         newAccount.accountName = result.Tables[0].Rows[i][""].ToString();
                         newAccount.accountBalance = result.Tables[0].Rows[i][""].ToString();
-                        
+
                         AccountBalances.Add(newAccount);
                     }
                 }
@@ -252,7 +252,7 @@ namespace PE.DataReturn
         }
     }
 
-    
+
     [Serializable]
     public class ValidateUserReturn
     {
@@ -306,7 +306,7 @@ namespace PE.DataReturn
                 result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
                 userToken = result.Tables[0].Rows[0][""].ToString();
             }
-            catch (SqlException ex) 
+            catch (SqlException ex)
             {
                 string errorMessage = ex.Message;
                 isValid = false;
@@ -592,7 +592,15 @@ namespace PE.DataReturn
         //GetPlayerCard details from the SQL DB
         public void DBGetPlayerCardImage(string mobile)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (SqlException ex)
+            {
+              string errorMessage = ex.Message;
+              RemoveData();
+            }
         }
     }
     #endregion
@@ -707,7 +715,6 @@ namespace PE.DataReturn
             {
                 string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
 
-                // TODO: SP for header
                 DataSet headerDS = new DataSet();
                 List<SqlParameter> headerParams = new List<SqlParameter>();
                 headerParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
@@ -778,7 +785,7 @@ namespace PE.DataReturn
                 RemoveData();
                 string errorMessage = ex.Message;
             }
-            
+
         }
     }
 
@@ -952,7 +959,7 @@ namespace PE.DataReturn
             }
         }
     }
-   
+
     // TODO
     [Serializable]
     public class GetPageAttributesReturn : Default
@@ -1084,7 +1091,7 @@ namespace PE.DataReturn
             Caption = null;
             listAttributes = null;
         }
-        
+
         // TODO: ADD binary data SP
         // LARS: Where do I find the binary data for page attributes? Not clear from API DOC
         public void DBGetPageAttributes(string mobile, string inPageName, int gameID)
@@ -1161,7 +1168,7 @@ namespace PE.DataReturn
                 string errorMessage = ex.Message;
                 RemoveData();
             }
-            
+
         }
     }
 
@@ -1394,7 +1401,7 @@ namespace PE.DataReturn
                     gOAttributeValueBinary = value;
                 }
             }
-            #endregion 
+            #endregion
         }
 
         public void DBGetGameInfoForPromotion(string mobile, int gameID, string gameToken)
@@ -1414,7 +1421,7 @@ namespace PE.DataReturn
                     spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
                     spParams.Add(new SqlParameter("@GameID", gameID));
                     spParams.Add(new SqlParameter("@GameToken", gameToken));
-                    
+
 
                     result = DataAcess.ExecuteQuerySP("PEC.MG_", spParams);
                     if(result.Tables[0].Rows.Count > 0)
@@ -1467,7 +1474,7 @@ namespace PE.DataReturn
                         throw new Exception("No data");
                     }
                 }
-                
+
                 catch (Exception)
                 {
                     RemoveData();
@@ -1611,7 +1618,7 @@ namespace PE.DataReturn
                 string errorMessage = ex.Message;
                 RemoveData();
             }
-            
+
 
         }
     }
@@ -2508,7 +2515,7 @@ namespace PE.DataReturn
                 spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
                 spParams.Add(new SqlParameter("@PromotionID", promotionID));
                 result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
-                
+
                 if(result.Tables[0].Rows.Count > 0)
                 {
                     UpdateEntryCount = Convert.ToInt32(result.Tables[0].Rows[0]["UpdateEntryCount"].ToString());
@@ -2730,7 +2737,7 @@ namespace PE.DataReturn
                 spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
                 spParams.Add(new SqlParameter("@PromotionID", PromotionID));
                 result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
-                
+
                 if(result.Tables[0].Rows.Count > 0)
                 {
                     ClaimButtonRemainsVisible = Convert.ToBoolean(result.Tables[0].Rows[0][""].ToString());
@@ -2977,7 +2984,7 @@ namespace PE.DataReturn
         private string line2Caption;
         private string line2Data;
         private List<OfferButton> offerButtons;
-        
+
         private void RemoveData()
         {
             Line1Caption = null;
@@ -3126,7 +3133,7 @@ namespace PE.DataReturn
                 {
                     Line1Caption = result.Tables[0].Rows[0][""].ToString();
                     Line1Data = result.Tables[0].Rows[0][""].ToString();
-                    Line2Caption = result.Tables[0].Rows[0][""].ToString(); 
+                    Line2Caption = result.Tables[0].Rows[0][""].ToString();
                     Line2Data = result.Tables[0].Rows[0][""].ToString();
 
                     DataSet buttonDS = new DataSet();
@@ -4000,7 +4007,7 @@ namespace PE.DataReturn
                 {
                     RemoveData();
                 }
-            }   
+            }
             catch (SqlException ex)
             {
                 string errorMessage = ex.Message;
@@ -4158,7 +4165,7 @@ namespace PE.DataReturn
         public void DBGetEventsScreenWrapper(string mobile)
         {
             try
-            { 
+            {
                 string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
                 DataSet result = new DataSet();
                 List<SqlParameter> spParams = new List<SqlParameter>();
@@ -4172,7 +4179,7 @@ namespace PE.DataReturn
                     Line1Data = result.Tables[0].Rows[0][""].ToString();
                     Line2Caption = result.Tables[0].Rows[0][""].ToString();
                     Line2Data = result.Tables[0].Rows[0][""].ToString();
-                    
+
 
                     DataSet buttonDS = new DataSet();
                     List<SqlParameter> buttonParams = new List<SqlParameter>();

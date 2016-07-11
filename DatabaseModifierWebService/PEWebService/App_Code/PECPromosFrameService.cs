@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 using PE.DataReturn;
 
 /// <summary>
-/// Summary description for PECPromosFrameService
+/// Promo Frame Service loads 
 /// </summary>
 
 namespace PE.PromosFrameService
@@ -23,6 +23,17 @@ namespace PE.PromosFrameService
         {
         }
 
+        /// <summary>
+        /// Returns the data and labels needed to display the promotionscreen wrapper.
+        /// Function takes mobile and userToken and authenticates current session. If session is valid, the elements
+        /// of the promotion screen are loaded and returned. If the session is not valid, an empty object
+        /// </summary>
+        /// <param name="mobile">User's mobile number</param>
+        /// <param name="userToken">Current generated user token on the client side, used to check current session validity</param>
+        /// IMPLEMENTED: YES
+        /// DB FUNCTION IMP: YES (With the exception of CheckSession)
+        /// STORED PROCEDURE IMP: NO
+        /// <returns>Serialized JSON string</returns>
         #region My Promotions Screen
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

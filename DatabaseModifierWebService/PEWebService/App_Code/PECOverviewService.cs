@@ -8,9 +8,9 @@ using System.Web.Script.Serialization;
 using PE.DataReturn;
 
 /// <summary>
-/// Summary description for PECOverviewService
+/// Loads overview screen elements
 /// </summary>
-/// 
+///
 namespace PE.OverviewService
 {
     [WebService(Namespace = "playerelite.com.au")]
@@ -20,12 +20,13 @@ namespace PE.OverviewService
     {
         #region Overview Screen
         /// <summary>
-        /// Method validates the current user account by pinCode
+        /// Method recieves back data and labels to display in the overview frame
+        /// User is checked for valid token, and then assets are loaded from a SQL DB accessing function.
         /// </summary>
         /// <param name="mobile">User's mobile number passed in as a string with the format "XXX-XXX-XXXX"</param>
         /// <param name="userToken">Current generated user token on the client side, used to check current session validity</param>
         /// IMPLEMENTED: YES
-        /// DB FUNCTION IMP: YES (With the exception of GenerateOneWayHash)
+        /// DB FUNCTION IMP: NO
         /// STORED PROCEDURE IMP: NO
         /// <returns>Serialized JSON string</returns>
         [WebMethod]
@@ -47,6 +48,17 @@ namespace PE.OverviewService
             return new JavaScriptSerializer().Serialize(currentUser);
         }
 
+        /// <summary>
+        /// Method recieves player point bucket data and labels to display in the frame
+        /// User's session is checked to ensure validity and a SQL DB accessing method is called to return data.
+        /// This data is then serialized and returned as a string.
+        /// </summary>
+        /// <param name="mobile">User's mobile number passed in as a string with the format "XXX-XXX-XXXX"</param>
+        /// <param name="userToken">Current generated user token on the client side, used to check current session validity</param>
+        /// IMPLEMENTED: YES
+        /// DB FUNCTION IMP: NO
+        /// STORED PROCEDURE IMP: NO
+        /// <returns>Serialized JSON string</returns>
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetPlayerPointBucketDetails(string mobile, string userToken)
@@ -66,6 +78,17 @@ namespace PE.OverviewService
             return new JavaScriptSerializer().Serialize(currentUser);
         }
 
+        /// <summary>
+        /// User's session is checked for validity. If valid the method recieves player card images for the front and stores them in an array of bytes.
+        /// This data is then serialized and returned as a string.
+        /// If the user's session is not valid, the method returns a serialized object with only validToken set to false.
+        /// </summary>
+        /// <param name="mobile">User's mobile number passed in as a string with the format "XXX-XXX-XXXX"</param>
+        /// <param name="userToken">Current generated user token on the client side, used to check current session validity</param>
+        /// IMPLEMENTED: YES
+        /// DB FUNCTION IMP: NO
+        /// STORED PROCEDURE IMP: NO
+        /// <returns>Serialized JSON string</returns>
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string GetPlayerCardImageDetails(string mobile, string userToken)
