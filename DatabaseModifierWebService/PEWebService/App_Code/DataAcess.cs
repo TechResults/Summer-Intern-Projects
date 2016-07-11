@@ -12,7 +12,7 @@ using System.Configuration;
 /// Summary description for DataAcess
 /// </summary>
 /// 
-namespace PE.DataModifier
+namespace PE.DataReturns
 {
     class DataAcess
     {

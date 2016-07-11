@@ -6,7 +6,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Configuration;
-using PE.DataModifier;
+using PE.DataReturns;
 using System.IO;
 
 /* EXAMPLE
@@ -200,16 +200,8 @@ namespace PE.DataReturn
     
 
     [Serializable]
-    public class ShowBalancesOnOpeningScreenResult
+    public class ShowBalancesOnOpeningScreenResult : Default
     {
-        private bool _isValid;
-
-        public bool isValid
-        {
-            get { return _isValid; }
-            set { _isValid = value; }
-        }
-
         public void DBGetAccountBalancesSet(string mobile)
         {
             try
