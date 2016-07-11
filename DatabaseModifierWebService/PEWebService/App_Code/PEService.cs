@@ -26,6 +26,17 @@ namespace PlayerElite
         }
 
         #region Application Installation and Setup
+
+        /// <summary>
+        /// Function registers new user by passing their phone's mobile number and the pin code assigned by the MCM at the venue
+        /// If the pin code entered matches the one stored in the database, isRegistered is set to true. A counter outside of this
+        /// method should determine the number of registration tries a user has made. If a user has attempted to register more than three
+        /// times, they should be locked out and isLocked should return true.
+        /// </summary>
+        /// <param name="mobile">User's mobile number passed in as a string with the format "XXX-XXX-XXXX"</param>
+        /// <param name="pinCode">User entered pin code. This will be checked against the server's registered PIN</param>
+        /// <returns></returns>
+        /// IMPLEMENTED
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string RegisterNewUser(string mobile, string pinCode)
@@ -43,9 +54,7 @@ namespace PlayerElite
                 {
                     registrationTries++;
                 }
-
             }
-
             else
             {
                 newUser.isLocked = true;
@@ -55,6 +64,17 @@ namespace PlayerElite
         #endregion
 
         #region Application Launch
+
+        /// <summary>
+        /// Method recieves mobile number and sets isRegistered to true or false depending on whether there is a match of the mobile number
+        /// that is registered. Method calls GenerateOneWayHash to generate a userToken if the user is sucessfully registered. Additionally,
+        /// the configuration fo showing balance on pin is currently true. This implementation of options is not elaborated on in the API DOC.
+        /// IMPLEMENTED: YES
+        /// DB FUNCTION IMP: YES (With the exception of Generate One Way Hash)
+        /// STORED PROCEDURE IMP: NO
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string ValidatePhoneRegistered(string mobile)
@@ -91,18 +111,8 @@ namespace PlayerElite
         public string ValidateUser(string mobile, string pinNum)
         {
             ValidateUserReturn currentUser = new ValidateUserReturn();
-            string storedPIN = currentUser.DBGetStoredPin(mobile);
-            if (storedPIN == pinNum)
-            {
-                currentUser.isValid = true;
-                currentUser.GenerateOneWayHash();
-            }
-            else
-            {
-                currentUser.isValid = false;
-                currentUser.userToken = "";
-            }
-
+            currentUser.DBGetStoredPin(mobile, pinNum);
+            
             return new JavaScriptSerializer().Serialize(currentUser);
 
         }
@@ -115,7 +125,7 @@ namespace PlayerElite
             currentUser.checkSession(mobile, userToken);
             if (currentUser.validToken)
             {
-                currentUser.DBGetLogo();
+                currentUser.DBGetLogo(mobile);
             }
             else
             {

@@ -1,0 +1,15 @@
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\AIS\AIS.Windows.Forms\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\AIS\AIS.Windows.Forms\bin\Debug\AIS.Windows.Forms.dll
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\AIS\AIS.Windows.Forms\bin\Debug\AIS.Windows.Forms.pdb
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\AIS\AIS.Windows.Forms\obj\Debug\AIS.Windows.Forms.dll
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\AIS\AIS.Windows.Forms\obj\Debug\AIS.Windows.Forms.pdb
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\bin\Debug\AIS.Windows.Forms.dll
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\bin\Debug\AIS.Windows.Forms.pdb
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\obj\Debug\ResolveAssemblyReference.cache
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\obj\Debug\AIS.Windows.Forms.dll
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\obj\Debug\AIS.Windows.Forms.pdb
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\bin\Release\AIS.Windows.Forms.dll
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\bin\Release\AIS.Windows.Forms.pdb
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\obj\Release\ResolveAssemblyReference.cache
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\obj\Release\AIS.Windows.Forms.dll
+E:\vc\Total Promo\DrawingClient\AIS.Windows.Forms\AIS.Windows.Forms\obj\Release\AIS.Windows.Forms.pdb

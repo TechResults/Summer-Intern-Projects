@@ -1,0 +1,248 @@
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.pdb
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.pdb
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmLogin.resources
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMain.resources
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMainOld.resources
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.resources
+C:\Documents and Settings\chris.towers.AIS\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.csproj.GenerateResource.Cache
+E:\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.pdb
+E:\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.manifest
+E:\DrawingClient\DrawingClient\bin\Debug\DrawingClient.application
+E:\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe
+E:\DrawingClient\DrawingClient\bin\Debug\DrawingClient.pdb
+E:\DrawingClient\DrawingClient\obj\Debug\ResolveAssemblyReference.cache
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDrumHistory.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmLogin.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMain.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmResetDrawing.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.csproj.GenerateResource.Cache
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe.manifest
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.application
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.pdb
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.manifest
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.application
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.pdb
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\ResolveAssemblyReference.cache
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDrumHistory.resources
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmLogin.resources
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMain.resources
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmResetDrawing.resources
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.resources
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.csproj.GenerateResource.Cache
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe.manifest
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.application
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.dll
+E:\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.pdb
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.pdb
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.manifest
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.application
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.pdb
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.dll
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.pdb
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDrumHistory.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmLogin.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMain.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmResetDrawing.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.csproj.GenerateResource.Cache
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe.manifest
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.application
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmCompleteDrawing.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmAbout.resources
+E:\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.dll
+E:\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.pdb
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmAbout.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmCompleteDrawing.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmGetDrawingGroup.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDraw.resources
+E:\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Localization.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDraw.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmGetDrawingGroup.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Localization.resources
+C:\Documents and Settings\Chris.Towers\My Documents\Visual Studio 2005\Projects\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmPopulateDrum.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.pdb
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.manifest
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Debug\DrawingClient.application
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Debug\DrawingClient.pdb
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmAbout.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmCompleteDrawing.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDraw.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDrumHistory.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmGetDrawingGroup.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmLogin.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMain.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmPopulateDrum.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmResetDrawing.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Localization.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.csproj.GenerateResource.Cache
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe.manifest
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Debug\DrawingClient.application
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe.config
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmAbout.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmCompleteDrawing.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmDraw.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmDrumHistory.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmGetDrawingGroup.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmLogin.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmMain.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmPopulateDrum.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmResetDrawing.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.Localization.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.Properties.Resources.resources
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.csproj.GenerateResource.Cache
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe.manifest
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Release\DrawingClient.application
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Release\DrawingClient.XmlSerializers.dll
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Release\DrawingClient.pdb
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Release\AIS.Windows.Forms.dll
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.exe.manifest
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.application
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.exe
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.pdb
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\obj\Release\DrawingClient.XmlSerializers.dll
+C:\Users\Chris\Desktop\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.dll
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe.config
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.exe
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.pdb
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.XmlSerializers.dll
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe.manifest
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Release\DrawingClient.application
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Release\DrawingClient.XmlSerializers.dll
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Release\DrawingClient.pdb
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Release\AIS.Windows.Forms.dll
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\ResolveAssemblyReference.cache
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmAbout.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmCompleteDrawing.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmDraw.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmDrumHistory.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmGetDrawingGroup.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmLogin.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmMain.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmPopulateDrum.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmResetDrawing.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.Localization.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.Properties.Resources.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.csproj.GenerateResource.Cache
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.exe.manifest
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Release\DrawingClient.application
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.pdb
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.manifest
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Debug\DrawingClient.application
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Debug\DrawingClient.pdb
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.dll
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\ResolveAssemblyReference.cache
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmAbout.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmCompleteDrawing.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDraw.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDrumHistory.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmGetDrawingGroup.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmLogin.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMain.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmPopulateDrum.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmResetDrawing.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Localization.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.resources
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.csproj.GenerateResource.Cache
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe.manifest
+C:\AIS Projects\Tech Results\DrawingClient\Phase 1\Source Files\DrawingClient\DrawingClient\obj\Debug\DrawingClient.application
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\Properties\Resources.resx
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\Properties\Resources.Designer.cs
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.manifest
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\DrawingClient.application
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\DrawingClient.pdb
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\en-US\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\zh-MO\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\en-AU\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Debug\AIS.Windows.Forms.pdb
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\ResolveAssemblyReference.cache
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmAbout.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmCompleteDrawing.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDraw.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmDrumHistory.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmGetDrawingGroup.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmLogin.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmMain.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmPopulateDrum.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.frmResetDrawing.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Localization.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.csproj.GenerateResource.Cache
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.en-US.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.zh-MO.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.Properties.Resources.en-AU.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\en-US\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\zh-MO\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\en-AU\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe.manifest
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.application
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.exe
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Debug\DrawingClient.pdb
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\Properties\Resources.resx
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\Properties\Resources.Designer.cs
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe.config
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe.manifest
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\DrawingClient.application
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\DrawingClient.exe
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\DrawingClient.XmlSerializers.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\DrawingClient.pdb
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\en-US\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\zh-MO\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\en-AU\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\AIS.Windows.Forms.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\bin\Release\AIS.Windows.Forms.pdb
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\ResolveAssemblyReference.cache
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.check.png
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.unknown.png
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.None.png
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.PopulatingDrum.gif
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.PrepareDraw.gif
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmAbout.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmCompleteDrawing.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmDraw.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmDrumHistory.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmGetDrawingGroup.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmLogin.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmMain.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmPopulateDrum.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.frmResetDrawing.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.Localization.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.Properties.Resources.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.csproj.GenerateResource.Cache
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.Properties.Resources.en-US.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.Properties.Resources.zh-MO.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.Properties.Resources.en-AU.resources
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\en-US\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\zh-MO\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\en-AU\DrawingClient.resources.dll
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.exe.manifest
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.application
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.exe
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.pdb
+E:\vc\Total Promo\DrawingClient\DrawingClient\obj\Release\DrawingClient.XmlSerializers.dll

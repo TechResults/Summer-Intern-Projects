@@ -212,7 +212,33 @@ namespace PE.DataReturn
 
         public void DBGetAccountBalancesSet(string mobile)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    for(int i = 0; i < result.Tables[0].Rows.Count; i++)
+                    {
+                        Account newAccount = new Account();
+                        newAccount.accountName = result.Tables[0].Rows[i][""].ToString();
+                        newAccount.accountBalance = result.Tables[0].Rows[i][""].ToString();
+                        
+                        AccountBalances.Add(newAccount);
+                    }
+                }
+                else
+                {
+                    AccountBalances = null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+            }
         }
 
         private List<Account> AccountBalances;
@@ -251,14 +277,49 @@ namespace PE.DataReturn
             get { return _userToken; }
             set { _userToken = value; }
         }
-        public string DBGetStoredPin(string mobile)
+
+        public void DBGetStoredPin(string mobile, string pinCode)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@Mobile", mobile));
+                spParams.Add(new SqlParameter("@PIN", pinCode));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                if (result.Tables[0].Rows.Count > 0)
+                {
+                    isValid = true;
+                    GenerateOneWayHash(mobile);
+                }
+                else
+                {
+                    isValid = false;
+                    userToken = "";
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+
+            }
         }
-        public void GenerateOneWayHash()
+        public void GenerateOneWayHash(string mobile)
         {
-            throw new NotImplementedException();
-            userToken = "something";
+            try
+            {
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@Mobile", mobile));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                userToken = result.Tables[0].Rows[0][""].ToString();
+            }
+            catch (SqlException ex) 
+            {
+                string errorMessage = ex.Message;
+                isValid = false;
+                userToken = "";
+            }
 
         }
     }
@@ -272,11 +333,32 @@ namespace PE.DataReturn
             get { return _logo; }
             set { _logo = value; }
         }
-        //Gets the current logo link from the server (could also be binary)
-        public void DBGetLogo()
+
+        public void DBGetLogo(string mobile)
         {
-            throw new NotImplementedException();
-//            logo = something;
+            try
+            {
+                string CMSPlayerID = ServerSide.DBGetCMSPlayerID(mobile);
+                DataSet result = new DataSet();
+                List<SqlParameter> spParams = new List<SqlParameter>();
+                spParams.Add(new SqlParameter("@CMSPlayerID", CMSPlayerID));
+                result = DataAcess.ExecuteQuerySP("PEC.TODO", spParams);
+                if(result.Tables[0].Rows.Count > 0)
+                {
+                    MemoryStream ms = new MemoryStream((byte[])result.Tables[0].Rows[0][""]);
+                    byte[] bytes = ms.ToArray();
+                    logo = bytes;
+                }
+                else
+                {
+                    logo = null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                logo = null;
+            }
         }
     }
     #endregion
@@ -412,10 +494,29 @@ namespace PE.DataReturn
             }
         }
 
+        private void RemoveData()
+        {
+            CallToActionCaption = null;
+            CallToActionText = null;
+            CallToActionIsScrolling = false;
+            CustomerName = null;
+            CustomerNumber = null;
+            CustomerTierLevelText = null;
+            CustomerAspirationalText = null;
+            CustomerAwardCaption = null;
+            CustomerAwardText = null;
+        }
         public void DBGetPlayerInfo(string mobile)
         {
-            throw new NotImplementedException();
-            //currentUser.x = something
+            try
+            {
+
+            }
+            catch (SqlException ex)
+            {
+                string errorMessage = ex.Message;
+                RemoveData();
+            }
         }
     }
 
@@ -427,7 +528,7 @@ namespace PE.DataReturn
         public class Bucket
         {
             private string bucketCaption;
-            private Int32 bucketPointsValue;
+            private int bucketPointsValue;
 
             public string BucketCaption
             {
@@ -1882,7 +1983,7 @@ namespace PE.DataReturn
             private bool raffleAvaliable;
             private List<RaffleTicketList> raffleTickets;
             private byte[] promotionImage;
-
+            #region Publics
             public int PromotionID
             {
                 get
@@ -2234,7 +2335,7 @@ namespace PE.DataReturn
                 }
             }
         }
-
+        #endregion
         public class RaffleTicketList
         {
             private string raffleTicket;

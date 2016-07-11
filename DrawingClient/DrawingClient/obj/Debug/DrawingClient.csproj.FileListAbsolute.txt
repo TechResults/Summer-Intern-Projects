@@ -1,0 +1,2 @@
+C:\vc\TR\Development\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config
+C:\Users\ekjfi\Documents\GitHub\Summer-Intern-Projects\DrawingClient\DrawingClient\bin\Debug\DrawingClient.exe.config

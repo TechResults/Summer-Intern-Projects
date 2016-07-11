@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="TotalPromo" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="TotalPromo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="TotalPromo">
+      <s:element name="GetDrumLastHistoryItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrumLastHistoryItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrumLastHistoryItemResult" type="tns:Drum" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Drum">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfEntries" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfPlayers" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPopulated" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMisc">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMiscResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMiscResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextDrawingDateTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextDrawingDateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNextDrawingDateTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrawing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="drawingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrawingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrawingResult" type="tns:Drawing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Drawing">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TicketNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PromoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BucketId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrizeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prize" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrizeValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="WinnerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Winner" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WinnerDob" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeOut" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSPlayerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlayerAccountNum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Validated" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeStarted" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AfterCountdown" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MustBePresent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MustBePresentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MustBePresentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnimationURL">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAnimationURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnimationURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineHelp">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOnlineHelpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineHelpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrawingStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDrawingStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrawingStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrumResult" type="tns:Drum" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedrawWinner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedrawWinnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RedrawWinnerResult" type="tns:Player" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Player">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WinnerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlayerAccountNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSPlayerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlayerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlayerDOB" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntryId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CompleteDrawing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompleteDrawingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompleteDrawingResult" type="tns:DrawingGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DrawingGroup">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PromoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BucketId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DrawDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextDrawDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Promo" type="tns:Promo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Drum" type="tns:Drum" />
+          <s:element minOccurs="0" maxOccurs="1" name="Drawings" type="tns:ArrayOfDrawing" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckinStartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckinEndTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Promo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDrawing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Drawing" nillable="true" type="tns:Drawing" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserIDText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserLevel" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDrawingClientInUse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDrawingClientInUseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrawingClientInUseResult" type="tns:DrawingClientStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DrawingClientStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DrawingClientInUse" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrawingClientInUseBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDigitalDisplayVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDigitalDisplayVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDigitalDisplayVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDrawingClientInUse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="drawingClientOpen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="drawingClientUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDrawingClientInUseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetDrawingClientInUseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetWinnerPostedByWinnerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="winnerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetWinnerPostedByWinnerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetWinnerPostedByWinnerIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllActivePromotions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllActivePromotionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllActivePromotionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrawingGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrawingGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrawingGroupResult" type="tns:DrawingGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartCountdown">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartCountdownResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartCountdownResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PopulateDrum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkInStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkInEnd" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PopulateDrumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PopulateDrumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartDrawing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartDrawingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartDrawingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OptimizeDrum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OptimizeDrumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OptimizeDrumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopCountdown">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopCountdownResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StopCountdownResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DrawWinner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingClientRowNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DrawWinnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DrawWinnerResult" type="tns:Player" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DrawAllWinners">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DrawAllWinnersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPossibleCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPossibleCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPossibleCountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisqualifyWinner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promotionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="playerAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cmsPlayerId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ticketNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisqualifyWinnerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResetDrawing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetDrawingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResetDrawingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrumHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrumHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrumHistoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPromoProxy">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPromoProxyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPromoProxyResult" type="tns:Promo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDrumProxy">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDrumProxyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDrumProxyResult" type="tns:Drum" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="promoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bucketId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="drawingId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="playerAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cmsPlayerId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ticketNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDrumLastHistoryItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrumLastHistoryItem" />
+  </wsdl:message>
+  <wsdl:message name="GetDrumLastHistoryItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrumLastHistoryItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMiscSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMisc" />
+  </wsdl:message>
+  <wsdl:message name="GetMiscSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMiscResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextDrawingDateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextDrawingDateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetNextDrawingDateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextDrawingDateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrawing" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrawingResponse" />
+  </wsdl:message>
+  <wsdl:message name="MustBePresentSoapIn">
+    <wsdl:part name="parameters" element="tns:MustBePresent" />
+  </wsdl:message>
+  <wsdl:message name="MustBePresentSoapOut">
+    <wsdl:part name="parameters" element="tns:MustBePresentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTime" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnimationURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnimationURL" />
+  </wsdl:message>
+  <wsdl:message name="GetAnimationURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnimationURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineHelpSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineHelp" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineHelpSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineHelpResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrawingStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrawingStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrum" />
+  </wsdl:message>
+  <wsdl:message name="GetDrumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrumResponse" />
+  </wsdl:message>
+  <wsdl:message name="RedrawWinnerSoapIn">
+    <wsdl:part name="parameters" element="tns:RedrawWinner" />
+  </wsdl:message>
+  <wsdl:message name="RedrawWinnerSoapOut">
+    <wsdl:part name="parameters" element="tns:RedrawWinnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompleteDrawingSoapIn">
+    <wsdl:part name="parameters" element="tns:CompleteDrawing" />
+  </wsdl:message>
+  <wsdl:message name="CompleteDrawingSoapOut">
+    <wsdl:part name="parameters" element="tns:CompleteDrawingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingClientInUseSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrawingClientInUse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingClientInUseSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrawingClientInUseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalDisplayVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDigitalDisplayVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalDisplayVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDigitalDisplayVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDrawingClientInUseSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDrawingClientInUse" />
+  </wsdl:message>
+  <wsdl:message name="SetDrawingClientInUseSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDrawingClientInUseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetWinnerPostedByWinnerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SetWinnerPostedByWinnerId" />
+  </wsdl:message>
+  <wsdl:message name="SetWinnerPostedByWinnerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SetWinnerPostedByWinnerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllActivePromotionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllActivePromotions" />
+  </wsdl:message>
+  <wsdl:message name="GetAllActivePromotionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllActivePromotionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrawingGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawingGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrawingGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartCountdownSoapIn">
+    <wsdl:part name="parameters" element="tns:StartCountdown" />
+  </wsdl:message>
+  <wsdl:message name="StartCountdownSoapOut">
+    <wsdl:part name="parameters" element="tns:StartCountdownResponse" />
+  </wsdl:message>
+  <wsdl:message name="PopulateDrumSoapIn">
+    <wsdl:part name="parameters" element="tns:PopulateDrum" />
+  </wsdl:message>
+  <wsdl:message name="PopulateDrumSoapOut">
+    <wsdl:part name="parameters" element="tns:PopulateDrumResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartDrawingSoapIn">
+    <wsdl:part name="parameters" element="tns:StartDrawing" />
+  </wsdl:message>
+  <wsdl:message name="StartDrawingSoapOut">
+    <wsdl:part name="parameters" element="tns:StartDrawingResponse" />
+  </wsdl:message>
+  <wsdl:message name="OptimizeDrumSoapIn">
+    <wsdl:part name="parameters" element="tns:OptimizeDrum" />
+  </wsdl:message>
+  <wsdl:message name="OptimizeDrumSoapOut">
+    <wsdl:part name="parameters" element="tns:OptimizeDrumResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopCountdownSoapIn">
+    <wsdl:part name="parameters" element="tns:StopCountdown" />
+  </wsdl:message>
+  <wsdl:message name="StopCountdownSoapOut">
+    <wsdl:part name="parameters" element="tns:StopCountdownResponse" />
+  </wsdl:message>
+  <wsdl:message name="DrawWinnerSoapIn">
+    <wsdl:part name="parameters" element="tns:DrawWinner" />
+  </wsdl:message>
+  <wsdl:message name="DrawWinnerSoapOut">
+    <wsdl:part name="parameters" element="tns:DrawWinnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DrawAllWinnersSoapIn">
+    <wsdl:part name="parameters" element="tns:DrawAllWinners" />
+  </wsdl:message>
+  <wsdl:message name="DrawAllWinnersSoapOut">
+    <wsdl:part name="parameters" element="tns:DrawAllWinnersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPossibleCount" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPossibleCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisqualifyWinnerSoapIn">
+    <wsdl:part name="parameters" element="tns:DisqualifyWinner" />
+  </wsdl:message>
+  <wsdl:message name="DisqualifyWinnerSoapOut">
+    <wsdl:part name="parameters" element="tns:DisqualifyWinnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetDrawingSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetDrawing" />
+  </wsdl:message>
+  <wsdl:message name="ResetDrawingSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetDrawingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrumHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrumHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetDrumHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrumHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPromoProxySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPromoProxy" />
+  </wsdl:message>
+  <wsdl:message name="GetPromoProxySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPromoProxyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDrumProxySoapIn">
+    <wsdl:part name="parameters" element="tns:GetDrumProxy" />
+  </wsdl:message>
+  <wsdl:message name="GetDrumProxySoapOut">
+    <wsdl:part name="parameters" element="tns:GetDrumProxyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateSoapIn">
+    <wsdl:part name="parameters" element="tns:Validate" />
+  </wsdl:message>
+  <wsdl:message name="ValidateSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DCServiceSoap">
+    <wsdl:operation name="GetDrumLastHistoryItem">
+      <wsdl:input message="tns:GetDrumLastHistoryItemSoapIn" />
+      <wsdl:output message="tns:GetDrumLastHistoryItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMisc">
+      <wsdl:input message="tns:GetMiscSoapIn" />
+      <wsdl:output message="tns:GetMiscSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextDrawingDateTime">
+      <wsdl:input message="tns:GetNextDrawingDateTimeSoapIn" />
+      <wsdl:output message="tns:GetNextDrawingDateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawing">
+      <wsdl:input message="tns:GetDrawingSoapIn" />
+      <wsdl:output message="tns:GetDrawingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MustBePresent">
+      <wsdl:input message="tns:MustBePresentSoapIn" />
+      <wsdl:output message="tns:MustBePresentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTime">
+      <wsdl:input message="tns:GetTimeSoapIn" />
+      <wsdl:output message="tns:GetTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnimationURL">
+      <wsdl:input message="tns:GetAnimationURLSoapIn" />
+      <wsdl:output message="tns:GetAnimationURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineHelp">
+      <wsdl:input message="tns:GetOnlineHelpSoapIn" />
+      <wsdl:output message="tns:GetOnlineHelpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingStatus">
+      <wsdl:input message="tns:GetDrawingStatusSoapIn" />
+      <wsdl:output message="tns:GetDrawingStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrum">
+      <wsdl:input message="tns:GetDrumSoapIn" />
+      <wsdl:output message="tns:GetDrumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RedrawWinner">
+      <wsdl:input message="tns:RedrawWinnerSoapIn" />
+      <wsdl:output message="tns:RedrawWinnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteDrawing">
+      <wsdl:input message="tns:CompleteDrawingSoapIn" />
+      <wsdl:output message="tns:CompleteDrawingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input message="tns:ValidateUserSoapIn" />
+      <wsdl:output message="tns:ValidateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingClientInUse">
+      <wsdl:input message="tns:GetDrawingClientInUseSoapIn" />
+      <wsdl:output message="tns:GetDrawingClientInUseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalDisplayVersion">
+      <wsdl:input message="tns:GetDigitalDisplayVersionSoapIn" />
+      <wsdl:output message="tns:GetDigitalDisplayVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDrawingClientInUse">
+      <wsdl:input message="tns:SetDrawingClientInUseSoapIn" />
+      <wsdl:output message="tns:SetDrawingClientInUseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetWinnerPostedByWinnerId">
+      <wsdl:input message="tns:SetWinnerPostedByWinnerIdSoapIn" />
+      <wsdl:output message="tns:SetWinnerPostedByWinnerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActivePromotions">
+      <wsdl:input message="tns:GetAllActivePromotionsSoapIn" />
+      <wsdl:output message="tns:GetAllActivePromotionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingGroup">
+      <wsdl:input message="tns:GetDrawingGroupSoapIn" />
+      <wsdl:output message="tns:GetDrawingGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartCountdown">
+      <wsdl:input message="tns:StartCountdownSoapIn" />
+      <wsdl:output message="tns:StartCountdownSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PopulateDrum">
+      <wsdl:input message="tns:PopulateDrumSoapIn" />
+      <wsdl:output message="tns:PopulateDrumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartDrawing">
+      <wsdl:input message="tns:StartDrawingSoapIn" />
+      <wsdl:output message="tns:StartDrawingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OptimizeDrum">
+      <wsdl:input message="tns:OptimizeDrumSoapIn" />
+      <wsdl:output message="tns:OptimizeDrumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopCountdown">
+      <wsdl:input message="tns:StopCountdownSoapIn" />
+      <wsdl:output message="tns:StopCountdownSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawWinner">
+      <wsdl:input message="tns:DrawWinnerSoapIn" />
+      <wsdl:output message="tns:DrawWinnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawAllWinners">
+      <wsdl:input message="tns:DrawAllWinnersSoapIn" />
+      <wsdl:output message="tns:DrawAllWinnersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleCount">
+      <wsdl:input message="tns:GetPossibleCountSoapIn" />
+      <wsdl:output message="tns:GetPossibleCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisqualifyWinner">
+      <wsdl:input message="tns:DisqualifyWinnerSoapIn" />
+      <wsdl:output message="tns:DisqualifyWinnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetDrawing">
+      <wsdl:input message="tns:ResetDrawingSoapIn" />
+      <wsdl:output message="tns:ResetDrawingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrumHistory">
+      <wsdl:input message="tns:GetDrumHistorySoapIn" />
+      <wsdl:output message="tns:GetDrumHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPromoProxy">
+      <wsdl:input message="tns:GetPromoProxySoapIn" />
+      <wsdl:output message="tns:GetPromoProxySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrumProxy">
+      <wsdl:input message="tns:GetDrumProxySoapIn" />
+      <wsdl:output message="tns:GetDrumProxySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validate">
+      <wsdl:input message="tns:ValidateSoapIn" />
+      <wsdl:output message="tns:ValidateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DCServiceSoap" type="tns:DCServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDrumLastHistoryItem">
+      <soap:operation soapAction="TotalPromo/GetDrumLastHistoryItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMisc">
+      <soap:operation soapAction="TotalPromo/GetMisc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextDrawingDateTime">
+      <soap:operation soapAction="TotalPromo/GetNextDrawingDateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawing">
+      <soap:operation soapAction="TotalPromo/GetDrawing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MustBePresent">
+      <soap:operation soapAction="TotalPromo/MustBePresent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTime">
+      <soap:operation soapAction="TotalPromo/GetTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnimationURL">
+      <soap:operation soapAction="TotalPromo/GetAnimationURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineHelp">
+      <soap:operation soapAction="TotalPromo/GetOnlineHelp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingStatus">
+      <soap:operation soapAction="TotalPromo/GetDrawingStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrum">
+      <soap:operation soapAction="TotalPromo/GetDrum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedrawWinner">
+      <soap:operation soapAction="TotalPromo/RedrawWinner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteDrawing">
+      <soap:operation soapAction="TotalPromo/CompleteDrawing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="TotalPromo/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingClientInUse">
+      <soap:operation soapAction="TotalPromo/GetDrawingClientInUse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalDisplayVersion">
+      <soap:operation soapAction="TotalPromo/GetDigitalDisplayVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDrawingClientInUse">
+      <soap:operation soapAction="TotalPromo/SetDrawingClientInUse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetWinnerPostedByWinnerId">
+      <soap:operation soapAction="TotalPromo/SetWinnerPostedByWinnerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActivePromotions">
+      <soap:operation soapAction="TotalPromo/GetAllActivePromotions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingGroup">
+      <soap:operation soapAction="TotalPromo/GetDrawingGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartCountdown">
+      <soap:operation soapAction="TotalPromo/StartCountdown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PopulateDrum">
+      <soap:operation soapAction="TotalPromo/PopulateDrum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartDrawing">
+      <soap:operation soapAction="TotalPromo/StartDrawing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptimizeDrum">
+      <soap:operation soapAction="TotalPromo/OptimizeDrum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopCountdown">
+      <soap:operation soapAction="TotalPromo/StopCountdown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawWinner">
+      <soap:operation soapAction="TotalPromo/DrawWinner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawAllWinners">
+      <soap:operation soapAction="TotalPromo/DrawAllWinners" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleCount">
+      <soap:operation soapAction="TotalPromo/GetPossibleCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisqualifyWinner">
+      <soap:operation soapAction="TotalPromo/DisqualifyWinner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetDrawing">
+      <soap:operation soapAction="TotalPromo/ResetDrawing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrumHistory">
+      <soap:operation soapAction="TotalPromo/GetDrumHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromoProxy">
+      <soap:operation soapAction="TotalPromo/GetPromoProxy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrumProxy">
+      <soap:operation soapAction="TotalPromo/GetDrumProxy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate">
+      <soap:operation soapAction="TotalPromo/Validate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DCServiceSoap12" type="tns:DCServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDrumLastHistoryItem">
+      <soap12:operation soapAction="TotalPromo/GetDrumLastHistoryItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMisc">
+      <soap12:operation soapAction="TotalPromo/GetMisc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextDrawingDateTime">
+      <soap12:operation soapAction="TotalPromo/GetNextDrawingDateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawing">
+      <soap12:operation soapAction="TotalPromo/GetDrawing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MustBePresent">
+      <soap12:operation soapAction="TotalPromo/MustBePresent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTime">
+      <soap12:operation soapAction="TotalPromo/GetTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnimationURL">
+      <soap12:operation soapAction="TotalPromo/GetAnimationURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineHelp">
+      <soap12:operation soapAction="TotalPromo/GetOnlineHelp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingStatus">
+      <soap12:operation soapAction="TotalPromo/GetDrawingStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrum">
+      <soap12:operation soapAction="TotalPromo/GetDrum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedrawWinner">
+      <soap12:operation soapAction="TotalPromo/RedrawWinner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteDrawing">
+      <soap12:operation soapAction="TotalPromo/CompleteDrawing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap12:operation soapAction="TotalPromo/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingClientInUse">
+      <soap12:operation soapAction="TotalPromo/GetDrawingClientInUse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalDisplayVersion">
+      <soap12:operation soapAction="TotalPromo/GetDigitalDisplayVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDrawingClientInUse">
+      <soap12:operation soapAction="TotalPromo/SetDrawingClientInUse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetWinnerPostedByWinnerId">
+      <soap12:operation soapAction="TotalPromo/SetWinnerPostedByWinnerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActivePromotions">
+      <soap12:operation soapAction="TotalPromo/GetAllActivePromotions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawingGroup">
+      <soap12:operation soapAction="TotalPromo/GetDrawingGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartCountdown">
+      <soap12:operation soapAction="TotalPromo/StartCountdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PopulateDrum">
+      <soap12:operation soapAction="TotalPromo/PopulateDrum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartDrawing">
+      <soap12:operation soapAction="TotalPromo/StartDrawing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptimizeDrum">
+      <soap12:operation soapAction="TotalPromo/OptimizeDrum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopCountdown">
+      <soap12:operation soapAction="TotalPromo/StopCountdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawWinner">
+      <soap12:operation soapAction="TotalPromo/DrawWinner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawAllWinners">
+      <soap12:operation soapAction="TotalPromo/DrawAllWinners" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleCount">
+      <soap12:operation soapAction="TotalPromo/GetPossibleCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisqualifyWinner">
+      <soap12:operation soapAction="TotalPromo/DisqualifyWinner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetDrawing">
+      <soap12:operation soapAction="TotalPromo/ResetDrawing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrumHistory">
+      <soap12:operation soapAction="TotalPromo/GetDrumHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromoProxy">
+      <soap12:operation soapAction="TotalPromo/GetPromoProxy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrumProxy">
+      <soap12:operation soapAction="TotalPromo/GetDrumProxy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate">
+      <soap12:operation soapAction="TotalPromo/Validate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DCService">
+    <wsdl:port name="DCServiceSoap" binding="tns:DCServiceSoap">
+      <soap:address location="http://localhost:8080/DrawingClientWS/DCService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DCServiceSoap12" binding="tns:DCServiceSoap12">
+      <soap12:address location="http://localhost:8080/DrawingClientWS/DCService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

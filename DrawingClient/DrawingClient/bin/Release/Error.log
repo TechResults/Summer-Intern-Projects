@@ -1,0 +1,77 @@
+<--------------------------------------->
+Date/Time:3/26/2008 4:33:20 PM
+Message:
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewRowCollection.SharedRow(Int32 rowIndex)
+   at System.Windows.Forms.DataGridViewRowCollection.get_Item(Int32 index)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 435
+Target Site:
+System.Object get_Item(Int32)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 4:33:51 PM
+Message:
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewRowCollection.SharedRow(Int32 rowIndex)
+   at System.Windows.Forms.DataGridViewRowCollection.get_Item(Int32 index)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 435
+Target Site:
+System.Object get_Item(Int32)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 6:16:09 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:4/22/2009 5:20:00 PM
+Message:
+Could not find any resources appropriate for the specified culture (or the neutral culture) on disk.
+baseName: Resources.en-US  locationInfo: <null>  fileName: Resources.en-US.resources
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetString(String name, CultureInfo culture)
+   at DrawingClient.TextRes.Get(String name, CultureInfo ci) in E:\vc\Total Promo\DrawingClient\DrawingClient\TextRes.cs:line 25
+   at DrawingClient.frmLogin.SetUIControlText() in E:\vc\Total Promo\DrawingClient\DrawingClient\frmLogin.cs:line 25
+Target Site:
+System.Resources.ResourceSet InternalGetResourceSet(System.Globalization.CultureInfo, Boolean, Boolean)
+<--------------------------------------->
+
+

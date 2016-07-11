@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DrawingClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UpdateInterval" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="ResFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resources</Value>
+    </Setting>
+    <Setting Name="CustCulture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">en-US</Value>
+    </Setting>
+    <Setting Name="SiteNumericCulture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">en-US</Value>
+    </Setting>
+    <Setting Name="CurrencySymbol" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$</Value>
+    </Setting>
+    <Setting Name="AutoPostDelay" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="DrawingClient_Service_DCService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/DrawingClientWS/DCService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

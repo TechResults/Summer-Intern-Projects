@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>DrawingClient</value>
+  </data>
+  <data name="AboutDrawingClient" xml:space="preserve">
+    <value>&amp;About Drawing Client</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="ActionsPanel" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Animation" xml:space="preserve">
+    <value>Animation</value>
+  </data>
+  <data name="AnimationClient" xml:space="preserve">
+    <value>Animation Client</value>
+  </data>
+  <data name="AnimationClientNotFound" xml:space="preserve">
+    <value>Could not find the Animation Client.</value>
+  </data>
+  <data name="AnimationInUse" xml:space="preserve">
+    <value>Animation In Use</value>
+  </data>
+  <data name="AnimationNotInUse" xml:space="preserve">
+    <value>Animation Not In Use</value>
+  </data>
+  <data name="AvgEntriesPlayer" xml:space="preserve">
+    <value>Avg. Entries/Player</value>
+  </data>
+  <data name="BucketId" xml:space="preserve">
+    <value>BucketId</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Tech Results (TRBIZ)</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="CompleteDrawing" xml:space="preserve">
+    <value>Complete Drawing</value>
+  </data>
+  <data name="CompleteDrawingConfirm" xml:space="preserve">
+    <value>I am sure I want to complete this drawing.</value>
+  </data>
+  <data name="CompleteDrawingMessage" xml:space="preserve">
+    <value>This will complete the current drawing and open the next drawing. THIS ACTION IS NOT REVERSIBLE.</value>
+  </data>
+  <data name="ConfirmWinner" xml:space="preserve">
+    <value>Once you have confirmed this winner, you will not be able to revoke the win. Continue?</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>Copyright © Tech Results (TRBIZ) 2008</value>
+  </data>
+  <data name="Countdownstopped" xml:space="preserve">
+    <value>Countdown stopped!</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="DrawAllWinners" xml:space="preserve">
+    <value>Draw All Winners</value>
+  </data>
+  <data name="Drawing" xml:space="preserve">
+    <value>Drawing</value>
+  </data>
+  <data name="DrawingAnimationClientHelp" xml:space="preserve">
+    <value>Drawing &amp; Animation Client Help</value>
+  </data>
+  <data name="DrawingClientInUse" xml:space="preserve">
+    <value>The drawing client is currently in use. Please try again.</value>
+  </data>
+  <data name="DrawingComplete" xml:space="preserve">
+    <value>Drawing Complete!</value>
+  </data>
+  <data name="DrawingId" xml:space="preserve">
+    <value>DrawingId</value>
+  </data>
+  <data name="DrawingInfoPanel" xml:space="preserve">
+    <value>Drawing</value>
+  </data>
+  <data name="DrawingReset" xml:space="preserve">
+    <value>Drawing Reset!</value>
+  </data>
+  <data name="DrawingWinners" xml:space="preserve">
+    <value>Drawing Winners...</value>
+  </data>
+  <data name="DrawnAt" xml:space="preserve">
+    <value>DrawnAt</value>
+  </data>
+  <data name="DrawPrizeConfirm" xml:space="preserve">
+    <value>There are more prizes in this drawing than entries. Not all prizes will be drawn. Continue?</value>
+  </data>
+  <data name="DrawWinners" xml:space="preserve">
+    <value>Draw Winners...</value>
+  </data>
+  <data name="DrumName" xml:space="preserve">
+    <value>Drum Name</value>
+  </data>
+  <data name="DrumPanel" xml:space="preserve">
+    <value>Drum</value>
+  </data>
+  <data name="DrumStatistics" xml:space="preserve">
+    <value>Drum Statistics</value>
+  </data>
+  <data name="DrumType" xml:space="preserve">
+    <value>Drum Type</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="Entries" xml:space="preserve">
+    <value>Entries</value>
+  </data>
+  <data name="Entry" xml:space="preserve">
+    <value>Entry</value>
+  </data>
+  <data name="EntryId" xml:space="preserve">
+    <value>EntryId</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="frmAbout_Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="frmCompleteDrawing_Title" xml:space="preserve">
+    <value>Complete Drawing</value>
+  </data>
+  <data name="frmDraw_Title" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="frmDrumHistory_Title" xml:space="preserve">
+    <value>Drum History</value>
+  </data>
+  <data name="frmGetDrawingGroup_Title" xml:space="preserve">
+    <value>Promotions</value>
+  </data>
+  <data name="frmLogin_Title" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="frmMain_Title" xml:space="preserve">
+    <value>Drawing Client</value>
+  </data>
+  <data name="frmPopulateDrum_Title" xml:space="preserve">
+    <value>Populate Drum</value>
+  </data>
+  <data name="frmResetDrawing_Title" xml:space="preserve">
+    <value>Reset Drawing</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="HistoryPanel" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Invalid username/password. Please try again.</value>
+  </data>
+  <data name="LastPopulated" xml:space="preserve">
+    <value>Last Populated</value>
+  </data>
+  <data name="LoggedIn" xml:space="preserve">
+    <value>Logged In</value>
+  </data>
+  <data name="LoggedInUser" xml:space="preserve">
+    <value>- Logged In User -</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="NextDrawing" xml:space="preserve">
+    <value>Next Drawing</value>
+  </data>
+  <data name="NoDrawEntries" xml:space="preserve">
+    <value>No entries found for this drawing.</value>
+  </data>
+  <data name="NoMoreDrawEntries" xml:space="preserve">
+    <value>No more entries for this drawing.</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="NoWinningEntries" xml:space="preserve">
+    <value>No winning entries available.</value>
+  </data>
+  <data name="NumberofEntries" xml:space="preserve">
+    <value>Number of Entries</value>
+  </data>
+  <data name="NumberofPlayers" xml:space="preserve">
+    <value>Number of Players</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="OnlineSupport" xml:space="preserve">
+    <value>Online Support</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PlayerCMS" xml:space="preserve">
+    <value>PlayerCMS</value>
+  </data>
+  <data name="PlayerId" xml:space="preserve">
+    <value>PlayerId</value>
+  </data>
+  <data name="Players" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please Wait...</value>
+  </data>
+  <data name="PopulateDrum" xml:space="preserve">
+    <value>Populate Drum</value>
+  </data>
+  <data name="PopulatingDrum" xml:space="preserve">
+    <value>Populating Drum...</value>
+  </data>
+  <data name="PrepareDrawing" xml:space="preserve">
+    <value>Prepare Drawing</value>
+  </data>
+  <data name="PreparingDrum" xml:space="preserve">
+    <value>Preparing Drum...</value>
+  </data>
+  <data name="Prize" xml:space="preserve">
+    <value>Prize</value>
+  </data>
+  <data name="Prize1" xml:space="preserve">
+    <value>Prize</value>
+  </data>
+  <data name="PrizeValue" xml:space="preserve">
+    <value>Prize Value</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Drawing Client</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="PromotionId" xml:space="preserve">
+    <value>PromotionId</value>
+  </data>
+  <data name="Promotions" xml:space="preserve">
+    <value>Promotions</value>
+  </data>
+  <data name="Redraw" xml:space="preserve">
+    <value>Redraw</value>
+  </data>
+  <data name="RedrawConfirm" xml:space="preserve">
+    <value>Once re-drawing occurs, it CANNOT be reversed! Continue?</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="ResetConfirm" xml:space="preserve">
+    <value>I agree to reset the current drawing.</value>
+  </data>
+  <data name="ResetDrawing" xml:space="preserve">
+    <value>Reset Drawing</value>
+  </data>
+  <data name="Roll Up" xml:space="preserve">
+    <value>Roll Up</value>
+  </data>
+  <data name="SolicitDigitalDisplays" xml:space="preserve">
+    <value>Solicit Digital Displays</value>
+  </data>
+  <data name="StartCountdown" xml:space="preserve">
+    <value>Start Countdown</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StopCountdown" xml:space="preserve">
+    <value>Stop Countdown</value>
+  </data>
+  <data name="StopCountdownConfirm" xml:space="preserve">
+    <value>This will stop the countdown display and move to the winners screen. Continue?</value>
+  </data>
+  <data name="TimeLeft" xml:space="preserve">
+    <value>Time Left</value>
+  </data>
+  <data name="TimeStarted" xml:space="preserve">
+    <value>TimeStarted</value>
+  </data>
+  <data name="ToolNotFound" xml:space="preserve">
+    <value>Tool Not Found</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>&amp;Tools</value>
+  </data>
+  <data name="TotalPromoCustomerServiceDesktop" xml:space="preserve">
+    <value>Total Promo Customer Service Desktop</value>
+  </data>
+  <data name="TotalPromoMarketingManager" xml:space="preserve">
+    <value>Total Promo Marketing Manager</value>
+  </data>
+  <data name="TotalPromoUserAdmin" xml:space="preserve">
+    <value>Total Promo User Admin</value>
+  </data>
+  <data name="TPCustServiceNotFound" xml:space="preserve">
+    <value>Could not find the Total Promo Customer Service Desktop.</value>
+  </data>
+  <data name="TPMktgMngerNotFound" xml:space="preserve">
+    <value>Could not find the Total Promo Marketing Manager.</value>
+  </data>
+  <data name="TPUserAdminNotFound" xml:space="preserve">
+    <value>Could not find the Total Promo User Admin.</value>
+  </data>
+  <data name="UpdateInterval" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="UseAnimation" xml:space="preserve">
+    <value>Use Animation</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Validate" xml:space="preserve">
+    <value>Validate</value>
+  </data>
+  <data name="Validated" xml:space="preserve">
+    <value>Validated</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>1.0.15.0</value>
+  </data>
+  <data name="ViewDrumHistory" xml:space="preserve">
+    <value>View Drum History</value>
+  </data>
+  <data name="Winner" xml:space="preserve">
+    <value>Winner</value>
+  </data>
+  <data name="WinnerDOB" xml:space="preserve">
+    <value>Winner DOB</value>
+  </data>
+  <data name="WinnerID" xml:space="preserve">
+    <value>Winner ID</value>
+  </data>
+  <data name="LockedAccount" xml:space="preserve">
+    <value>The account has been locked, please contact a system administrator, or try again later.</value>
+  </data>
+</root>

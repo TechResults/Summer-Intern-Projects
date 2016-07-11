@@ -1,0 +1,304 @@
+<--------------------------------------->
+Date/Time:3/26/2008 6:17:08 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 6:17:43 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 6:18:53 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 6:19:52 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 6:20:38 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 6:22:13 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/26/2008 6:23:28 PM
+Message:
+Input string was not in a correct format.
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DrawingClient.frmMain.DisplayDrawingGroup(DrawingGroup d) in C:\Documents and Settings\ctowers\Desktop\DrawingClient\DrawingClient\frmMain.cs:line 369
+Target Site:
+Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/3/2009 11:26:05 AM
+Message:
+Could not find any resources appropriate for the specified culture (or the neutral culture) on disk.
+baseName: Resources.en-US  locationInfo: <null>  fileName: Resources.en-US.resources
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetString(String name, CultureInfo culture)
+   at DrawingClient.TextRes.Get(String name, CultureInfo ci) in E:\vc\Total Promo\DrawingClient\DrawingClient\TextRes.cs:line 25
+   at DrawingClient.frmLogin.SetUIControlText() in E:\vc\Total Promo\DrawingClient\DrawingClient\frmLogin.cs:line 25
+Target Site:
+System.Resources.ResourceSet InternalGetResourceSet(System.Globalization.CultureInfo, Boolean, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/5/2009 4:58:02 PM
+Message:
+The operation has timed out
+Help Link:
+
+Source:
+System.Web.Services
+Stack Trace:
+   at System.Web.Services.Protocols.WebClientProtocol.GetWebResponse(WebRequest request)
+   at System.Web.Services.Protocols.HttpWebClientProtocol.GetWebResponse(WebRequest request)
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at DrawingClient.Service.DCService.GetDrumLastHistoryItem(Int32 promoId, Int32 bucketId) in E:\vc\Total Promo\DrawingClient\DrawingClient\Web References\Service\Reference.cs:line 239
+   at DrawingClient.frmMain.UpdateDrumInfo() in E:\vc\Total Promo\DrawingClient\DrawingClient\frmMain.cs:line 354
+Target Site:
+System.Net.WebResponse GetWebResponse(System.Net.WebRequest)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:3/6/2009 10:59:12 AM
+Message:
+Unable to connect to the remote server
+Help Link:
+
+Source:
+System
+Stack Trace:
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at DrawingClient.Service.DCService.GetDrawingClientInUse() in E:\vc\Total Promo\DrawingClient\DrawingClient\Web References\Service\Reference.cs:line 628
+   at DrawingClient.frmLogin.Login() in E:\vc\Total Promo\DrawingClient\DrawingClient\frmLogin.cs:line 91
+Target Site:
+System.IO.Stream GetRequestStream()
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:4/21/2009 12:11:32 PM
+Message:
+Unable to connect to the remote server
+Help Link:
+
+Source:
+System
+Stack Trace:
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at DrawingClient.Service.DCService.GetDrum(Int32 promoId, Int32 bucketId) in E:\vc\Total Promo\DrawingClient\DrawingClient\Web References\Service\Reference.cs:line 496
+   at DrawingClient.frmMain.UpdateDrumInfo() in E:\vc\Total Promo\DrawingClient\DrawingClient\frmMain.cs:line 355
+Target Site:
+System.IO.Stream GetRequestStream()
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:4/21/2009 12:12:03 PM
+Message:
+Unable to connect to the remote server
+Help Link:
+
+Source:
+System
+Stack Trace:
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at DrawingClient.Service.DCService.MustBePresent(Int32 promotionId) in E:\vc\Total Promo\DrawingClient\DrawingClient\Web References\Service\Reference.cs:line 359
+   at DrawingClient.frmMain.GetDrawingGroupCallback() in E:\vc\Total Promo\DrawingClient\DrawingClient\frmMain.cs:line 406
+Target Site:
+System.IO.Stream GetRequestStream()
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:12/22/2009 11:03:28 AM
+Message:
+Could not find any resources appropriate for the specified culture (or the neutral culture) on disk.
+baseName: Resources.en-US  locationInfo: <null>  fileName: Resources.en-US.resources
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetString(String name, CultureInfo culture)
+   at DrawingClient.TextRes.Get(String name, CultureInfo ci) in c:\vc\Total Promo\DrawingClient\DrawingClient\TextRes.cs:line 25
+   at DrawingClient.frmLogin.SetUIControlText() in c:\vc\Total Promo\DrawingClient\DrawingClient\frmLogin.cs:line 25
+Target Site:
+System.Resources.ResourceSet InternalGetResourceSet(System.Globalization.CultureInfo, Boolean, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:12/22/2009 11:43:52 AM
+Message:
+Could not find any resources appropriate for the specified culture (or the neutral culture) on disk.
+baseName: Resources.en-US  locationInfo: <null>  fileName: Resources.en-US.resources
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetString(String name, CultureInfo culture)
+   at DrawingClient.TextRes.Get(String name, CultureInfo ci) in c:\vc\Total Promo\DrawingClient\DrawingClient\TextRes.cs:line 25
+   at DrawingClient.frmLogin.SetUIControlText() in c:\vc\Total Promo\DrawingClient\DrawingClient\frmLogin.cs:line 25
+Target Site:
+System.Resources.ResourceSet InternalGetResourceSet(System.Globalization.CultureInfo, Boolean, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:12/22/2009 11:43:58 AM
+Message:
+Could not find any resources appropriate for the specified culture (or the neutral culture) on disk.
+baseName: Resources.en-US  locationInfo: <null>  fileName: Resources.en-US.resources
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetString(String name, CultureInfo culture)
+   at DrawingClient.TextRes.Get(String name, CultureInfo ci) in c:\vc\Total Promo\DrawingClient\DrawingClient\TextRes.cs:line 25
+   at DrawingClient.frmLogin.Login() in c:\vc\Total Promo\DrawingClient\DrawingClient\frmLogin.cs:line 118
+Target Site:
+System.Resources.ResourceSet InternalGetResourceSet(System.Globalization.CultureInfo, Boolean, Boolean)
+<--------------------------------------->
+
+
+<--------------------------------------->
+Date/Time:12/22/2009 11:44:05 AM
+Message:
+Could not find any resources appropriate for the specified culture (or the neutral culture) on disk.
+baseName: Resources.en-US  locationInfo: <null>  fileName: Resources.en-US.resources
+Help Link:
+
+Source:
+mscorlib
+Stack Trace:
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetString(String name, CultureInfo culture)
+   at DrawingClient.TextRes.Get(String name, CultureInfo ci) in c:\vc\Total Promo\DrawingClient\DrawingClient\TextRes.cs:line 25
+   at DrawingClient.frmLogin.Login() in c:\vc\Total Promo\DrawingClient\DrawingClient\frmLogin.cs:line 100
+Target Site:
+System.Resources.ResourceSet InternalGetResourceSet(System.Globalization.CultureInfo, Boolean, Boolean)
+<--------------------------------------->
+
+

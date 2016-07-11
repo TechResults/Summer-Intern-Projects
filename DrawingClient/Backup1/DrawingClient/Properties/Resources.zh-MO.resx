@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>图画客户</value>
+  </data>
+  <data name="AboutDrawingClient" xml:space="preserve">
+    <value>&amp;关于图画客户</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>行动</value>
+  </data>
+  <data name="ActionsPanel" xml:space="preserve">
+    <value>行动</value>
+  </data>
+  <data name="Animation" xml:space="preserve">
+    <value>动画</value>
+  </data>
+  <data name="AnimationClient" xml:space="preserve">
+    <value>动画客户</value>
+  </data>
+  <data name="AnimationClientNotFound" xml:space="preserve">
+    <value>找不到动画客户</value>
+  </data>
+  <data name="AnimationInUse" xml:space="preserve">
+    <value>动画在使用中</value>
+  </data>
+  <data name="AnimationNotInUse" xml:space="preserve">
+    <value>动画不在使用中</value>
+  </data>
+  <data name="AvgEntriesPlayer" xml:space="preserve">
+    <value>平均词条每个球员</value>
+  </data>
+  <data name="BucketId" xml:space="preserve">
+    <value>桶名字</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>技术结果</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>完全</value>
+  </data>
+  <data name="CompleteDrawing" xml:space="preserve">
+    <value>完成图画</value>
+  </data>
+  <data name="CompleteDrawingConfirm" xml:space="preserve">
+    <value>我肯定我想要完成这张图画</value>
+  </data>
+  <data name="CompleteDrawingMessage" xml:space="preserve">
+    <value>这将完成当前图画并且打开下张图画。 这次行动不是可逆的。</value>
+  </data>
+  <data name="ConfirmWinner" xml:space="preserve">
+    <value>一旦您证实了这个优胜者，您不会能取消胜利。 继续？</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>版权©技术发生2008年</value>
+  </data>
+  <data name="Countdownstopped" xml:space="preserve">
+    <value>读秒停止了!</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>日期-时间</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>凹道</value>
+  </data>
+  <data name="DrawAllWinners" xml:space="preserve">
+    <value>画所有优胜者</value>
+  </data>
+  <data name="Drawing" xml:space="preserve">
+    <value>图画</value>
+  </data>
+  <data name="DrawingAnimationClientHelp" xml:space="preserve">
+    <value>图画动画客户帮助</value>
+  </data>
+  <data name="DrawingClientInUse" xml:space="preserve">
+    <value>图画客户正在使用中。 请再试试。</value>
+  </data>
+  <data name="DrawingComplete" xml:space="preserve">
+    <value>画完全!</value>
+  </data>
+  <data name="DrawingId" xml:space="preserve">
+    <value>图画证明</value>
+  </data>
+  <data name="DrawingInfoPanel" xml:space="preserve">
+    <value>图画</value>
+  </data>
+  <data name="DrawingReset" xml:space="preserve">
+    <value>图画重新设置!</value>
+  </data>
+  <data name="DrawingWinners" xml:space="preserve">
+    <value>图画优胜者…</value>
+  </data>
+  <data name="DrawnAt" xml:space="preserve">
+    <value>画在</value>
+  </data>
+  <data name="DrawPrizeConfirm" xml:space="preserve">
+    <value>比词条有在这张图画的更多奖。 不是将画所有的奖。 继续？</value>
+  </data>
+  <data name="DrawWinners" xml:space="preserve">
+    <value>凹道优胜者…</value>
+  </data>
+  <data name="DrumName" xml:space="preserve">
+    <value>鼓名字</value>
+  </data>
+  <data name="DrumPanel" xml:space="preserve">
+    <value>鼓</value>
+  </data>
+  <data name="DrumStatistics" xml:space="preserve">
+    <value>鼓统计</value>
+  </data>
+  <data name="DrumType" xml:space="preserve">
+    <value>鼓形</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>结束日期</value>
+  </data>
+  <data name="Entries" xml:space="preserve">
+    <value>词条</value>
+  </data>
+  <data name="Entry" xml:space="preserve">
+    <value>Entry</value>
+  </data>
+  <data name="EntryId" xml:space="preserve">
+    <value>词条证明</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>出口</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="frmAbout_Title" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="frmCompleteDrawing_Title" xml:space="preserve">
+    <value>完成图画</value>
+  </data>
+  <data name="frmDraw_Title" xml:space="preserve">
+    <value>凹道</value>
+  </data>
+  <data name="frmDrumHistory_Title" xml:space="preserve">
+    <value>鼓历史</value>
+  </data>
+  <data name="frmGetDrawingGroup_Title" xml:space="preserve">
+    <value>促进</value>
+  </data>
+  <data name="frmLogin_Title" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="frmMain_Title" xml:space="preserve">
+    <value>图画客户</value>
+  </data>
+  <data name="frmPopulateDrum_Title" xml:space="preserve">
+    <value>居住于鼓</value>
+  </data>
+  <data name="frmResetDrawing_Title" xml:space="preserve">
+    <value>重新设置图画</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="HistoryPanel" xml:space="preserve">
+    <value>历史</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>证明</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>无效用户名或密码。 请再试试。</value>
+  </data>
+  <data name="LastPopulated" xml:space="preserve">
+    <value>居住于的为时</value>
+  </data>
+  <data name="LoggedIn" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="LoggedInUser" xml:space="preserve">
+    <value>-登录的用户-</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="NextDrawing" xml:space="preserve">
+    <value>下张图画</value>
+  </data>
+  <data name="NoDrawEntries" xml:space="preserve">
+    <value>为这张图画找到的没有词条。</value>
+  </data>
+  <data name="NoMoreDrawEntries" xml:space="preserve">
+    <value>这张图画的没有词条。</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="NoWinningEntries" xml:space="preserve">
+    <value>可利用没有赢取的词条。</value>
+  </data>
+  <data name="NumberofEntries" xml:space="preserve">
+    <value>词条的数字</value>
+  </data>
+  <data name="NumberofPlayers" xml:space="preserve">
+    <value>球员的数字</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>好</value>
+  </data>
+  <data name="OnlineSupport" xml:space="preserve">
+    <value>网上支持</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="PlayerCMS" xml:space="preserve">
+    <value>球员CMS</value>
+  </data>
+  <data name="PlayerId" xml:space="preserve">
+    <value>球员证明</value>
+  </data>
+  <data name="Players" xml:space="preserve">
+    <value>球员</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>请等待…</value>
+  </data>
+  <data name="PopulateDrum" xml:space="preserve">
+    <value>居住于鼓</value>
+  </data>
+  <data name="PopulatingDrum" xml:space="preserve">
+    <value>居住于鼓</value>
+  </data>
+  <data name="PrepareDrawing" xml:space="preserve">
+    <value>准备图画</value>
+  </data>
+  <data name="Prize" xml:space="preserve">
+    <value>奖</value>
+  </data>
+  <data name="Prize1" xml:space="preserve">
+    <value>奖</value>
+  </data>
+  <data name="PrizeValue" xml:space="preserve">
+    <value>得奖的价值</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>图画客户</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>促进</value>
+  </data>
+  <data name="PromotionId" xml:space="preserve">
+    <value>促进证明</value>
+  </data>
+  <data name="Promotions" xml:space="preserve">
+    <value>促进</value>
+  </data>
+  <data name="Redraw" xml:space="preserve">
+    <value>重画</value>
+  </data>
+  <data name="RedrawConfirm" xml:space="preserve">
+    <value>一旦重画发生，它不可能被扭转! 继续？</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>必需</value>
+  </data>
+  <data name="ResetConfirm" xml:space="preserve">
+    <value>我同意重新设置当前图画。</value>
+  </data>
+  <data name="ResetDrawing" xml:space="preserve">
+    <value>重新设置图画</value>
+  </data>
+  <data name="Roll Up" xml:space="preserve">
+    <value>Roll Up</value>
+  </data>
+  <data name="SolicitDigitalDisplays" xml:space="preserve">
+    <value>Solicit Digital Displays</value>
+  </data>
+  <data name="StartCountdown" xml:space="preserve">
+    <value>开始读秒</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>起始日期</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="StopCountdown" xml:space="preserve">
+    <value>停止读秒</value>
+  </data>
+  <data name="StopCountdownConfirm" xml:space="preserve">
+    <value>这将停止读秒显示并且移动向优胜者屏幕。 继续？</value>
+  </data>
+  <data name="TimeLeft" xml:space="preserve">
+    <value>时间离开</value>
+  </data>
+  <data name="TimeStarted" xml:space="preserve">
+    <value>时间开始了</value>
+  </data>
+  <data name="ToolNotFound" xml:space="preserve">
+    <value>没找到的工具</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="TotalPromoCustomerServiceDesktop" xml:space="preserve">
+    <value>Total Promo Customer Service Desktop</value>
+  </data>
+  <data name="TotalPromoMarketingManager" xml:space="preserve">
+    <value>Total Promo Marketing Manager</value>
+  </data>
+  <data name="TotalPromoUserAdmin" xml:space="preserve">
+    <value>Total Promo User Admin</value>
+  </data>
+  <data name="TPCustServiceNotFound" xml:space="preserve">
+    <value>Could not find the Total Promo Customer Service Desktop.</value>
+  </data>
+  <data name="TPMktgMngerNotFound" xml:space="preserve">
+    <value>Could not find the Total Promo Marketing Manager.</value>
+  </data>
+  <data name="TPUserAdminNotFound" xml:space="preserve">
+    <value>Could not find the Total Promo User Admin.</value>
+  </data>
+  <data name="UpdateInterval" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="UseAnimation" xml:space="preserve">
+    <value>使用动画</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="Validate" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Validated" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>1.0.15.0</value>
+  </data>
+  <data name="ViewDrumHistory" xml:space="preserve">
+    <value>看法鼓历史</value>
+  </data>
+  <data name="Winner" xml:space="preserve">
+    <value>优胜者</value>
+  </data>
+  <data name="WinnerDOB" xml:space="preserve">
+    <value>优胜者生日</value>
+  </data>
+  <data name="WinnerID" xml:space="preserve">
+    <value>优胜者证明</value>
+  </data>
+  <data name="LockedAccount" xml:space="preserve">
+    <value>帐户再被锁了，请与系统管理员或者尝试联系以后。</value>
+  </data>
+</root>
