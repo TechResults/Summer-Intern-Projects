@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TRCWS", "..\..\TRCWS\", "{18302D2F-55B6-45D6-A1AF-C89B6CCFD4B6}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57076"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\TRCWS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57076\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57076"
+		Release.AspNetCompiler.PhysicalPath = "..\..\TRCWS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57076\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57076"
+		SlnRelativePath = "..\..\TRCWS\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18302D2F-55B6-45D6-A1AF-C89B6CCFD4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18302D2F-55B6-45D6-A1AF-C89B6CCFD4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
