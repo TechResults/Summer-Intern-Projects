@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="printtest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:printtest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="button" Content="What's my local IP?" HorizontalAlignment="Left" Margin="145,165,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <TextBox x:Name="gameID" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Game ID (bigint)" VerticalAlignment="Top"/>
+        <Button x:Name="submit" Content="Add To Print Job" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Click="submit_Click"/>
+    </Grid>
+</Page>

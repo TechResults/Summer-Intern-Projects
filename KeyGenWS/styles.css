@@ -1,0 +1,27 @@
+h1 {
+    color: black;
+    font-family: verdana;
+    font-size: 100%
+}
+
+form {
+
+    color: black;
+    background-color: rgb(112, 197, 212);
+    border-color: rgb(112, 197, 212);
+    border-radius: 4px
+}
+
+input[type=text] {
+    border: 2px solid white;
+    border-radius: 4px
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: white;
+    border-radius: 12px
+    border-color: black;
+    color: black;
+    text-decoration: none;
+    margin: 4px 2px;
+}

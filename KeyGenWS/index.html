@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href = "styles.css">
+  <title>TR Key Generator</title>
+</head>
+
+<body>
+  <?php
+    echo "Hello World";
+  ?>
+  <h1>Generate Key:</h1>
+  <form id="form" action = "" method="post">
+    Application Name:<br>
+    <input type="text" name="gk_appname"><br>
+    Property Name:<br>
+    <input type="text" name="gk_propertyname"><br>
+    Contract Number:<br>
+    <input type="text" name="gk_contractnum"><br>
+    <input id="submit" type="button" name="submit" value="submit">
+  </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        // click on button submit
+        $("#submit").on('click', function(){
+            // send ajax
+            $.ajax({
+                url: 'test.php', // url where to submit the request
+                type : "POST", // type of action POST || GET
+                dataType : 'json', // data type
+                data : $("#form").serialize(), // post data || get data
+                success : function(result) {
+                    // you can see the result from the console
+                    // tab of the developer tools
+                    console.log(result);
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            })
+        });
+    });
+  </script>
+  <p gkkey="gk_key"></p>
+
+  <h1>Generate Module Key:</h1>
+  <form>
+    Application Name:<br>
+    <input type="text" name="gm_appname"><br>
+    Property Name:<br>
+    <input type="text" name="gm_propertyname"><br>
+    Contract Number:<br>
+    <input type="text" name="gm_contractnum"><br>
+    Module Name:<br>
+    <input type="text" name="gm_modulename"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+  <p gmkey="gm_key"></p>
+
+
+</body>
+
+</html>

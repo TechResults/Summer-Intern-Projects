@@ -1,0 +1,11 @@
+﻿Installing assembly 'c:\kioskapp\kioskprintservice\trkioskprintservice.exe'.
+Affected parameters are:
+   assemblypath = c:\kioskapp\kioskprintservice\trkioskprintservice.exe
+   logfile = c:\kioskapp\kioskprintservice\trkioskprintservice.InstallLog
+Installing service TRKioskPrintService...
+Service TRKioskPrintService has been successfully installed.
+Creating EventLog source TRKioskPrintService in log Application...
+Committing assembly 'c:\kioskapp\kioskprintservice\trkioskprintservice.exe'.
+Affected parameters are:
+   assemblypath = c:\kioskapp\kioskprintservice\trkioskprintservice.exe
+   logfile = c:\kioskapp\kioskprintservice\trkioskprintservice.InstallLog
